@@ -2,7 +2,6 @@ package _00_types._01_char;
 
 /**
  * char type
- *
  * Created by Oleksii on 20.07.2017.
  */
 public class Char {
@@ -55,9 +54,9 @@ public class Char {
         ch = '\\'; // character '\'
         System.out.println(ch); // \
 
-/*		System.out.println('\u000D'); // invalid char constant - CR - even in comment like this */
+		/* System.out.println('\u000d'); // invalid char constant - \u000d - even in comment like this (uncomment block- to see) */
 
-        // removing the space character leads to syntax error, even in comment -> "c:\ users"
+        // Removing the space character leads to syntax error, even in comment -> "c:\ users"
 
         // see also http://ru.wikipedia.org/wiki/UTF-16)
 
@@ -67,5 +66,4 @@ public class Char {
         System.out.println("b = " + b); // 2
         System.out.println("b = " + (b << 1)); // 4
     }
-
 }

@@ -4,7 +4,6 @@ import java.util.Date;
 
 /**
  * Declaration of variables
- *
  * Created by Oleksii on 13.07.2017.
  */
 public class VariablesDeclaration {
@@ -13,6 +12,7 @@ public class VariablesDeclaration {
 
 //        byte byte; // reserved word can not be an identifier's name
 //        float 4_float; // var name can not start with a digit
+
         long _long; // allowed (c++ style) but not recommended
         boolean $test; // start with $ is allowed but not recommended
         int i, j; // both are integer
@@ -22,5 +22,4 @@ public class VariablesDeclaration {
         System.out.println("Identifier can start with $ ? " + Character.isJavaIdentifierStart('$'));
         System.out.println("$ sign can be a part of an identifier ? " + Character.isJavaIdentifierPart('$'));
     }
-
 }

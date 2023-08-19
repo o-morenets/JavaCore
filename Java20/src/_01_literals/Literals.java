@@ -2,12 +2,12 @@ package _01_literals;
 
 /**
  * Literals samples
- *
  * Created by Oleksii on 20.07.2017.
  */
 public class Literals {
 
     public static void main(String[] args) {
+
         byte b = 0b01010101; // binary
         short sh = 0127; // octal
         int i = 2_000_000_000; // decimal
@@ -30,5 +30,4 @@ public class Literals {
         s = "two\nlines";
         s = "\"This is in quotes\"";
     }
-
 }

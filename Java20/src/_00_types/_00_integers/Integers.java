@@ -2,7 +2,6 @@ package _00_types._00_integers;
 
 /**
  * Integer types
- *
  * Created by Oleksii on 20.07.2017.
  */
 public class Integers {

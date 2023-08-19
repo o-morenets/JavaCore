@@ -73,5 +73,4 @@ public class TypeConversions {
         int r = (int) aDouble; // 56
         System.out.println(r); // 56
     }
-
 }

@@ -6,6 +6,7 @@ package _03_operations._03_boolean_logic;
 public class BooleanLogic {
 
 	public static void main(String[] args) {
+
 		boolean a = true;
 		boolean b = false;
 		boolean c = a | b;
@@ -38,7 +39,5 @@ public class BooleanLogic {
         if (x != 0 & 5/x > 2) {
             System.out.println("5/x > 2"); // this will never print (Exception: div by 0)
         }
-
 	}
-	
 }

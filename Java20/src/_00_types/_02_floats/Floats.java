@@ -2,7 +2,6 @@ package _00_types._02_floats;
 
 /**
  * Float types
- *
  * Created by Oleksii on 13.07.2017.
  */
 public class Floats {
@@ -88,5 +87,4 @@ public class Floats {
             System.out.println(valD);
         }
     }
-
 }

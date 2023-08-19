@@ -2,7 +2,6 @@ package _02_variables._01_initialization;
 
 /**
  * Initialization of variables
- *
  * Created by Oleksii on 20.07.2017.
  */
 public class VariablesInitialization {
@@ -29,7 +28,6 @@ public class VariablesInitialization {
 
         long ln = 9_223_372_036_854_775_807L;
         float result = ln;
-        System.out.println(result); // 9.223372E18
+        System.out.println(result); // 9.223372E18 - loss of precision
     }
-
 }

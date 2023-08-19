@@ -2,12 +2,12 @@ package _02_variables._03_scope;
 
 /**
  * Scopes of variables
- *
  * Created by Oleksii on 20.07.2017.
  */
 public class VariablesScope {
 
     public static void main(String[] args) {
+
         // count = 100; // error: variable is not visible before its definition
         int count;
 
@@ -27,5 +27,4 @@ public class VariablesScope {
         // y = 100; // error - y is not visible here
         System.out.println("x = " + x);
     }
-
 }
