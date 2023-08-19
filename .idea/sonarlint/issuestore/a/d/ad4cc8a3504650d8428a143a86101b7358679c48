@@ -1,0 +1,18 @@
+
+g	java:S1125"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8«ÛÏ‰š1
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Û×ÞÝ8«ÛÏ‰š1
+Ž
+java:S1130"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(ÙØ¤Þýÿÿÿÿ8ËÛÏ‰š1
+]	java:S125"<This block of commented-out lines of code should be removed.(Ê Žþÿÿÿÿ8ËÛÏ‰š1
+]	java:S125"<This block of commented-out lines of code should be removed.(²Ï³üÿÿÿÿ8ËÛÏ‰š1
+U	java:S106"9Replace this use of System.out or System.err by a logger.(êÇ„¿8ÑÛÏ‰š1
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(—åÒŽùÿÿÿÿ8ÑÛÏ‰š1
+m
+java:S1206"PThis class overrides "hashCode()" and should therefore also override "equals()".(ðÜþŠ8ÑÛÏ‰š1
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(¯þûóþÿÿÿÿ8ÑÛÏ‰š1
+U	java:S106/"9Replace this use of System.out or System.err by a logger.(¢Ü¯8ÑÛÏ‰š1
+Z	java:S1062"9Replace this use of System.out or System.err by a logger.(íÑáÅúÿÿÿÿ8ÑÛÏ‰š1
+S
+java:S1128"1Remove this unused import 'java.util.ArrayDeque'.(†®ÞÖúÿÿÿÿ8ÌøÛ‰š1
+E
+java:S1068;"(Remove this unused "name" private field.(Ë¥¼8áÛÏ‰š1
