@@ -7,10 +7,9 @@ public class ClassLoaderTest {
 
 	public static void main(String[] args) throws NoSuchMethodException, InstantiationException, IllegalAccessException,
 			IllegalArgumentException, InvocationTargetException {
+
 		loadClass();
 		loadClassFromFile();
-
-
 	}
 
 	private static void loadClass() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
