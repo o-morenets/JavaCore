@@ -5,14 +5,11 @@ import java.util.stream.LongStream;
 
 public class LongFunctionDemo {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
+		LongFunction<String> longFunction = value -> "str_" + String.valueOf(value);
 
-        // LongFunction<R> longFunction;
-        LongFunction<String> longFunction = value -> "str_" + String.valueOf(value);
-
-        LongStream.rangeClosed(1, 10)
-                .mapToObj(longFunction)
-                .forEach(System.out::println);
-    }
-
+		LongStream.rangeClosed(1, 10)
+				.mapToObj(longFunction)
+				.forEach(System.out::println);
+	}
 }

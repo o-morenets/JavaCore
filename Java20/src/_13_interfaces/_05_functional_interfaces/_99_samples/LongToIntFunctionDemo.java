@@ -6,8 +6,6 @@ import java.util.stream.LongStream;
 public class LongToIntFunctionDemo {
 
     public static void main(String[] args) {
-
-        // LongToIntFunction longToIntFunction;
         LongToIntFunction longToIntFunction = value -> (int) (value / 10);
 
         LongStream.range(1_000_000, 10_000_000)
@@ -15,5 +13,4 @@ public class LongToIntFunctionDemo {
                 .mapToInt(longToIntFunction)
                 .forEach(System.out::println);
     }
-
 }

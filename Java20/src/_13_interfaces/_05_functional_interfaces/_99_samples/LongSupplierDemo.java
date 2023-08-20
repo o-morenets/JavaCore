@@ -5,14 +5,11 @@ import java.util.stream.LongStream;
 
 public class LongSupplierDemo {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
+		LongSupplier longSupplier = () -> (long) ((Math.random() * 1_000_000));
 
-        // LongSupplier longSupplier;
-        LongSupplier longSupplier = () -> (long) ((Math.random() * 1_000_000));
-
-        LongStream.generate(longSupplier)
-                .limit(5)
-                .forEach(System.out::println);
-    }
-
+		LongStream.generate(longSupplier)
+				.limit(5)
+				.forEach(System.out::println);
+	}
 }

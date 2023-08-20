@@ -1,8 +1,7 @@
 package _13_interfaces._02_ActionListener;
 
+import javax.swing.*;
 import java.awt.event.ActionListener;
-import javax.swing.JOptionPane;
-import javax.swing.Timer;
 
 public class TimerTest {
 
@@ -13,5 +12,4 @@ public class TimerTest {
 		JOptionPane.showMessageDialog(null, "Quit program?");
 		System.exit(0);
 	}
-	
 }

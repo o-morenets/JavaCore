@@ -4,5 +4,5 @@ package _08_oop._03_inheritance._07_abstract_vs_interface._02_interface.interfac
 // about things capable of eating.
 public interface CanEat {
 
-    public void eat();
+	public void eat();
 }

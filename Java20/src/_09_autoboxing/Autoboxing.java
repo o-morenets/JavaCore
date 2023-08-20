@@ -21,7 +21,7 @@ public class Autoboxing {
 
 		n = null;
 //		System.out.println(2 * n); // NullPointerException
-		
+
 		// Integer is immutable:
 		int i = 5;
 		triple(i);

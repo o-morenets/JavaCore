@@ -5,15 +5,12 @@ import java.util.stream.LongStream;
 
 public class LongPredicateDemo {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
+		LongPredicate longPredicate = value -> value % 2 == 0;
 
-        // LongPredicate longPredicate;
-        LongPredicate longPredicate = value -> value % 2 == 0;
+		boolean isAllEven = LongStream.range(0, 10)
+				.allMatch(longPredicate);
 
-        boolean isAllEven = LongStream.range(0, 10)
-                .allMatch(longPredicate);
-
-        System.out.println("isAllEven = " + isAllEven);
-    }
-
+		System.out.println("isAllEven = " + isAllEven);
+	}
 }

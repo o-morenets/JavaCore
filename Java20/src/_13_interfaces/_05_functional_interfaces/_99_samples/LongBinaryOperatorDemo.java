@@ -5,17 +5,14 @@ import java.util.stream.LongStream;
 
 public class LongBinaryOperatorDemo {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
+		LongBinaryOperator longBinaryOperator = (left, right) ->
+				left % 2 == 0 ? left + right : right - left;
 
-        // LongBinaryOperator longBinaryOperator;
-        LongBinaryOperator longBinaryOperator = (left, right) ->
-                left % 2 == 0 ? left + right : right - left;
+		long result = LongStream.range(0, 10)
+				.reduce(longBinaryOperator)
+				.orElseGet(() -> -1);
 
-        long result = LongStream.range(0, 10)
-                .reduce(longBinaryOperator)
-                .orElseGet(() -> -1);
-
-        System.out.println("result = " + result);
-    }
-
+		System.out.println("result = " + result);
+	}
 }

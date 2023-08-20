@@ -5,14 +5,11 @@ import java.util.stream.DoubleStream;
 
 public class DoubleToIntFunctionDemo {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
+		DoubleToIntFunction doubleToIntFunction = Math::getExponent;
 
-        // DoubleToIntFunction doubleToIntFunction;
-        DoubleToIntFunction doubleToIntFunction = Math::getExponent;
-
-        DoubleStream.of(5.54, 1.23456789, 9)
-                .mapToInt(doubleToIntFunction)
-                .forEach(System.out::println);
-    }
-
+		DoubleStream.of(5.54, 1.23456789, 9)
+				.mapToInt(doubleToIntFunction)
+				.forEach(System.out::println);
+	}
 }

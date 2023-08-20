@@ -5,14 +5,11 @@ import java.util.stream.IntStream;
 
 public class IntSupplierDemo {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
+		IntSupplier intSupplier = () -> (int) (Math.random() * 100);
 
-        // IntSupplier intSupplier;
-        IntSupplier intSupplier = () -> (int) (Math.random() * 100);
-
-        IntStream.generate(intSupplier)
-                .limit(10)
-                .forEach(System.out::println);
-    }
-
+		IntStream.generate(intSupplier)
+				.limit(10)
+				.forEach(System.out::println);
+	}
 }

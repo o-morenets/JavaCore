@@ -1,6 +1,7 @@
 package _08_oop._03_inheritance._00_inheritance;
 
 public class Manager extends Employee {
+
 	private double bonus; // new instance variable
 
 	public Manager(String name, double salary, int year, int month, int day) {
@@ -19,5 +20,4 @@ public class Manager extends Employee {
 	public void setBonus(double bonus) {
 		this.bonus = bonus;
 	}
-
 }

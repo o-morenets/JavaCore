@@ -5,14 +5,11 @@ import java.util.stream.Stream;
 
 public class PredicateDemo {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
+		Predicate<String> predicate = s -> s.length() > 2;
 
-        // Predicate<T> predicate;
-        Predicate<String> predicate = s -> s.length() > 2;
-
-        Stream.of("1", "02", "003")
-                .filter(predicate)
-                .forEach(System.out::println);
-    }
-
+		Stream.of("1", "02", "003")
+				.filter(predicate)
+				.forEach(System.out::println);
+	}
 }

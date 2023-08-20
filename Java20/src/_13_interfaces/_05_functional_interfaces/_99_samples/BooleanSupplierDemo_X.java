@@ -5,10 +5,6 @@ import java.util.function.BooleanSupplier;
 public class BooleanSupplierDemo_X {
 
     public static void main(String[] args) {
-
-        // BooleanSupplier booleanSupplier;
         BooleanSupplier booleanSupplier;
-
     }
-
 }

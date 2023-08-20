@@ -10,6 +10,5 @@ public class FunctionalInterfaces {
 //		ToLongBiFunction<T, U> longBiFunction;
 //		ToLongFunction<T> toLongFunction;
 //		UnaryOperator<T> unaryOperator;
-    }
-
+	}
 }

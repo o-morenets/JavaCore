@@ -5,15 +5,12 @@ import java.util.stream.IntStream;
 
 public class IntPredicateDemo {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
+		IntPredicate intPredicate = value -> value < 50;
 
-        // IntPredicate intPredicate;
-        IntPredicate intPredicate = value -> value < 50;
-
-        IntStream.generate(() -> (int) (Math.random() * 100))
-                .limit(10)
-                .filter(intPredicate)
-                .forEach(System.out::println);
-    }
-
+		IntStream.generate(() -> (int) (Math.random() * 100))
+				.limit(10)
+				.filter(intPredicate)
+				.forEach(System.out::println);
+	}
 }

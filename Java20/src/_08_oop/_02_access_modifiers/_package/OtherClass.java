@@ -4,7 +4,9 @@ package _08_oop._02_access_modifiers._package;
  * Created by Maxim on 26.10.2016.
  */
 public class OtherClass {
+
 	private int intValue;
+
 	ParentClass parentClass = new ParentClass();
 
 	public void setPublicValue() {
@@ -23,5 +25,4 @@ public class OtherClass {
 		// this.intValue = parentClass.privateValue;
 		intValue = parentClass.getPrivateValue();
 	}
-	
 }

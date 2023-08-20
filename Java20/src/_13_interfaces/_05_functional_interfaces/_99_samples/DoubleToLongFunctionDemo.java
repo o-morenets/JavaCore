@@ -5,14 +5,11 @@ import java.util.stream.DoubleStream;
 
 public class DoubleToLongFunctionDemo {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
+		DoubleToLongFunction doubleToLongFunction = Math::round;
 
-        // DoubleToLongFunction doubleToLongFunction;
-        DoubleToLongFunction doubleToLongFunction = Math::round;
-
-        DoubleStream.of(5.54, 1.23456789, 9)
-                .mapToLong(doubleToLongFunction)
-                .forEach(System.out::println);
-    }
-
+		DoubleStream.of(5.54, 1.23456789, 9)
+				.mapToLong(doubleToLongFunction)
+				.forEach(System.out::println);
+	}
 }

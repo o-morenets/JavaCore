@@ -3,10 +3,11 @@ package _08_oop._03_inheritance._03_instanceof;
 import java.time.LocalDate;
 
 public class Employee {
+
 	private String name;
 	private double salary;
 	private LocalDate hireDay;
-	
+
 	public Employee(String name, double salary, int year, int month, int day) {
 		this.name = name;
 		this.salary = salary;
@@ -24,10 +25,9 @@ public class Employee {
 	public LocalDate getHireDay() {
 		return hireDay;
 	}
-	
+
 	public void raiseSalary(double byPercent) {
 		double raise = salary * byPercent / 100;
 		salary += raise;
 	}
-	
 }

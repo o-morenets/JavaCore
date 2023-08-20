@@ -1,6 +1,7 @@
 package _08_oop._03_inheritance._01_encapsulation;
 
 public class First {
+
 	int publicValue = 1;
 	private int value = 1;
 
@@ -13,5 +14,4 @@ public class First {
 		System.out.println("getValue in First");
 		return value;
 	}
-	
 }

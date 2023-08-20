@@ -5,5 +5,6 @@ package _13_interfaces._06_method_references._00_method;
  */
 @FunctionalInterface
 interface Expression {
-    boolean test(int n);
+
+	boolean test(int n);
 }

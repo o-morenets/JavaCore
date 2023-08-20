@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class Employee {
+
 	private String name;
 	private double salary;
 	private LocalDate hireDay;
@@ -56,5 +57,4 @@ public class Employee {
 	public String toString() {
 		return getClass().getName() + "[name=" + name + ",salary=" + salary + ",hireDay=" + hireDay + "]";
 	}
-	
 }

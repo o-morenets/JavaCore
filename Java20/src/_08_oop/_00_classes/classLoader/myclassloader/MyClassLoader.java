@@ -13,8 +13,7 @@ public class MyClassLoader extends ClassLoader {
 	}
 
 	private byte[] loadClassBytes(String className) {
-		InputStream inputStream = getClass().getClassLoader()
-				.getResourceAsStream(className.replace(".", "/") + ".class");
+		InputStream inputStream = getClass().getClassLoader().getResourceAsStream(className.replace(".", "/") + ".class");
 		ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
 		int len;
 		try {

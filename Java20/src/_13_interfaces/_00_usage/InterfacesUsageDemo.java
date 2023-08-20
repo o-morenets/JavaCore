@@ -12,9 +12,8 @@ public class InterfacesUsageDemo {
 		staff[2] = new Employee("Tony Tester", 38000);
 
 		Arrays.sort(staff);
-		
+
 		for (Employee e : staff)
 			System.out.println("name=" + e.getName() + ", salary=" + e.getSalary());
 	}
-
 }

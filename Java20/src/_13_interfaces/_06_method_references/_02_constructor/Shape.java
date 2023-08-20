@@ -6,5 +6,4 @@ public class Shape {
 	public String toString() {
 		return getClass().getName();
 	}
-	
 }

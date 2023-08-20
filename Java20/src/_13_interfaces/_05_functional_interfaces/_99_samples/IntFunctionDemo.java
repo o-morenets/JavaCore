@@ -5,14 +5,11 @@ import java.util.stream.IntStream;
 
 public class IntFunctionDemo {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
+		IntFunction<IntStream> intFunction = value -> IntStream.range(0, value);
 
-        // IntFunction<R> intFunction;
-        IntFunction<IntStream> intFunction = value -> IntStream.range(0, value);
-
-        IntStream.of(5, 7, 2, 1, 9)
-                .flatMap(intFunction)
-                .forEach(System.out::println);
-    }
-
+		IntStream.of(5, 7, 2, 1, 9)
+				.flatMap(intFunction)
+				.forEach(System.out::println);
+	}
 }

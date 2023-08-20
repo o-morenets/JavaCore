@@ -5,14 +5,11 @@ import java.util.stream.LongStream;
 
 public class LongToDoubleFunctionDemo {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
+		LongToDoubleFunction longToDoubleFunction = value -> value / 10.0;
 
-        // LongToDoubleFunction longToDoubleFunction;
-        LongToDoubleFunction longToDoubleFunction = value -> value / 10.0;
-
-        LongStream.range(0, 10)
-                .mapToDouble(longToDoubleFunction)
-                .forEach(System.out::println);
-    }
-
+		LongStream.range(0, 10)
+				.mapToDouble(longToDoubleFunction)
+				.forEach(System.out::println);
+	}
 }

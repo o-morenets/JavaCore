@@ -2,16 +2,16 @@ package _08_oop._02_access_modifiers._package;
 
 public class Main {
 
-    public static void main(String[] args) {
-	// write your code here
-        int intValue;
-        ParentClass parentClass = new ParentClass();
+	public static void main(String[] args) {
 
-        intValue = parentClass.publicValue;
-        intValue = parentClass.protectedValue;
-        intValue = parentClass.defaultValue;
+		// write your code here
+		int intValue;
+		ParentClass parentClass = new ParentClass();
+
+		intValue = parentClass.publicValue;
+		intValue = parentClass.protectedValue;
+		intValue = parentClass.defaultValue;
 //        intValue = parentClass.privateValue;
-        intValue = parentClass.getPrivateValue();
-    }
-    
+		intValue = parentClass.getPrivateValue();
+	}
 }

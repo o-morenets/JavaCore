@@ -5,14 +5,11 @@ import java.util.function.DoubleSupplier;
 
 public class DoubleSupplierDemo {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
+		DoubleSupplier doubleSupplier = Math::random;
 
-        // DoubleSupplier doubleSupplier;
-        DoubleSupplier doubleSupplier = Math::random;
-
-        OptionalDouble optionalDouble = OptionalDouble.empty();
-        double d = optionalDouble.orElseGet(doubleSupplier);
-        System.out.println("d = " + d);
-    }
-
+		OptionalDouble optionalDouble = OptionalDouble.empty();
+		double d = optionalDouble.orElseGet(doubleSupplier);
+		System.out.println("d = " + d);
+	}
 }

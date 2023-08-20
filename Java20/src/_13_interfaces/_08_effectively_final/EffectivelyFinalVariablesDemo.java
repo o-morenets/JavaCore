@@ -1,8 +1,8 @@
 package _13_interfaces._08_effectively_final;
 
+import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.util.function.IntConsumer;
-import javax.swing.Timer;
 
 public class EffectivelyFinalVariablesDemo {
 
@@ -22,9 +22,10 @@ public class EffectivelyFinalVariablesDemo {
 			new Timer(1000, listener).start();
 		}
 	}
-	
+
 	/**
 	 * Custom function using functional interface
+	 *
 	 * @param count
 	 * @param event
 	 */
@@ -33,11 +34,10 @@ public class EffectivelyFinalVariablesDemo {
 			event.accept(i);
 		}
 	}
-	
+
 	public static void main(String[] args) {
 		repeat(10, i ->
-			System.out.println("Countdown: " + (9 - i))
+				System.out.println("Countdown: " + (9 - i))
 		);
 	}
-	
 }

@@ -1,11 +1,10 @@
 package _13_interfaces._07_scope;
 
-import java.awt.Toolkit;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionListener;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import javax.swing.JOptionPane;
-import javax.swing.Timer;
 
 public class ScopeTest {
 
@@ -27,9 +26,8 @@ public class ScopeTest {
 		repeatMessage("Hello", 1000);
 		JOptionPane.showMessageDialog(null, "Quit program?");
 		System.exit(0);
-		
+
 		Path first = Paths.get("/usr/bin");
 //		Comparator<String> comp = (first, second) -> first.length() - second.length(); // ERROR: variable first is already declared
 	}
-
 }

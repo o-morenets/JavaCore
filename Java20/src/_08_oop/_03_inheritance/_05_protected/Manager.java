@@ -1,6 +1,7 @@
 package _08_oop._03_inheritance._05_protected;
 
 public class Manager extends Employee {
+
 	private double bonus;
 
 	public Manager(String name, double salary, int year, int month, int day) {
@@ -17,5 +18,4 @@ public class Manager extends Employee {
 	public void setBonus(double bonus) {
 		this.bonus = bonus;
 	}
-
 }

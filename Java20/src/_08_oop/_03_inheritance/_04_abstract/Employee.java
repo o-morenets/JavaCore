@@ -3,6 +3,7 @@ package _08_oop._03_inheritance._04_abstract;
 import java.time.LocalDate;
 
 public class Employee extends Person {
+
 	private double salary;
 	private LocalDate hireDay;
 

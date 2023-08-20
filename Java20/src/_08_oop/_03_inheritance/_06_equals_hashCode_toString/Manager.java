@@ -1,6 +1,7 @@
 package _08_oop._03_inheritance._06_equals_hashCode_toString;
 
 public class Manager extends Employee {
+
 	private double bonus;
 
 	public Manager(String name, double salary, int year, int month, int day) {
@@ -35,5 +36,4 @@ public class Manager extends Employee {
 	public String toString() {
 		return super.toString() + "[bonus=" + bonus + "]";
 	}
-	
 }
