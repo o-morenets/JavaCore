@@ -14,6 +14,7 @@ public class PipedStreamExample {
 	}
 
 	private void test() throws IOException, InterruptedException {
+
 		// Create a 'pipedOutputStream',
 		PipedOutputStream pipedOutputStream = new PipedOutputStream();
 
@@ -38,6 +39,7 @@ public class PipedStreamExample {
 			try {
 				is.close();
 			} catch (IOException e) {
+				e.printStackTrace();
 			}
 		}
 	}
@@ -48,7 +50,7 @@ public class PipedStreamExample {
 		@Override
 		public void run() {
 			try {
-				int data = 0;
+				int data;
 				while ((data = pipedInputStream.read()) != -1) {
 					System.out.println((char) data);
 				}
