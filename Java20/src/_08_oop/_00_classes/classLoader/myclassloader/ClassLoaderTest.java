@@ -12,7 +12,7 @@ public class ClassLoaderTest {
 		loadClassFromFile();
 	}
 
-	private static void loadClass() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+	private static void loadClass() throws InvocationTargetException, InstantiationException, NoSuchMethodException, IllegalAccessException {
 		MyClassLoader myClassLoader = new MyClassLoader();
 		Class<?> myClass = myClassLoader.findClass("_08_oop._00_classes.classLoader.myclassloader.TestClass");
 
@@ -22,10 +22,9 @@ public class ClassLoaderTest {
 		myMethod.invoke(classObject);
 	}
 
-	private static void loadClassFromFile() throws InvocationTargetException, IllegalAccessException, NoSuchMethodException, InstantiationException {
+	private static void loadClassFromFile() throws InvocationTargetException, InstantiationException, NoSuchMethodException, IllegalAccessException {
 		PathFileClassLoader pathFileClassLoader = new PathFileClassLoader();
-		// Load class from the root of the project
-		Class<?> classFromPath = pathFileClassLoader.findClass("TestClassFromPath.class");
+		Class<?> classFromPath = pathFileClassLoader.findClass("TestClassFromPath.class"); // Load class from the root of the project
 
 		Object classObject = classFromPath.getDeclaredConstructor().newInstance();
 
