@@ -10,7 +10,7 @@ import java.nio.file.Files;
  */
 public class PathFileClassLoader extends ClassLoader {
 
-	public static final String NAME = "_08_oop._00_classes.classLoader.myclassloader.TestClassFromPath";
+	public static final String NAME = "com.sergiomartinrubio.javaclassloader.TestClassFromPath";
 
 	@Override
 	protected Class<?> findClass(String filePath) {
