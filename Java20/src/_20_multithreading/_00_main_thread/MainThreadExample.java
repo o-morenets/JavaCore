@@ -8,7 +8,7 @@ public class MainThreadExample {
 		System.out.println("Current thread: " + Thread.currentThread().getName());
 		Thread.currentThread().setName("HelloThread");
 		System.out.println("Current thread: " + Thread.currentThread().getName());
-		
+
 		for (int i = 5; i > 0; i--) {
 			System.out.println(i);
 			try {
@@ -17,8 +17,7 @@ public class MainThreadExample {
 				e.printStackTrace();
 			}
 		}
-		
+
 		System.out.println("Main thread finished");
 	}
-
 }

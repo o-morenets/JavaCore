@@ -1,6 +1,7 @@
 package _16_generics._02_extends;
 
 class Stats<T extends Number> {
+
 	T[] nums;
 
 	public Stats(T[] nums) {
@@ -14,18 +15,17 @@ class Stats<T extends Number> {
 		}
 		return sum / nums.length;
 	}
-
 }
 
 public class BoundsExtendsDemo {
 
 	public static void main(String[] args) {
-		Integer[] iNums = { 1, 2, 3, 4, 5 };
+		Integer[] iNums = {1, 2, 3, 4, 5};
 		Stats<Integer> iOb = new Stats<>(iNums);
 		double v = iOb.average();
 		System.out.println("Average of iOb = " + v);
 
-		Double[] dNums = { 1.0, 2.0, 3.0, 4.0, 5.0 };
+		Double[] dNums = {1.0, 2.0, 3.0, 4.0, 5.0};
 		Stats<Double> dOb = new Stats<>(dNums);
 		double w = dOb.average();
 		System.out.println("Average of dOb = " + w);
@@ -36,5 +36,4 @@ public class BoundsExtendsDemo {
 //		double x = sOb.average();
 //		System.out.println("Average of dOb = " + x);
 	}
-
 }

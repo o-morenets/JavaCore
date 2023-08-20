@@ -9,14 +9,14 @@ public class ScannerExample {
 		 * http://mastefanov.com/wp-content/uploads/2014/02/programmingJava.
 		 * lec3_.4Scanner.pdf
 		 */
-		
+
 		double doubleFoo;
 		int integerBar;
 		float floatQuiz;
 		long longBaz;
 		String token;
 		String line;
-		
+
 		try (Scanner stdInScanner = new Scanner(System.in)) {
 			doubleFoo = stdInScanner.nextDouble();
 			integerBar = stdInScanner.nextInt();
@@ -25,12 +25,11 @@ public class ScannerExample {
 			token = stdInScanner.next();
 			line = stdInScanner.nextLine();
 		}
-		
+
 		System.out.printf("double=%f\nint=%d\nfloat=%f\nlong=%d\ntoken=%s\nline=%s\n", doubleFoo, integerBar, floatQuiz,
 				longBaz, token, line);
 		System.out.println("over");
 	}
-
 }
 
 /*

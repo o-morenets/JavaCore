@@ -19,17 +19,16 @@ class NewThread extends Thread {
 				e.printStackTrace();
 			}
 		}
-		
+
 		System.out.println("Extended thread finished");
 	}
-
 }
 
 public class ExtendThreadExample {
-	
+
 	public static void main(String[] args) {
 		new NewThread();
-		
+
 		for (int i = 5; i > 0; i--) {
 			System.out.println(Thread.currentThread().getName() + " " + i);
 			try {
@@ -38,8 +37,7 @@ public class ExtendThreadExample {
 				e.printStackTrace();
 			}
 		}
-		
+
 		System.out.println("Main thread finished");
 	}
-	
 }

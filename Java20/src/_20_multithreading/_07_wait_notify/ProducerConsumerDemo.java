@@ -1,9 +1,10 @@
 package _20_multithreading._07_wait_notify;
 
 class Q {
+
 	int number;
 	boolean isValueSet;
-	
+
 	synchronized void put(int n) {
 		while (isValueSet) {
 			try {
@@ -19,13 +20,13 @@ class Q {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		
+
 		number = n;
 		isValueSet = true;
 		System.out.println("Produced: " + n);
 		notify();
 	}
-	
+
 	synchronized int get() {
 		while (!isValueSet) {
 			try {
@@ -41,16 +42,16 @@ class Q {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		
+
 		isValueSet = false;
 		System.out.println("Consumed: " + number);
 		notify();
 		return number;
 	}
-	
 }
 
 class Producer implements Runnable {
+
 	Q q;
 	Thread t;
 
@@ -63,15 +64,15 @@ class Producer implements Runnable {
 	@Override
 	public void run() {
 		int i = 0;
-		
+
 		while (true) {
 			q.put(i++);
 		}
 	}
-	
 }
 
 class Consumer implements Runnable {
+
 	Q q;
 	Thread t;
 
@@ -87,16 +88,14 @@ class Consumer implements Runnable {
 			q.get();
 		}
 	}
-	
 }
 
 public class ProducerConsumerDemo {
-	
+
 	public static void main(String[] args) {
 		Q q = new Q();
 		new Producer(q);
 		new Consumer(q);
 		System.out.println("Press Ctrl+C to stop");
 	}
-	
 }

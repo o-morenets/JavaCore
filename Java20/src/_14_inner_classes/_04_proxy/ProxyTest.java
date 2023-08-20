@@ -30,10 +30,10 @@ public class ProxyTest {
 		if (result >= 0)
 			System.out.println(elements[result]);
 	}
-
 }
 
 class TraceHandler implements InvocationHandler {
+
 	private Object target;
 
 	/**
@@ -66,5 +66,4 @@ class TraceHandler implements InvocationHandler {
 		// вызвать конкретный метод
 		return m.invoke(target, args);
 	}
-	
 }

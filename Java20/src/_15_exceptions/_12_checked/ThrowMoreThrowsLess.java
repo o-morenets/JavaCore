@@ -6,9 +6,9 @@ import java.io.IOException;
 
 public class ThrowMoreThrowsLess {
 
-    public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {
 //        throw new Exception(); // тут ошибка компиляции
-    }
+	}
 
-    // >> COMPILATION ERROR: unhandled exception: java.lang.Exception
+	// >> COMPILATION ERROR: unhandled exception: java.lang.Exception
 }

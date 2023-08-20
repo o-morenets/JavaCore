@@ -6,7 +6,7 @@ public class ThrowsDemo {
 		System.out.println("In throwOne()");
 		throw new IllegalAccessException("Demo");
 	}
-	
+
 	public static void main(String[] args) {
 		try {
 			throwOne();
@@ -14,5 +14,4 @@ public class ThrowsDemo {
 			System.out.println("Caught exception: " + e);
 		}
 	}
-
 }

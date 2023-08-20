@@ -10,8 +10,7 @@ public class OutOfMemoryErrorDemo {
 		Runtime rt = Runtime.getRuntime();
 		while (true) {
 			System.out.printf("[%4s] Available heap memory: %s%n", i++, rt.freeMemory());
-			tail = new Object[] { tail, new Object[SIZE] };
+			tail = new Object[]{tail, new Object[SIZE]};
 		}
 	}
-
 }

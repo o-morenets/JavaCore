@@ -5,57 +5,59 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 public class Test {
-    private static final SortedSet<IntegerBucket> sortedSet = new TreeSet<>();
 
-    public static void main(String[] args) {
-        sortedSet.add(new IntegerBucket("Winner", 3));
-        sortedSet.add(new IntegerBucket("Looser", 3));
+	private static final SortedSet<IntegerBucket> sortedSet = new TreeSet<>();
 
-        System.out.println("sortedSet has " + sortedSet.size() + " members");
-        System.out.println(sortedSet);
-    }
+	public static void main(String[] args) {
+		sortedSet.add(new IntegerBucket("Winner", 3));
+		sortedSet.add(new IntegerBucket("Looser", 3));
+
+		System.out.println("sortedSet has " + sortedSet.size() + " members");
+		System.out.println(sortedSet);
+	}
 }
 
 class IntegerBucket implements Comparable<IntegerBucket> {
-    private int value;
-    private String name;
 
-    public IntegerBucket(String n, int val) {
-        name = n;
-        value = val;
-    }
+	private int value;
+	private String name;
 
-    public int getValue() {
-        return value;
-    }
+	public IntegerBucket(String n, int val) {
+		name = n;
+		value = val;
+	}
 
-    // Comparable interface
-    public int compareTo(IntegerBucket ob) {
-        if (getValue() == ob.getValue()) {
-            return name.compareTo(ob.name);
-        }
-        return value;
-    }
+	public int getValue() {
+		return value;
+	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+	// Comparable interface
+	public int compareTo(IntegerBucket ob) {
+		if (getValue() == ob.getValue()) {
+			return name.compareTo(ob.name);
+		}
+		return value;
+	}
 
-        IntegerBucket that = (IntegerBucket) o;
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
 
-        if (value != that.value) return false;
-        return Objects.equals(name, that.name);
-    }
+		IntegerBucket that = (IntegerBucket) o;
 
-    @Override
-    public int hashCode() {
-        int result = value;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        return result;
-    }
+		if (value != that.value) return false;
+		return Objects.equals(name, that.name);
+	}
 
-    public String toString() {
-        return name + " " + getValue();
-    }
+	@Override
+	public int hashCode() {
+		int result = value;
+		result = 31 * result + (name != null ? name.hashCode() : 0);
+		return result;
+	}
+
+	public String toString() {
+		return name + " " + getValue();
+	}
 }

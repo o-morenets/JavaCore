@@ -7,7 +7,7 @@ public class SyncMethodExample {
 		Caller ob1 = new Caller(target, "Welcome");
 		Caller ob2 = new Caller(target, "to the Synchronized");
 		Caller ob3 = new Caller(target, "World!");
-		
+
 		try {
 			ob1.t.join();
 			ob2.t.join();
@@ -16,11 +16,10 @@ public class SyncMethodExample {
 			e.printStackTrace();
 		}
 	}
-
 }
 
 class CallMe {
-	
+
 	synchronized void call(String msg) {
 		System.out.print("[" + msg);
 		try {
@@ -30,7 +29,6 @@ class CallMe {
 		}
 		System.out.println("]");
 	}
-	
 }
 
 class Caller implements Runnable {
@@ -49,5 +47,4 @@ class Caller implements Runnable {
 	public void run() {
 		target.call(message);
 	}
-	
 }

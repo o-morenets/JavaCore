@@ -1,10 +1,6 @@
 package _18_stream_api._01_java7_vs_java8;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.IntSummaryStatistics;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Java8Tester {
@@ -73,27 +69,27 @@ public class Java8Tester {
 
 		// Eliminate empty string
 		filtered = strings.stream()
-                .filter(string -> !string.isEmpty())
-                .collect(Collectors.toList());
+				.filter(string -> !string.isEmpty())
+				.collect(Collectors.toList());
 		System.out.println("Filtered List: " + filtered);
 
 		// Eliminate empty string and join using comma.
 		mergedString = strings.stream()
-                .filter(string -> !string.isEmpty())
-                .collect(Collectors.joining(", "));
+				.filter(string -> !string.isEmpty())
+				.collect(Collectors.joining(", "));
 		System.out.println("Merged String: " + mergedString);
 
 		// get list of square of distinct numbers
 		squaresList = numbers.stream()
-                .map(i -> i * i)
-                .distinct()
-                .collect(Collectors.toList());
+				.map(i -> i * i)
+				.distinct()
+				.collect(Collectors.toList());
 		System.out.println("Squares List: " + squaresList);
 		System.out.println("List: " + integers);
 
 		IntSummaryStatistics stats = integers.stream()
-                .mapToInt(x -> x)
-                .summaryStatistics();
+				.mapToInt(x -> x)
+				.summaryStatistics();
 
 		System.out.println("Highest number in List : " + stats.getMax());
 		System.out.println("Lowest number in List : " + stats.getMin());
@@ -103,34 +99,34 @@ public class Java8Tester {
 
 		// print ten random numbers
 		random.ints()
-                .limit(10)
-                .sorted()
-                .forEach(System.out::println);
+				.limit(10)
+				.sorted()
+				.forEach(System.out::println);
 
 		// parallel processing
 		count = strings.parallelStream()
-                .filter(String::isEmpty)
-                .count();
+				.filter(String::isEmpty)
+				.count();
 		System.out.println("Empty Strings: " + count);
 
 		// peek()
 		strings.stream()
-                .map(String::toUpperCase)
-                .peek(e -> System.out.print(e + ", "));
+				.map(String::toUpperCase)
+				.peek(e -> System.out.print(e + ", "));
 		System.out.println();
 
 		// flatMap()
 		String[] newStrings = strings.stream()
-                .flatMap(p -> Arrays.stream(p.split(",")))
-                .toArray(String[]::new);
+				.flatMap(p -> Arrays.stream(p.split(",")))
+				.toArray(String[]::new);
 		System.out.println(Arrays.toString(newStrings));
-		
+
 		// Sum of all numbers
 		System.out.println(
-		        integers.stream()
-                .reduce((s1, s2) -> s1 + s2)
-                .orElse(0)
-        );
+				integers.stream()
+						.reduce((s1, s2) -> s1 + s2)
+						.orElse(0)
+		);
 	}
 
 	// Helper methods for Java 7
@@ -232,5 +228,4 @@ public class Java8Tester {
 	private static int getAverage(List<Integer> numbers) {
 		return getSum(numbers) / numbers.size();
 	}
-
 }

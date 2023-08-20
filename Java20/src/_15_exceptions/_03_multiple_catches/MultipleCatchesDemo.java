@@ -7,7 +7,7 @@ public class MultipleCatchesDemo {
 			int a = args.length;
 			System.out.println("a = " + a);
 			int b = 42 / a;
-			int[] c = { 1 };
+			int[] c = {1};
 			c[42] = 99;
 		} catch (ArithmeticException e) {
 			System.out.println("Division by zero: " + e);
@@ -16,5 +16,4 @@ public class MultipleCatchesDemo {
 		}
 		System.out.println("After try-catch");
 	}
-
 }

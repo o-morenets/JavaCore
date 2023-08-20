@@ -1,11 +1,10 @@
 package _14_inner_classes._01_inner_local;
 
-import java.awt.Toolkit;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
-import javax.swing.JOptionPane;
-import javax.swing.Timer;
 
 public class InnerLocalClassTest {
 
@@ -16,10 +15,10 @@ public class InnerLocalClassTest {
 		JOptionPane.showMessageDialog(null, "Quit program?");
 		System.exit(0);
 	}
-
 }
 
 class TalkingClock {
+
 	private int interval;
 	private boolean beep;
 
@@ -37,12 +36,10 @@ class TalkingClock {
 				if (beep)
 					Toolkit.getDefaultToolkit().beep();
 			}
-			
 		}
-		
+
 		ActionListener listener = new TimePrinter();
 		Timer t = new Timer(interval, listener);
 		t.start();
 	}
-
 }

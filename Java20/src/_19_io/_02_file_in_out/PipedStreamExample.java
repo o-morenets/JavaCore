@@ -7,57 +7,56 @@ import java.io.PipedOutputStream;
 
 public class PipedStreamExample {
 
-    private InputStream pipedInputStream;
+	private InputStream pipedInputStream;
 
-    public static void main(String[] args) throws IOException, InterruptedException {
-        new PipedStreamExample().test();
-    }
+	public static void main(String[] args) throws IOException, InterruptedException {
+		new PipedStreamExample().test();
+	}
 
-    private void test() throws IOException, InterruptedException {
-        // Create a 'pipedOutputStream',
-        PipedOutputStream pipedOutputStream = new PipedOutputStream();
+	private void test() throws IOException, InterruptedException {
+		// Create a 'pipedOutputStream',
+		PipedOutputStream pipedOutputStream = new PipedOutputStream();
 
-        // Data writing to 'pipedOutputStream'
-        // will automatically appear in 'pipedInputStream'.
-        pipedInputStream = new PipedInputStream(pipedOutputStream);
+		// Data writing to 'pipedOutputStream'
+		// will automatically appear in 'pipedInputStream'.
+		pipedInputStream = new PipedInputStream(pipedOutputStream);
 
-        new ThreadRead().start();
+		new ThreadRead().start();
 
-        char[] chs = new char[]{'a', 'b', 'c', 'd', 'e'};
+		char[] chs = new char[]{'a', 'b', 'c', 'd', 'e'};
 
-        // Write data to 'pipedOutputStream'.
-        for (char ch : chs) {
-            pipedOutputStream.write(ch);
-            Thread.sleep(1000);
-        }
-        pipedOutputStream.close();
-    }
+		// Write data to 'pipedOutputStream'.
+		for (char ch : chs) {
+			pipedOutputStream.write(ch);
+			Thread.sleep(1000);
+		}
+		pipedOutputStream.close();
+	}
 
-    private void closeQuietly(InputStream is) {
-        if (is != null) {
-            try {
-                is.close();
-            } catch (IOException e) {
-            }
-        }
-    }
+	private void closeQuietly(InputStream is) {
+		if (is != null) {
+			try {
+				is.close();
+			} catch (IOException e) {
+			}
+		}
+	}
 
-    // A Thread to read the data that appears on 'pipedInputStream'.
-    class ThreadRead extends Thread {
+	// A Thread to read the data that appears on 'pipedInputStream'.
+	class ThreadRead extends Thread {
 
-        @Override
-        public void run() {
-            try {
-                int data = 0;
-                while ((data = pipedInputStream.read()) != -1) {
-                    System.out.println((char) data);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                closeQuietly(pipedInputStream);
-            }
-        }
-    }
-
+		@Override
+		public void run() {
+			try {
+				int data = 0;
+				while ((data = pipedInputStream.read()) != -1) {
+					System.out.println((char) data);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				closeQuietly(pipedInputStream);
+			}
+		}
+	}
 }

@@ -10,7 +10,7 @@ public class ThrowDemo {
 			throw e;
 		}
 	}
-	
+
 	public static void main(String[] args) {
 		try {
 			demoProc();
@@ -18,5 +18,4 @@ public class ThrowDemo {
 			System.out.println("Caught again in main()");
 		}
 	}
-
 }

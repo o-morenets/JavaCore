@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class BoundsSuperDemo {
 
 	public static void main(String[] args) {
-		Manager[] managers = { new Manager(), new Executive() };
+		Manager[] managers = {new Manager(), new Executive()};
 		Pair<Manager> pairManagers = new Pair<>();
 		minMaxBonus(managers, pairManagers);
 	}
@@ -27,12 +27,14 @@ public class BoundsSuperDemo {
 }
 
 class Employee {
+
 	private String name;
 	private double salary;
 	private LocalDate hireDay;
 }
 
 class Manager extends Employee {
+
 	private double bonus; // new instance variable
 
 	public double getBonus() {
@@ -45,6 +47,7 @@ class Executive extends Manager {
 }
 
 class Pair<T> {
+
 	private T first;
 	private T second;
 

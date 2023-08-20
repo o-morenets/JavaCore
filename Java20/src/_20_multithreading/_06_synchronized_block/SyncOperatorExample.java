@@ -1,6 +1,6 @@
 package _20_multithreading._06_synchronized_block;
 
-public class SynchOperatorExample {
+public class SyncOperatorExample {
 
 	public static void main(String[] args) {
 		CallMe target = new CallMe();
@@ -16,7 +16,6 @@ public class SynchOperatorExample {
 			e.printStackTrace();
 		}
 	}
-
 }
 
 class CallMe {
@@ -30,10 +29,10 @@ class CallMe {
 		}
 		System.out.println("]");
 	}
-
 }
 
 class Caller implements Runnable {
+
 	CallMe target;
 	Thread t;
 	String message;
@@ -51,5 +50,4 @@ class Caller implements Runnable {
 			target.call(message);
 		}
 	}
-
 }

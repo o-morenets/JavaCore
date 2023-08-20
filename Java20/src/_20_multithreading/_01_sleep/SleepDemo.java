@@ -4,6 +4,7 @@ package _20_multithreading._01_sleep;
  * Created by user on 15.10.2014.
  */
 public class SleepDemo implements Runnable {
+
 	private static int numbers;
 	private int seconds;
 	private int number;
@@ -33,13 +34,13 @@ public class SleepDemo implements Runnable {
 	public static void main(String[] args) {
 		Runnable thread1 = new SleepDemo(5);
 		new Thread(thread1).start();
-		
+
 		try {
 			Thread.sleep(200);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		
+
 		new Thread(new SleepDemo(10)).start();
 	}
 }

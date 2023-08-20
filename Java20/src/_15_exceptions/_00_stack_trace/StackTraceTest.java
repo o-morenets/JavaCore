@@ -6,7 +6,8 @@ public class StackTraceTest {
 
 	/**
 	 * Вычисляет факториал заданного числа
-	 * @param n	Положительное целое число
+	 *
+	 * @param n Положительное целое число
 	 * @return n ! = 1 * 2 * . . . * n
 	 */
 	public static int factorial(int n) {
@@ -30,5 +31,4 @@ public class StackTraceTest {
 		int n = in.nextInt();
 		factorial(n);
 	}
-
 }

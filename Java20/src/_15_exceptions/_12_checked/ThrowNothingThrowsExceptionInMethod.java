@@ -4,10 +4,10 @@ package _15_exceptions._12_checked;
 
 public class ThrowNothingThrowsExceptionInMethod {
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 //        f(); // тут ошибка компиляции
-    }
+	}
 
-    public static void f() throws Exception {
-    }
+	public static void f() throws Exception {
+	}
 }

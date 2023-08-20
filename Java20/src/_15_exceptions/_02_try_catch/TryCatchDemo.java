@@ -4,7 +4,7 @@ public class TryCatchDemo {
 
 	public static void main(String[] args) {
 		int x = 10;
-		
+
 		try {
 			x = 1 / 0;
 			System.out.println("x = " + x); // This will never printed
@@ -15,5 +15,5 @@ public class TryCatchDemo {
 	}
 
 	// >> / by zero
-    // After catch
+	// After catch
 }

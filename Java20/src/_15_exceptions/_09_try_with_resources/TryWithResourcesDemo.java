@@ -15,5 +15,4 @@ public class TryWithResourcesDemo {
 		}
 		System.out.println("Scanner was auto-closed");
 	}
-
 }

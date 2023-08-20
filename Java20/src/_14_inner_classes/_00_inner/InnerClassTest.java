@@ -1,17 +1,17 @@
 package _14_inner_classes._00_inner;
 
-import java.awt.Toolkit;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
-import javax.swing.JOptionPane;
-import javax.swing.Timer;
 
 public class InnerClassTest {
 
 	public static void main(String[] args) {
 		TalkingClock clock = new TalkingClock(1000, true);
 		clock.start();
+
 		// run program until user presses OK button
 		JOptionPane.showMessageDialog(null, "Quit program?");
 		System.exit(0);
@@ -20,6 +20,7 @@ public class InnerClassTest {
 }
 
 class TalkingClock {
+
 	private int interval;
 	private boolean beep;
 
@@ -42,7 +43,5 @@ class TalkingClock {
 			if (beep)
 				Toolkit.getDefaultToolkit().beep();
 		}
-		
 	}
-	
 }

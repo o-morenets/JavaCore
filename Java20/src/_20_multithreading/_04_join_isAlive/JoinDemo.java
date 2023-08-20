@@ -10,7 +10,7 @@ public class JoinDemo {
 		System.out.println("Thread 1 is alive: " + t1.t.isAlive());
 		System.out.println("Thread 2 is alive: " + t2.t.isAlive());
 		System.out.println("Thread 3 is alive: " + t3.t.isAlive());
-		
+
 		try {
 			t1.t.join();
 			t2.t.join();
@@ -25,13 +25,13 @@ public class JoinDemo {
 
 		System.out.println("Main thread finished");
 	}
-
 }
 
 class NewThread implements Runnable {
+
 	String name;
 	Thread t;
-	
+
 	public NewThread(String name) {
 		this.name = name;
 		this.t = new Thread(this, name);
@@ -51,5 +51,4 @@ class NewThread implements Runnable {
 		}
 		System.out.println(name + " finished");
 	}
-	
 }

@@ -25,5 +25,4 @@ public class CauseDemo {
 		doSmth(50);
 		doSmth(0);
 	}
-
 }

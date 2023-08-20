@@ -6,15 +6,16 @@ import java.io.Serializable;
  * Created by user on 29.10.2014.
  */
 public class User implements Serializable {
-    private String name;
-    private int age;
 
-    public User(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
+	private String name;
+	private int age;
 
-    public String getName() {
+	public User(String name, int age) {
+		this.name = name;
+		this.age = age;
+	}
+
+	public String getName() {
 		return name;
 	}
 
@@ -32,10 +33,9 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                '}';
-    }
-
+		return "User{" +
+				"name='" + name + '\'' +
+				", age=" + age +
+				'}';
+	}
 }

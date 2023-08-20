@@ -17,5 +17,4 @@ public class NoneMatch {
 	public static void main(String[] args) {
 		new NoneMatch().printPrimesInRange(200, 1000);
 	}
-
 }

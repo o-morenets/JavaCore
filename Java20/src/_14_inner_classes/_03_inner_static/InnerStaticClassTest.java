@@ -4,20 +4,20 @@ public class InnerStaticClassTest {
 
 	public static void main(String[] args) {
 		double[] d = new double[20];
-		
+
 		for (int i = 0; i < d.length; i++)
 			d[i] = 100 * Math.random();
-		
+
 		ArrayAlg.Pair p = ArrayAlg.minmax(d);
 		System.out.println("min = " + p.getFirst());
 		System.out.println("max = " + p.getSecond());
 	}
-
 }
 
 class ArrayAlg {
 
 	public static class Pair {
+
 		private double first;
 		private double second;
 
@@ -33,7 +33,6 @@ class ArrayAlg {
 		public double getSecond() {
 			return second;
 		}
-
 	}
 
 	public static Pair minmax(double[] values) {
@@ -48,5 +47,4 @@ class ArrayAlg {
 		}
 		return new Pair(min, max);
 	}
-
 }
