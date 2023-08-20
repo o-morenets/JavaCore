@@ -12,5 +12,4 @@ public class ClassExample {
 		for (Employee e : staff)
 			System.out.println("name=" + e.getName() + ", id=" + e.getId() + ", salary=" + e.getSalary());
 	}
-
 }

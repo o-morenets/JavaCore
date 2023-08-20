@@ -6,22 +6,22 @@ package _03_operations._00_priority;
 public class OperationsPriority {
 
 	/*
-	 * left to right:
-	 * [], .()(method call)
-	 * !, ~, ++, --, +(unary), -(unary), ()(cast), new
-	 * *, /, %
-	 * +, -
-	 * <<, >>, >>>
-	 * <, <=, >, >=, instanceof
-	 * ==, !=
-	 * &
-	 * ^
-	 * |
-	 * &&
-	 * ||
-	 * 
-	 * right to left:
-	 * ?:
-	 * =, +=, -=, *=, /=, %=, ^=, <<=, >>=, >>>=
+	  left to right:
+	  [], .()(method call)
+	  !, ~, ++, --, +(unary), -(unary), ()(cast), new
+	  *, /, %
+	  +, -
+	  <<, >>, >>>
+	  <, <=, >, >=, instanceof
+	  ==, !=
+	  &
+	  ^
+	  |
+	  &&
+	  ||
+
+	  right to left:
+	  ?:
+	  =, +=, -=, *=, /=, %=, ^=, <<=, >>=, >>>=
 	 */
 }

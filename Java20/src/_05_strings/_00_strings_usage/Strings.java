@@ -2,7 +2,6 @@ package _05_strings._00_strings_usage;
 
 /**
  * Strings
- *
  * Created by Oleksii on 21.07.2017.
  */
 public class Strings {
@@ -13,7 +12,7 @@ public class Strings {
 		String empty = "";
 		String newString = new String(); // ""
 
-		char[] charArray = { 'h', 'e', 'l', 'l', 'o' };
+		char[] charArray = {'h', 'e', 'l', 'l', 'o'};
 		newString = new String(charArray);
 
 		String greeting = "Hello";
@@ -35,5 +34,4 @@ public class Strings {
 		// "someString".some_StringMethod()
 		System.out.println("".isEmpty());
 	}
-
 }

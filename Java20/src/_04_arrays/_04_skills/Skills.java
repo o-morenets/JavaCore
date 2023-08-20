@@ -20,7 +20,7 @@ public class Skills {
 			for (int j = 0; j < arr.length - i; j++) {
 				System.out.print(arr[i] + " ");
 			}
-			System.out.println("");
+			System.out.println();
 		}
 		System.out.println("--------------");
 
@@ -38,7 +38,7 @@ public class Skills {
 			for (int j = 0; j < arr.length - i; j++) {
 				System.out.print(arr[j] + " ");
 			}
-			System.out.println("");
+			System.out.println();
 		}
 		System.out.println("--------------");
 
@@ -56,8 +56,8 @@ public class Skills {
 			for (int j = i; j < arr.length; j++) {
 				System.out.print(arr[j] + " ");
 			}
-			System.out.println("");
+			System.out.println();
 		}
 		System.out.println("--------------");
-    }
+	}
 }

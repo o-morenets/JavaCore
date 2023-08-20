@@ -3,7 +3,6 @@ package _03_operations._02_bit._01_shift_left;
 public class MultByTwo {
 
 	public static void main(String[] args) {
-
 		int i;
 		int num = 0xffffffe; // 00001111 11111111 11111111 11111110
 		System.out.println("num = " + num); // 268435454

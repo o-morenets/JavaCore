@@ -4,13 +4,13 @@ public class Break {
 
 	public static void main(String[] args) {
 		int count = 10;
-		for (;;)
+		for (; ; )
 			if (--count == 5)
 				break;
 		System.out.println("count = " + count);
 
 		// break with label
-		int[][] arr = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+		int[][] arr = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
 		int i, j = -1;
 		label:
 		for (i = 0; i < arr.length; i++) {
@@ -22,5 +22,4 @@ public class Break {
 		}
 		System.out.println("Element 5 found at " + i + ";" + j);
 	}
-
 }

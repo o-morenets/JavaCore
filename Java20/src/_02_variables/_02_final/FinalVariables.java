@@ -5,17 +5,16 @@ package _02_variables._02_final;
  * Created by Oleksii on 20.07.2017.
  */
 public class FinalVariables {
-    public static final double PI = 3.14; // can be accessed from another class: double someVar = FinalVariables.PI;
+	public static final double PI = 3.14; // can be accessed from another class: double someVar = FinalVariables.PI;
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
+		final double area;
+		double radius = 5;
 
-        final double area;
-        double radius = 5;
-
-        area = PI * radius * radius; // 78.5
-        System.out.println(area);
+		area = PI * radius * radius; // 78.5
+		System.out.println(area);
 //        area ++; // area is final variable - can be initialized once
-    }
+	}
 }
 
 /**
@@ -24,9 +23,8 @@ public class FinalVariables {
  */
 class AnotherClass {
 
-    public static void main(String[] args) {
-
-        double someVar = FinalVariables.PI;
-        System.out.println(someVar); // 3.14
-    }
+	public static void main(String[] args) {
+		double someVar = FinalVariables.PI;
+		System.out.println(someVar); // 3.14
+	}
 }

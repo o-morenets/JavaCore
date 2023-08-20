@@ -5,17 +5,19 @@ import java.util.Random;
 public class Employee {
 
 	// instance variables
-	
+
 	private static int nextId;
-	
+
 	private final int id; // final variable must be initialized in constructor or init block
 	private String name;
 	private double salary;
 
 	// Constructors
-	
+
 	/**
 	 * Two-arguments constructor
+	 *
+	 * @param name
 	 * @param salary
 	 */
 	public Employee(String name, double salary) {
@@ -25,10 +27,11 @@ public class Employee {
 
 	/**
 	 * One-argument constructor
+	 *
 	 * @param salary
 	 */
 	public Employee(double salary) {
-		
+
 		/* Use two-arguments constructor */
 		this("Employee #" + nextId, salary);
 	}
@@ -50,14 +53,14 @@ public class Employee {
 		/* static variable may be initialized in static init block */
 		nextId = generator.nextInt(10_000);
 	}
-	
+
 	// init block
 	{
 		id = nextId++;
 	}
-	
+
 	// methods
-	
+
 	public String getName() {
 		return name;
 	}
@@ -69,5 +72,4 @@ public class Employee {
 	public int getId() {
 		return id;
 	}
-	
 }
