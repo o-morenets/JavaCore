@@ -11,6 +11,7 @@ import java.nio.file.Files;
 public class PathFileClassLoader extends ClassLoader {
 
 	public static final String NAME = "com.sergiomartinrubio.javaclassloader.TestClassFromPath";
+	// TestClassFromPath.class file can be found in project root directory
 
 	@Override
 	protected Class<?> findClass(String filePath) {
