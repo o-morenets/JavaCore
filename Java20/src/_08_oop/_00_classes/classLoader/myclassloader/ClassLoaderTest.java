@@ -3,6 +3,10 @@ package _08_oop._00_classes.classLoader.myclassloader;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+/**
+ * Writing You Own Class Loader
+ * https://sergiomartinrubio.com/articles/understanding-the-java-class-loader-starting-from-java-9/
+ */
 public class ClassLoaderTest {
 
 	public static void main(String[] args) throws NoSuchMethodException, InstantiationException, IllegalAccessException,

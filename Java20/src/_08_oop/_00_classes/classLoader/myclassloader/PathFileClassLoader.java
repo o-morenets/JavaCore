@@ -4,10 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 
-/**
- * Writing You Own Class Loader
- * https://sergiomartinrubio.com/articles/understanding-the-java-class-loader-starting-from-java-9/
- */
 public class PathFileClassLoader extends ClassLoader {
 
 	public static final String NAME = "com.sergiomartinrubio.javaclassloader.TestClassFromPath";
