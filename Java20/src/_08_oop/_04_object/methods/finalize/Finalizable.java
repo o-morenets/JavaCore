@@ -11,7 +11,7 @@ public class Finalizable {
     public Finalizable() {
         InputStream input = this.getClass()
                 .getClassLoader()
-                .getResourceAsStream("common_resources/file.txt");
+                .getResourceAsStream("file.txt");
         this.reader = new BufferedReader(new InputStreamReader(input));
     }
 

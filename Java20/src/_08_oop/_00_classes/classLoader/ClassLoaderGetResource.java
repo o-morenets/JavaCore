@@ -11,5 +11,8 @@ public class ClassLoaderGetResource {
 		// ClassLoader's getResource() uses absolute path starting from resources root:
 		URL resource = new ClassLoaderGetResource().getClass().getClassLoader().getResource("_08_oop/_00_classes/classLoader/file.txt");
 		System.out.println(resource);
+
+		resource = new ClassLoaderGetResource().getClass().getClassLoader().getResource("file.txt");
+		System.out.println(resource);
 	}
 }
