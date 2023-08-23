@@ -29,7 +29,7 @@ public class Manager extends Employee {
 
 	@Override
 	public int hashCode() {
-		return super.hashCode() + 17 * new Double(bonus).hashCode();
+		return super.hashCode() + 17 * Double.valueOf(bonus).hashCode();
 	}
 
 	@Override

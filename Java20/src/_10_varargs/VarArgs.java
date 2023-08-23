@@ -4,7 +4,7 @@ public class VarArgs {
 
 	public static void main(String[] args) {
 		int n = 5;
-		System.out.printf("%d %s", new Object[]{new Integer(n), "widgets"});
+		System.out.printf("%d %s", new Object[]{Integer.valueOf(n), "widgets"});
 		System.out.println();
 		System.out.println("max = " + max(234, 465, 123, 798, 234, 75));
 	}
