@@ -12,7 +12,7 @@ public class Employee {
 	public Employee(String name, double salary, int year, int month, int day) {
 		this.name = name;
 		this.salary = salary;
-		hireDay = LocalDate.of(year, month, day);
+		this.hireDay = LocalDate.of(year, month, day);
 	}
 
 	public String getName() {
@@ -45,7 +45,7 @@ public class Employee {
 
 		Employee other = (Employee) otherObject;
 
-		return Objects.equals(name, other.name) && salary == other.salary && Objects.equals(hireDay, other.hireDay);
+		return Objects.equals(name, other.name) && Objects.equals(salary, other.salary) && Objects.equals(hireDay, other.hireDay);
 	}
 
 	@Override
