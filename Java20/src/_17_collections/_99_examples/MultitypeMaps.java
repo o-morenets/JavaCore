@@ -1,4 +1,4 @@
-package _17_collections._99_multitype_maps;
+package _17_collections._99_examples;
 
 import java.util.Deque;
 import java.util.Set;
