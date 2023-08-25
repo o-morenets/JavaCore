@@ -33,7 +33,7 @@ public class Integers {
 		// hexadecimal
 		byteHex = -0x80;
 		System.out.println(byteHex);
-		byteHex = 0X7f;
+		byteHex = 0x7f;
 		System.out.println(byteHex);
 
 		System.out.println("Range of byte: " + Byte.MIN_VALUE + ".." + Byte.MAX_VALUE);
