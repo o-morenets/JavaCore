@@ -14,6 +14,6 @@ public class Elvis {
 	}
 
 	public static void main(String[] args) {
-		System.out.println("Elvis wears a size " + INSTANCE.beltSize() + " belt."); // -1980
+		System.out.println("Elvis wears a size " + INSTANCE.beltSize() + " belt."); // -1930
 	}
 }
