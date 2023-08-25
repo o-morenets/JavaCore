@@ -1,3 +1,5 @@
+package strungout;
+
 public class StrungOut {
 	public static void main(String[] args) { // Wrong signature of main method, because uses OUR own class String
 		String s = new String("Hello world");
