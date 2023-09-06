@@ -1,5 +1,9 @@
 package _16_generics._02_extends;
 
+import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.List;
+
 class Stats<T extends Number> {
 
 	T[] nums;
@@ -35,5 +39,34 @@ public class BoundsExtendsDemo {
 //		Stats<String> sOb = new Stats<>(sNums);
 //		double x = sOb.average();
 //		System.out.println("Average of dOb = " + x);
+
+		Manager[] managers = {new Manager(), new Executive()};
+		printManagers(Arrays.stream(managers).toList());
+	}
+
+	private static void printManagers(List<? extends Employee> managers) {
+//		for (Manager p : managers) { // can not use Manager, should use only bounded value, e.g. Employee
+		for (Employee p : managers) {
+			System.out.println(p);
+		}
+	}
+
+	static class Employee {
+
+		private String name;
+		private double salary;
+		private LocalDate hireDay;
+	}
+
+	static class Manager extends Employee {
+
+		private double bonus; // new instance variable
+
+		public double getBonus() {
+			return bonus;
+		}
+	}
+
+	static class Executive extends Manager {
 	}
 }
