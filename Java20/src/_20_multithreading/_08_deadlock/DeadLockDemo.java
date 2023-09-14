@@ -10,14 +10,14 @@ public class DeadLockDemo implements Runnable {
 		Thread t = new Thread(this, "Concurrent thread");
 		t.start();
 
-		a.foo(b);
+		a.foo(b); // get the Monitor for 'a' object in current thread
 
 		System.out.println("Back to main");
 	}
 
 	@Override
 	public void run() {
-		b.bar(a);
+		b.bar(a); // get the Monitor for 'b' object in current thread
 		System.out.println("Back to other thread");
 	}
 
