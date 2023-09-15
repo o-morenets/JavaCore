@@ -12,10 +12,6 @@ public class FunctionalInterfacesDemo {
 
 	/**
 	 * {@link Predicate}
-	 *
-	 * @param condition
-	 * @param testValue
-	 * @return
 	 */
 	private static boolean checkCondition(Predicate<Integer> condition, int testValue) {
 		return condition.test(testValue);
@@ -23,11 +19,6 @@ public class FunctionalInterfacesDemo {
 
 	/**
 	 * {@link BinaryOperator}
-	 *
-	 * @param op
-	 * @param t1
-	 * @param t2
-	 * @return
 	 */
 	private static double biOperation(BinaryOperator<Double> op, double t1, double t2) {
 		return op.apply(t1, t2);
@@ -35,10 +26,6 @@ public class FunctionalInterfacesDemo {
 
 	/**
 	 * {@link UnaryOperator}
-	 *
-	 * @param op
-	 * @param t
-	 * @return
 	 */
 	private static float unOperation(UnaryOperator<Float> op, float t) {
 		return op.apply(t);
@@ -46,10 +33,6 @@ public class FunctionalInterfacesDemo {
 
 	/**
 	 * {@link Function}
-	 *
-	 * @param function
-	 * @param s
-	 * @return
 	 */
 	private static int cast(Function<String, Integer> function, String s) {
 		return function.apply(s);
@@ -57,8 +40,6 @@ public class FunctionalInterfacesDemo {
 
 	/**
 	 * {@link Consumer}
-	 *
-	 * @param consumer
 	 */
 	private static void doSmth(Consumer<Integer> consumer, int i) {
 		consumer.accept(i);
@@ -66,9 +47,6 @@ public class FunctionalInterfacesDemo {
 
 	/**
 	 * {@link Supplier}
-	 *
-	 * @param stringSupplier
-	 * @return
 	 */
 	private static String getEnteredText(Supplier<String> stringSupplier) {
 		return stringSupplier.get();
@@ -76,8 +54,6 @@ public class FunctionalInterfacesDemo {
 
 	/**
 	 * Demo
-	 *
-	 * @param args
 	 */
 	public static void main(String[] args) {
 
