@@ -1,5 +1,7 @@
 package _20_multithreading._08_deadlock;
 
+import java.util.concurrent.TimeUnit;
+
 public class DeadLock {
 
 	private static final Object o1 = new Object();
@@ -7,10 +9,10 @@ public class DeadLock {
 
 	public static void main(String[] args) {
 
-		new Thread(() -> {
+		Thread t1 = new Thread(() -> {
 			synchronized (o1) {
 				try {
-					Thread.sleep(1);
+					Thread.sleep(100);
 				} catch (InterruptedException e) {
 					throw new RuntimeException(e);
 				}
@@ -18,14 +20,28 @@ public class DeadLock {
 					System.out.println(Thread.currentThread().getName());
 				}
 			}
-		}, "Thread 1").start();
+		}, "Thread 1");
+		t1.start();
+		System.out.println(t1.getName() + ": " + t1.getState());
 
-		new Thread(() -> {
+		Thread t2 = new Thread(() -> {
 			synchronized (o2) {
 				synchronized (o1) {
 					System.out.println(Thread.currentThread().getName());
 				}
 			}
-		}, "Thread 2").start();
+		}, "Thread 2");
+		t2.start();
+		System.out.println(t2.getName() + ": " + t2.getState());
+
+		while (true) {
+			try {
+				TimeUnit.SECONDS.sleep(1);
+			} catch (InterruptedException e) {
+				throw new RuntimeException(e);
+			}
+			System.out.println(t1.getName() + ": " + t1.getState());
+			System.out.println(t2.getName() + ": " + t2.getState());
+		}
 	}
 }
