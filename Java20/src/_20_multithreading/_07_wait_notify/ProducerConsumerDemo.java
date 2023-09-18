@@ -1,5 +1,7 @@
 package _20_multithreading._07_wait_notify;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 class Q {
 
 	int number;
@@ -8,7 +10,7 @@ class Q {
 	synchronized void put(int n) {
 		while (isValueSet) {
 			try {
-				System.out.println("put waits...");
+				System.out.println("Producer waits...");
 				wait();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
@@ -16,7 +18,7 @@ class Q {
 		}
 
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(ThreadLocalRandom.current().nextInt(1000, 5000));
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -30,7 +32,7 @@ class Q {
 	synchronized int get() {
 		while (!isValueSet) {
 			try {
-				System.out.println("get waits...");
+				System.out.println("Consumer waits...");
 				wait();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
@@ -38,7 +40,7 @@ class Q {
 		}
 
 		try {
-			Thread.sleep(100);
+			Thread.sleep(ThreadLocalRandom.current().nextInt(1000, 5000));
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
