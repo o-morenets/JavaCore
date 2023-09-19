@@ -1,4 +1,4 @@
-package _20_multithreading.runnablevscallable.runnable;
+package _20_multithreading._19_runnablevscallable.runnable;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
