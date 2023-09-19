@@ -1,9 +1,9 @@
-package _20_multithreading._20_threadpool;
+package _20_multithreading._20_executorservice;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class Pool {
+public class CachedThreadPool {
 
 	public static void main(String[] args) {
 		ExecutorService executor = Executors.newCachedThreadPool();
