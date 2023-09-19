@@ -29,10 +29,9 @@ public class FactorialTask implements Callable<Integer> {
 	}
 
 	public static void main(String[] args) throws ExecutionException, InterruptedException {
-		Future<Integer> future;
 		try (ExecutorService executorService = Executors.newSingleThreadExecutor()) {
 			FactorialTask task = new FactorialTask(5); // try to pass negative value here
-			future = executorService.submit(task);
+			Future<Integer> future = executorService.submit(task);
 			Integer result = future.get();
 			System.out.println(result);
 		} catch (Exception ex) {
