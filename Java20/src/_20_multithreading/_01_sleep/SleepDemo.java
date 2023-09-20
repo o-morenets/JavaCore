@@ -6,8 +6,8 @@ package _20_multithreading._01_sleep;
 public class SleepDemo implements Runnable {
 
 	private static int numbers;
-	private int seconds;
-	private int number;
+	private final int seconds;
+	private final int number;
 
 	public SleepDemo(int seconds) {
 		this.seconds = seconds;
@@ -16,19 +16,6 @@ public class SleepDemo implements Runnable {
 
 	public static int setNumber() {
 		return ++numbers;
-	}
-
-	@Override
-	public void run() {
-		try {
-			for (int i = 0; i < this.seconds; i++) {
-				Thread.sleep(1000);
-				System.out.println("Идет секунда: " + i
-						+ " выполнения потока под номером " + this.number);
-			}
-		} catch (InterruptedException e) {
-			System.out.println("Проблемы с потоком!");
-		}
 	}
 
 	public static void main(String[] args) {
@@ -42,5 +29,19 @@ public class SleepDemo implements Runnable {
 		}
 
 		new Thread(new SleepDemo(10)).start();
+
+		System.out.println("Main thread has finished.");
+	}
+
+	@Override
+	public void run() {
+		try {
+			for (int i = 0; i < this.seconds; i++) {
+				Thread.sleep(1000);
+				System.out.println("Second #" + i + " of executing thread nr. " + this.number);
+			}
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
 	}
 }
