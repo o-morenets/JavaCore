@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class FileIODemo {
 
-	public static void main(String args[]) throws IOException {
+	public static void main(String[] args) throws IOException {
 
 		// 1. FileInputStream / FileOutputStream
 
