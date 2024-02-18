@@ -9,7 +9,7 @@ public class ExternalizableTest {
 	public static void main(String[] args) {
 		Country c = new Country();
 		c.setCode(374);
-		c.setName("Armenia");
+		c.setName("Swiss");
 
 		try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(OUTPUT_FILE))) {
 			c.writeExternal(objectOutputStream);

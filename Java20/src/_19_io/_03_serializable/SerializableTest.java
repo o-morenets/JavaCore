@@ -8,21 +8,22 @@ import java.util.LinkedList;
 
 public class SerializableTest {
 
+	public static final String FILE_USER_SER = "User.ser";
+
 	public static void main(String[] args) {
 		// Object streams (object must implement Serializable)
 		ArrayList<User> userArrayList = new ArrayList<>();
 		LinkedList<User> userLinkedList = new LinkedList<>();
 
-		try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("User.ser"))) {
-			userArrayList.add(new User("Петя", 25));
-			userArrayList.add(new User("Коля", 34));
-			userArrayList.add(new User("Николай", 53));
+		try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_USER_SER))) {
+			userArrayList.add(new User("Petro", 25));
+			userArrayList.add(new User("Mykola", 34));
+			userArrayList.add(new User("Lesya", 53));
 
-			userLinkedList.add(new User("Женя", 42));
-			userLinkedList.add(new User("Александр", 21));
+			userLinkedList.add(new User("Eugen", 42));
+			userLinkedList.add(new User("Oleksandr", 21));
 
 			// write objects one after another
-
 			for (User user : userArrayList) {
 				oos.writeObject(user);
 			}
@@ -36,12 +37,12 @@ public class SerializableTest {
 			}
 
 			// Add some data to ArrayList
-			userArrayList.add(new User("+ Маша", 11));
-			userArrayList.add(new User("+ Саша", 24));
+			userArrayList.add(new User("+ Mariya", 11));
+			userArrayList.add(new User("+ Anna", 24));
 			System.out.println(userArrayList);
 
 			// Add some data to LinkedList
-			userLinkedList.add(new User("+ Александр", 21));
+			userLinkedList.add(new User("+ Oleksandr", 21));
 			System.out.println(userLinkedList);
 
 			// now ArrayList contains 3 + 2 = 5 elements
@@ -51,7 +52,7 @@ public class SerializableTest {
 			oos.writeUnshared(userLinkedList); // LinkedList - writeUnshared !!!
 
 			oos.flush();
-			System.out.println("Объекты сохранены");
+			System.out.println("Objects saved.");
 
 		} catch (FileNotFoundException e) {
 			System.out.println(e);
@@ -59,8 +60,8 @@ public class SerializableTest {
 			throw new RuntimeException(e);
 		}
 
-		System.out.println("Читаем объекты...");
-		try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("User.ser"))) {
+		System.out.println("Reading objects...");
+		try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(FILE_USER_SER))) {
 
 			// read objects one after another
 			// IOException will occur when nothing to read
@@ -88,7 +89,7 @@ public class SerializableTest {
 			LinkedList<User> u3in = (LinkedList<User>) ois.readObject(); // LinkedList with added elements
 			System.out.println(u3in);
 
-			System.out.println("Объекты восстановлены");
+			System.out.println("Objects restored.");
 
 		} catch (FileNotFoundException fNFex) {
 			System.out.println("FNF Error!");
