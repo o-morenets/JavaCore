@@ -2,9 +2,8 @@ package _18_stream_api._99_samples;
 
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
@@ -43,7 +42,7 @@ public class JavaLab {
 	}
 
 	/**
-	 * Given and collection = Arrays.asList ("1, 2, 0", "4, 5")
+	 * Given a collection = Arrays.asList ("1, 2, 0", "4, 5")
 	 * From the collection get all the numbers listed, separated by commas from all the elements
 	 */
 	@Test
@@ -102,6 +101,30 @@ public class JavaLab {
 	public void parseString() {
 		Arrays.stream("ssdfgdf ojihoih uytutyr sd vnmbvmn tr kif uyrtutyr hgjhsgdfkjghsdfjhg j jhgs sd".split("\\s+"))
 				.filter(s -> s.length() < 5)
+				.distinct()
+				.forEach(System.out::println);
+	}
+
+	@Test
+	public void findDuplicates() {
+		ArrayList<Integer> list = new ArrayList<>(Arrays.asList(42, 37, 31, 36, 37, 74, 42, 68));
+
+		System.out.println("------------------- Using Set -------------------");
+		HashSet<Object> hashSet = new HashSet<>();
+		list.stream().filter(e -> !hashSet.add(e)).forEach(System.out::println);
+
+		System.out.println("------------------- Using Grouping -------------------");
+		list.stream()
+				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+				.entrySet()
+				.stream()
+				.filter(e -> e.getValue() > 1)
+				.map(Map.Entry::getKey)
+				.forEach(System.out::println);
+
+		System.out.println("------------------- Using Collections.frequency -------------------");
+		list.stream()
+				.filter(e -> Collections.frequency(list, e) > 1)
 				.distinct()
 				.forEach(System.out::println);
 	}
