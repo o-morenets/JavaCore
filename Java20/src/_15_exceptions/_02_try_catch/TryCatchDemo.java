@@ -7,7 +7,7 @@ public class TryCatchDemo {
 
 		try {
 			x = 1 / 0;
-			System.out.println("x = " + x); // This will never printed
+			System.out.println("x = " + x); // This will never be printed
 		} catch (ArithmeticException e) {
 			System.out.println(e.getMessage());
 		}
