@@ -8,7 +8,8 @@ public class AccessToList {
 
 	public static void main(String[] args) throws InterruptedException {
 		final List<String> myList = new ArrayList<>();
-		Thread thread = getThread(myList);
+		Thread threadHello = getThread(myList, "HELLO");
+		Thread threadHi = getThread(myList, "hi");
 
 		try {
 			TimeUnit.SECONDS.sleep(1);
@@ -17,21 +18,22 @@ public class AccessToList {
 		}
 
 		System.out.println("Adding Goodbye...");
-		myList.add("Goodbye"); // we CAN access nd modify myList from other Thread
+		myList.add("Goodbye"); // we CAN access and modify myList from other Thread which DOESN'T acquire monitor on it
 		System.out.println("Goodbye added.");
 
-		thread.join();
+		threadHello.join();
+		threadHi.join();
 
-		System.out.println(myList); // [Hello, Goodbye] - "Goodbye" was added
+		System.out.println(myList); // [Hello, Goodbye, hi] - "Goodbye" was added, but "hi" was added when first thread ended
 	}
 
-	private static Thread getThread(List<String> myList) {
+	private static Thread getThread(List<String> myList, String element) {
 		Thread thread = new Thread(() -> {
 			System.out.println("Thread " + Thread.currentThread().getName() + ": " + Thread.currentThread().getState());
 			synchronized (myList) {
-				System.out.println("Adding Hello...");
-				myList.add("Hello");
-				System.out.println("Hello added.");
+				System.out.printf("Adding '%s'...%n", element);
+				myList.add(element);
+				System.out.printf("'%s' added.%n", element);
 				try {
 					TimeUnit.SECONDS.sleep(3);
 				} catch (InterruptedException e) {
