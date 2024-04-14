@@ -40,7 +40,7 @@ class Q {
 		}
 
 		try {
-			Thread.sleep(ThreadLocalRandom.current().nextInt(1000, 5000));
+			Thread.sleep(ThreadLocalRandom.current().nextInt(500, 3000));
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
