@@ -1,13 +1,14 @@
 package _18_stream_api._00_stream_api.matchers;
 
+import java.util.function.Consumer;
 import java.util.stream.IntStream;
 
 public class NoneMatch {
 
-	void printPrimesInRange(int from, int to) {
+	void printPrimesInRange(int from, int to, Consumer<Integer> consumer) {
 		IntStream.range(from, to)
 				.filter(this::isPrime)
-				.forEach(System.out::println);
+				.forEach(consumer::accept);
 	}
 
 	boolean isPrime(int n) {
@@ -15,6 +16,6 @@ public class NoneMatch {
 	}
 
 	public static void main(String[] args) {
-		new NoneMatch().printPrimesInRange(200, 1000);
+		new NoneMatch().printPrimesInRange(200, 1000, System.out::println);
 	}
 }
