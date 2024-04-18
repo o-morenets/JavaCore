@@ -19,23 +19,23 @@ public class CollectAndToArrayTests {
 		Collection<Integer> numbers = Arrays.asList(1, 2, 3, 4);
 
 		// Get sum of all odd numbers
-		long sumOdd = numbers.stream().collect(Collectors.summingInt(((p) -> p % 2 == 1 ? p : 0)));
+		long sumOdd = numbers.stream().collect(Collectors.summingInt(p -> p % 2 == 1 ? p : 0));
 		System.out.println("sumOdd = " + sumOdd); // print  sumEven = 4
 
 		// Subtract 1 to every element and get average
-		double average = numbers.stream().collect(Collectors.averagingInt((p) -> p - 1));
+		double average = numbers.stream().collect(Collectors.averagingInt(p -> p - 1));
 		System.out.println("average = " + average); // print  average = 1.5
 
 		// Add 3 to every element and get statisics
-		IntSummaryStatistics statistics = numbers.stream().collect(Collectors.summarizingInt((p) -> p + 3));
+		IntSummaryStatistics statistics = numbers.stream().collect(Collectors.summarizingInt(p -> p + 3));
 		System.out.println("statistics = " + statistics); // print  statistics = IntSummaryStatistics{count=4, sum=22, min=4, average=5.500000, max=7}
 
 		// Get sum all even number using IntSummaryStatistics
-		long sumEven = numbers.stream().collect(Collectors.summarizingInt((p) -> p % 2 == 0 ? p : 0)).getSum();
+		long sumEven = numbers.stream().collect(Collectors.summarizingInt(p -> p % 2 == 0 ? p : 0)).getSum();
 		System.out.println("sumEven = " + sumEven); // print  sumEven = 6
 
 		// Split all number to odd and even
-		Map<Boolean, List<Integer>> parts = numbers.stream().collect(Collectors.partitioningBy((p) -> p % 2 == 0));
+		Map<Boolean, List<Integer>> parts = numbers.stream().collect(Collectors.partitioningBy(p -> p % 2 == 0));
 		System.out.println("parts = " + parts); // print  parts = {false=[1, 3], true=[2, 4]}
 
 		// ******** Work with strings
@@ -54,16 +54,17 @@ public class CollectAndToArrayTests {
 		System.out.println("join = " + join); // print  <b> a1 : b2 : c3 : a1 </b>
 
 		// Transform to map, when first char is key, second char - value
-		Map<String, String> map = strings.stream().distinct().collect(Collectors.toMap((p) -> p.substring(0, 1), (p) -> p.substring(1, 2)));
+		Map<String, String> map = strings.stream().distinct().collect(Collectors.toMap(p -> p.substring(0, 1), p -> p.substring(1, 2)));
 		System.out.println("map = " + map); // print  map = {a=1, b=2, c=3}
 
 		// Transform to map, with grouping by first char
-		Map<String, List<String>> groups = strings.stream().collect(Collectors.groupingBy((p) -> p.substring(0, 1)));
+		Map<String, List<String>> groups = strings.stream().collect(Collectors.groupingBy(p -> p.substring(0, 1)));
 		System.out.println("groups = " + groups); // print  groups = {a=[a1, a1], b=[b2], c=[c3]}
 
 		// Transform to map, with grouping by first char and value is join second chars
-		Map<String, String> groupJoin = strings.stream().collect(Collectors.groupingBy((p) -> p.substring(0, 1), Collectors.mapping((p) -> p.substring(1, 2), Collectors.joining(":"))));
-		System.out.println("groupJoin = " + groupJoin); // print  groupJoin = groupJoin = {a=1/1, b=2, c=3}
+		Map<String, String> groupJoin = strings.stream()
+				.collect(Collectors.groupingBy(p -> p.substring(0, 1), Collectors.mapping(p -> p.substring(1, 2), Collectors.joining(":"))));
+		System.out.println("groupJoin = " + groupJoin); // print  groupJoin = groupJoin = {a=1:1, b=2, c=3}
 
 		// Create custom Collector, that join string using StringBuilder
 		Collector<String, StringBuilder, String> stringBuilderCollector = Collector.of(
