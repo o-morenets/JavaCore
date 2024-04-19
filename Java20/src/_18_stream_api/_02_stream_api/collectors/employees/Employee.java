@@ -1,4 +1,4 @@
-package _18_stream_api._00_stream_api.collectors.employees;
+package _18_stream_api._02_stream_api.collectors.employees;
 
 public class Employee {
 

@@ -1,4 +1,4 @@
-package _18_stream_api._01_java7_vs_java8;
+package _18_stream_api._02_stream_api.java7_vs_java8;
 
 import java.util.*;
 import java.util.stream.Collectors;

@@ -1,4 +1,4 @@
-package _18_stream_api._00_stream_api.matchers;
+package _18_stream_api._02_stream_api.matchers;
 
 import java.util.function.Consumer;
 import java.util.stream.IntStream;
