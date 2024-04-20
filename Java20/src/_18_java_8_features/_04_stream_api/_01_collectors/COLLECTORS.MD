@@ -59,7 +59,7 @@
 * teeing
   * public static <T, R1, R2, R> Collector<T, ?, R> `teeing`(Collector<? super T, ?, R1> downstream1, Collector<? super T, ?, R2> downstream2, BiFunction<? super R1, ? super R2, R> merger)
 
-### Aggregation
+#### Aggregation
 * averaging
   * public static <T> Collector<T, ?, Double> `averagingDouble`(ToDoubleFunction<? super T> mapper)
   * public static <T> Collector<T, ?, Double> `averagingInt`(ToIntFunction<? super T> mapper)
