@@ -26,7 +26,9 @@ public class Main {
         System.out.println(encoded);
         System.out.println(decoded);
 
-        ArrayList<Integer> integerArrayList = new ArrayList<>();
-        new ArrayList<>(integerArrayList);
+        encoded = encode(s.getBytes());
+        decoded = new String(decode(encoded));
+        System.out.println(encoded);
+        System.out.println(decoded);
     }
 }
