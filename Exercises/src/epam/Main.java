@@ -1,4 +1,4 @@
-package stackOverflow.customersJava8;
+package epam;
 
 public class Main {
 
