@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.Arrays;
 
 public class Main {
@@ -18,7 +19,12 @@ public class Main {
 
     void readFile() throws IOException
     {
-        File file = new File("text.txt");
+        File file = null;
+        try {
+            file = new File(getClass().getClassLoader().getResource("text.txt").toURI());
+        } catch (URISyntaxException e) {
+            throw new RuntimeException(e);
+        }
         try (FileReader fr = new FileReader(file);
              BufferedReader reader = new BufferedReader(fr))
         {
