@@ -48,6 +48,6 @@ public class SecondMinimalElement {
     }
 
     private static int findSecondMinimalJava8(int[] nums) {
-        return Arrays.stream(nums).distinct().sorted().skip(1).findFirst().orElseThrow();
+        return Arrays.stream(nums).distinct().sorted().skip(1).findFirst().orElseThrow(NoSuchElementException::new);
     }
 }

@@ -32,9 +32,9 @@ public class SimpleHash {
         int currentNumber = number;
         while (currentNumber != 0) {
             int lastDigit = currentNumber % 10;
-            digits.push(lastDigit);
+            digits.addFirst(lastDigit);
             currentNumber /= 10;
         }
-        return digits.reversed().toArray(new Integer[0]);
+        return digits.toArray(new Integer[0]);
     }
 }
