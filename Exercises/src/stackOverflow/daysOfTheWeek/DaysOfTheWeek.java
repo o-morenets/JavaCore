@@ -2,25 +2,29 @@
 package stackOverflow.daysOfTheWeek;
 
 import java.text.DateFormatSymbols;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Locale;
 
 public class DaysOfTheWeek {
+
     public static void main(String argv[]) {
         Locale usersLocale = new Locale("uk");
 
         DateFormatSymbols dfs = new DateFormatSymbols(usersLocale);
-        String weekdays[] = dfs.getWeekdays();
+        String[] weekdays = dfs.getWeekdays();
 
         Calendar cal = Calendar.getInstance(usersLocale);
 
         int firstDayOfWeek = cal.getFirstDayOfWeek();
-        int dayOfWeek;
+        System.out.println("firstDayOfWeek = " + firstDayOfWeek);
+        System.out.println(Arrays.toString(weekdays));
 
-        for (dayOfWeek = firstDayOfWeek; dayOfWeek < weekdays.length; dayOfWeek++)
-            System.out.println(weekdays[dayOfWeek]);
-
-        for (dayOfWeek = 0; dayOfWeek < firstDayOfWeek; dayOfWeek++)
-            System.out.println(weekdays[dayOfWeek]);
+        for (int dayOfWeek = 0; dayOfWeek < weekdays.length; dayOfWeek++) {
+            String weekday = weekdays[(firstDayOfWeek + dayOfWeek) % weekdays.length];
+            if (!weekday.isEmpty()) {
+                System.out.println(weekday);
+            }
+        }
     }
 }
