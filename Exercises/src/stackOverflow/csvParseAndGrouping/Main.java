@@ -2,18 +2,21 @@
 package stackOverflow.csvParseAndGrouping;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.stream.Stream;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
-        Stream<String> lines = Files.lines(Paths.get("test - test.csv")).skip(1);
+    public static void main(String[] args) throws IOException, URISyntaxException {
+        Stream<String> lines = Files.lines(Paths.get(Main.class.getClassLoader()
+                .getResource("test - test.csv").toURI())).skip(1);
         Map<String, Map<LocalDate, Integer>> map = groupByNameAndDate(lines);
 
         // print
@@ -33,7 +36,7 @@ public class Main {
             if (localDateIntegerMap == null) {
                 localDateIntegerMap = new TreeMap<>();
             }
-            LocalDate date = LocalDate.parse(parsedParts[1], DateTimeFormatter.ofPattern("MMM dd yyyy"));
+            LocalDate date = LocalDate.parse(parsedParts[1], DateTimeFormatter.ofPattern("MMM dd yyyy", Locale.ENGLISH));
             Integer numOfPatients = localDateIntegerMap.get(date);
             if (numOfPatients == null) {
                 numOfPatients = 0;
