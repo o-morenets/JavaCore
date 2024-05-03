@@ -28,7 +28,7 @@ public class ReorderExample {
 
 	public void method2() {
 		if (flg) {
-			//2 might be printed out on some JVM/machines
+			// 2 might be printed out on some JVM/machines
 			System.out.println("a = " + a);
 		}
 	}

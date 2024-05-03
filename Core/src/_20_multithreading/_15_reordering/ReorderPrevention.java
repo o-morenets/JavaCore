@@ -1,5 +1,8 @@
 package _20_multithreading._15_reordering;
 
+/**
+ * Prevent reordering
+ */
 public class ReorderPrevention {
 	private int a = 2;
 	private boolean flg = false;
