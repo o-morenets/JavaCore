@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class ReaderWriterSwingWithVolatileExample {
+
 	static /*volatile*/ int c;
 
 	public static void main(String[] args) {
@@ -19,17 +20,7 @@ public class ReaderWriterSwingWithVolatileExample {
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 
-		Thread thread1 = new Thread(() -> {
-			int temp = 0;
-			while (true) {
-				if (temp != c) {
-					temp = c;
-					readerProgressUi.update(temp);
-				}
-			}
-		});
-
-		Thread thread2 = new Thread(() -> {
+		Thread writerThread = new Thread(() -> {
 			for (int i = 1; i <= 100; i++) {
 				c++;
 				writerProgressUi.update(c);
@@ -46,8 +37,19 @@ public class ReaderWriterSwingWithVolatileExample {
 			}
 		});
 
-		thread1.start();
-		thread2.start();
+		Thread readerThread = new Thread(() -> {
+			int temp = 0;
+			while (true) {
+				if (temp != c) {
+					temp = c;
+					readerProgressUi.update(temp);
+				}
+			}
+		});
+
+
+		writerThread.start();
+		readerThread.start();
 	}
 
 	private static JFrame createFrame() {
