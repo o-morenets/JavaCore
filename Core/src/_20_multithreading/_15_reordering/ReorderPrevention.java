@@ -10,12 +10,8 @@ public class ReorderPrevention {
 	public static void main(String[] args) {
 		for (int i = 0; i < 100; i++) {
 			ReorderPrevention reorderExample = new ReorderPrevention();
-			Thread thread1 = new Thread(() -> {
-				reorderExample.method1();
-			});
-			Thread thread2 = new Thread(() -> {
-				reorderExample.method2();
-			});
+			Thread thread1 = new Thread(reorderExample::method1);
+			Thread thread2 = new Thread(reorderExample::method2);
 			thread1.start();
 			thread2.start();
 		}
