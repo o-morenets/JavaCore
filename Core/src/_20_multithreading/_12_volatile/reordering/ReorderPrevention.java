@@ -1,14 +1,15 @@
-package _20_multithreading._15_reordering;
+package _20_multithreading._12_volatile.reordering;
 
 /**
- * Prevent reordering
+ * Prevent reordering using volatile
  */
 public class ReorderPrevention {
-	private int a = 2;
+	private volatile int a = 2;
 	private boolean flg = false;
 
 	public static void main(String[] args) {
 		for (int i = 0; i < 100; i++) {
+			System.out.println("i = " + i);
 			ReorderPrevention reorderExample = new ReorderPrevention();
 			Thread thread1 = new Thread(reorderExample::method1);
 			Thread thread2 = new Thread(reorderExample::method2);
@@ -17,14 +18,14 @@ public class ReorderPrevention {
 		}
 	}
 
-	public synchronized void method1() {
+	public void method1() {
 		a = 1;
 		flg = true;
 	}
 
-	public synchronized void method2() {
+	public void method2() {
 		if (flg) {
-			System.out.println("a = " + a);
+			System.out.println("\ta = " + a);
 		}
 	}
 }

@@ -1,4 +1,4 @@
-package _20_multithreading._16_visibility_volatile;
+package _20_multithreading._12_volatile.visibility;
 
 import javax.swing.*;
 import java.awt.*;
@@ -46,7 +46,6 @@ public class ReaderWriterSwingWithVolatileExample {
 				}
 			}
 		});
-
 
 		writerThread.start();
 		readerThread.start();

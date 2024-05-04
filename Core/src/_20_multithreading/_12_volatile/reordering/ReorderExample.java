@@ -1,4 +1,4 @@
-package _20_multithreading._15_reordering;
+package _20_multithreading._12_volatile.reordering;
 
 /**
  * Without any reordering prevention
@@ -9,6 +9,7 @@ public class ReorderExample {
 
 	public static void main(String[] args) {
 		for (int i = 0; i < 100; i++) {
+			System.out.println("i = " + i);
 			ReorderExample reorderExample = new ReorderExample();
 			Thread thread1 = new Thread(reorderExample::method1);
 			Thread thread2 = new Thread(reorderExample::method2);
@@ -25,7 +26,7 @@ public class ReorderExample {
 	public void method2() {
 		if (flg) {
 			// 2 might be printed out on some JVM/machines
-			System.out.println("a = " + a);
+			System.out.println("\ta = " + a);
 		}
 	}
 }
