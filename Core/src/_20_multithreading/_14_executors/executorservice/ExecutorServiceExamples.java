@@ -1,6 +1,5 @@
-package _20_multithreading._20_executorservice;
+package _20_multithreading._14_executors.executorservice;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
 import java.util.stream.Collectors;
