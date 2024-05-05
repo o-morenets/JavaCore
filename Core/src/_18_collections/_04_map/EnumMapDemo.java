@@ -1,6 +1,6 @@
 package _18_collections._04_map;
 
-public class EnumMap {
+public class EnumMapDemo {
 
     enum WeekDays {
         MONDAY,
