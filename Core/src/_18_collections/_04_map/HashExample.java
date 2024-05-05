@@ -1,4 +1,4 @@
-package _18_collections._04_hashmap;
+package _18_collections._04_map;
 
 import java.util.HashMap;
 import java.util.Map;
