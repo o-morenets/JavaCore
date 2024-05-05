@@ -10,13 +10,15 @@ public class Sort {
 
 	// Bubble Sort
 	public void bubbleSort(int[] arr) {
-		for (int i = 0; i < arr.length; i++)
-			for (int j = arr.length - 1; j > i; j--)
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = arr.length - 1; j > i; j--) {
 				if (arr[j] < arr[j - 1]) {
 					int tmp = arr[j];
 					arr[j] = arr[j - 1];
 					arr[j - 1] = tmp;
 				}
+			}
+		}
 	}
 
 	// Bubble Sort (optimized)
@@ -70,9 +72,9 @@ public class Sort {
 	void gnomeSort(int[] arr) {
 		int i = 1;
 		while (i < arr.length) {
-			if (i == 0 || arr[i - 1] <= arr[i])
+			if (i == 0 || arr[i - 1] <= arr[i]) {
 				i++;
-			else {
+			} else {
 				int temp = arr[i];
 				arr[i] = arr[i - 1];
 				arr[i - 1] = temp;
@@ -85,15 +87,17 @@ public class Sort {
 	 * Bogo sort
 	 */
 	public void bogoSort(int[] arr) {
-		while (!isInOrder(arr))
+		while (!isInOrder(arr)) {
 			shuffle(arr);
+		}
 	}
 
 	private boolean isInOrder(int[] arr) {
 		int length = arr.length - 1;
 		for (int i = 0; i < length; i++) {
-			if (arr[i] > arr[i + 1])
+			if (arr[i] > arr[i + 1]) {
 				return false;
+			}
 		}
 		return true;
 	}
@@ -123,10 +127,12 @@ public class Sort {
 		int j = right;
 		int x = array[left + rand.nextInt(right - left + 1)];
 		while (i <= j) {
-			while (array[i] < x)
+			while (array[i] < x) {
 				i++;
-			while (array[j] > x)
+			}
+			while (array[j] > x) {
 				j--;
+			}
 			if (i <= j) {
 				int temp = array[i];
 				array[i] = array[j];
@@ -135,10 +141,12 @@ public class Sort {
 				j--;
 			}
 		}
-		if (left < j)
+		if (left < j) {
 			doQuickSort(array, left, j);
-		if (i < right)
+		}
+		if (i < right) {
 			doQuickSort(array, i, right);
+		}
 	}
 
 	/**
@@ -147,8 +155,9 @@ public class Sort {
 	 */
 	public void mergeSort(int[] arr) {
 		int size = arr.length;
-		if (size < 2)
+		if (size < 2) {
 			return;
+		}
 
 		int mid = size / 2;
 		int leftSize = mid;
@@ -172,17 +181,20 @@ public class Sort {
 		int i = 0, j = 0, k = 0;
 
 		while (i < leftSize && j < rightSize) {
-			if (left[i] <= right[j])
+			if (left[i] <= right[j]) {
 				arr[k++] = left[i++];
-			else
+			} else {
 				arr[k++] = right[j++];
+			}
 		}
 
-		while (i < leftSize)
+		while (i < leftSize) {
 			arr[k++] = left[i++];
+		}
 
-		while (j < rightSize)
+		while (j < rightSize) {
 			arr[k++] = right[j++];
+		}
 	}
 
 	// ===========================================================================================================
