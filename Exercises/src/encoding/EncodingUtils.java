@@ -18,7 +18,6 @@ public class EncodingUtils {
     public static final String BASE_64_ALPHABET = "ABCDEFGHIJKLMNOPQRTSUVWXYZabcdefghijklmnopqrtsuvwxyz0123456789+/";
 
     public static void main(String[] args) {
-
         System.out.println(Base64.getEncoder().encodeToString(new BigInteger(SECRET_KEY, 16).toByteArray()));
         System.out.println(hexStringToBase64(SECRET_KEY));
 
@@ -35,7 +34,6 @@ public class EncodingUtils {
     }
 
     private static byte[] hexDigitsToBytes(String hexString) {
-
         if (hexString.length() % 2 != 0) {
             throw new IllegalArgumentException("Expected even number of characters.");
         }
@@ -52,7 +50,6 @@ public class EncodingUtils {
     }
 
     private static byte hexCharToByte(char c) {
-
         final String hexChars = "0123456789ABCDEF";
         int index = hexChars.indexOf(Character.toUpperCase(c));
 
@@ -64,7 +61,6 @@ public class EncodingUtils {
     }
 
     private static String bytesToBase64(byte[] hexBytes) {
-
         int count = 0;
         byte[] threeBytesArray = new byte[NUM_BYTES_PER_PACK];
         StringBuilder sb = new StringBuilder();
@@ -99,7 +95,6 @@ public class EncodingUtils {
     }
 
     private static String convertToFourCharacterString(int bytesInInt, int numInBytes) {
-
         int numOutBytes = (int) Math.ceil(numInBytes * ((double) NUM_INPUT_BITS) / NUM_OUTPUT_BITS);
         int mask = 0b111111_000000_000000_000000;
         int resultShift = NUM_BYTES_PER_PACK * NUM_OUTPUT_BITS;
