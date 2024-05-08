@@ -26,8 +26,8 @@ public class CatLife {
 			try {
 				Thread.sleep(2000);
 			} catch (InterruptedException e) {
-				System.out.println("Awake");
-				Thread.currentThread().interrupt(); // uncomment to fix
+				System.out.println("Sleep interrupted");
+//				Thread.currentThread().interrupt(); // uncomment to fix
 			}
 		}
 	}
