@@ -7,6 +7,9 @@ import java.util.concurrent.*;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
+/**
+ * https://youtu.be/s032s29-NUU
+ */
 public class Transfer implements Callable<Boolean> {
 
     private static final long TRANSFER_TIMEOUT = 1;
@@ -106,10 +109,18 @@ public class Transfer implements Callable<Boolean> {
             ex.shutdown();
             ex.awaitTermination(0, TimeUnit.SECONDS);
         }
+
+        // print those Futures that threw Exception (not enough money)
         results.stream()
                 .filter(f -> f.state() == Future.State.FAILED)
-                .forEach(System.out::println);
+                .forEach(booleanFuture -> {
+                    try {
+                        booleanFuture.get();
+                    } catch (ExecutionException | InterruptedException e) {
+                        System.out.println(booleanFuture);
+                    }
+                });
 
-        System.out.println("Sum of balances = " + acc1.balance.add(acc2.balance));
+        System.out.println("Sum of balances = " + acc1.balance.add(acc2.balance)); // 5000.00
     }
 }
