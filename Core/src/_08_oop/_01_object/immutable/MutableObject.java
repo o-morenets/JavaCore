@@ -34,9 +34,9 @@ public class MutableObject implements Cloneable {
 
         try {
             mutableObject = (MutableObject) super.clone();
+            mutableObject.setAddress(address.clone());
         } catch (CloneNotSupportedException e) {
             mutableObject = new MutableObject(str, address);
-            mutableObject.setAddress(address.clone());
         }
 
         return mutableObject;
@@ -53,5 +53,13 @@ public class MutableObject implements Cloneable {
     @Override
     public int hashCode() {
         return Objects.hash(str, address);
+    }
+
+    @Override
+    public String toString() {
+        return "MutableObject{" +
+                "str='" + str + '\'' +
+                ", address=" + address +
+                '}';
     }
 }

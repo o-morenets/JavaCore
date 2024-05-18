@@ -1,5 +1,7 @@
 package _08_oop._01_object.immutable;
 
+import java.util.Objects;
+
 public class Address implements Cloneable {
 
     private String country;
@@ -33,5 +35,26 @@ public class Address implements Cloneable {
         } catch (CloneNotSupportedException e) {
             return new Address(country, zipCode);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Address address = (Address) o;
+        return Objects.equals(country, address.country) && Objects.equals(zipCode, address.zipCode);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(country, zipCode);
+    }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "country='" + country + '\'' +
+                ", zipCode=" + zipCode +
+                '}';
     }
 }
