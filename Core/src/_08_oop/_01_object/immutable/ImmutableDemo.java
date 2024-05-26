@@ -4,6 +4,8 @@ import java.util.*;
 
 public class ImmutableDemo {
 
+    // TODO: refactor all to unit tests
+
     public static void main(String[] args) {
 
         int number = 17;
@@ -78,9 +80,9 @@ public class ImmutableDemo {
         List<Integer> integersFromGetter = immutableObject.getIntegers();
         System.out.println("Initial integersFromGetter: " + integersFromGetter);
         System.out.println("Changing integersFromGetter (add/set/remove)...");
-        integersFromGetter.remove(1);
-        integersFromGetter.add(123);
-        integersFromGetter.set(0, 42);
+//        integersFromGetter.remove(1);
+//        integersFromGetter.add(123);
+//        integersFromGetter.set(0, 42);
         System.out.println("Changed integersFromGetter: " + integersFromGetter);
         System.out.println("integers == integersFromGetter? " + (integers == integersFromGetter));
         System.out.println("immutableObject.hashCode() = " + immutableObject.hashCode());
@@ -95,8 +97,8 @@ public class ImmutableDemo {
         System.out.println("immutableObject.hashCode() = " + immutableObject.hashCode()); // should be the same
 
         System.out.println("Changing mutableObjectMap's fields...");
-        immutableObject.getMutableObjectMap().get(3L).setStr(null);
-        immutableObject.getMutableObjectMap().get(3L).setAddress(new Address("Finland", 777));
+        mutableObjectMap.get(3L).setStr(null);
+        mutableObjectMap.get(3L).setAddress(new Address("Finland", 777));
         System.out.println("Changed mutableObjectMap: " + mutableObjectMap);
         System.out.println("immutableObject.hashCode() = " + immutableObject.hashCode()); // should be the same
 
@@ -113,6 +115,8 @@ public class ImmutableDemo {
         System.out.println("Changing mutableObjectMapFromGetter's fields...");
         mutableObjectMapFromGetter.get(3L).setStr(null);
         mutableObjectMapFromGetter.get(3L).setAddress(new Address("Finland", 777));
+//        mutableObjectMapFromGetter.put(31L, new MutableObject("newStr", new Address("SAR", 434343)));
+        mutableObjectMap.put(31L, new MutableObject("newStr", new Address("SAR", 434343)));
         System.out.println("Changed mutableObjectMapFromGetter: " + mutableObjectMapFromGetter);
         System.out.println("immutableObject.hashCode() = " + immutableObject.hashCode()); // should be the same
 

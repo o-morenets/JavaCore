@@ -2,6 +2,7 @@ package _08_oop._01_object.immutable;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * 1. Declare the class as final, so it can’t be extended.
@@ -29,11 +30,26 @@ public final class ImmutableObject {
 
         // Integers inside List are immutable, but we still can add/remove/set elements changing the state of List
         // So, we store the copy of list, but getter also needs to return a copy (see getter below)
-        this.integers = new ArrayList<>(integers);
+//        this.integers = new ArrayList<>(integers);
+        this.integers = List.copyOf(integers); // TODO: add more collections to show different approaches to make them immutable
 
-//        this.mutableObjectMap = Collections.unmodifiableMap(mutableObjectMap); // here, we prevent from changing collection, but not its mutable elements
-        this.mutableObjectMap = mutableObjectMap.entrySet().stream()
-                .collect(Collectors.toMap(Map.Entry::getKey, e -> e.getValue().clone()));
+        // Wrap with Collections.unmodifiableMap() and clone mutable elements. Also, we prevent collection from changing
+//        this.mutableObjectMap = mutableObjectMap.entrySet().stream()
+//                .collect(Collectors.collectingAndThen(
+//                        Collectors.toMap(Map.Entry::getKey, e -> e.getValue().clone()), Collections::unmodifiableMap));
+
+
+        // or
+        // toUnmodifiableMap() - since java 10:
+//        this.mutableObjectMap = mutableObjectMap.entrySet().stream()
+//                .collect(Collectors.toUnmodifiableMap(Map.Entry::getKey, e -> e.getValue().clone()));
+
+        // or
+        // Map.copyOf() - since java 10:
+        this.mutableObjectMap = Map.copyOf(
+                mutableObjectMap.entrySet().stream()
+                        .collect(Collectors.toMap(Map.Entry::getKey, e -> e.getValue().clone()))
+        );
     }
 
     public int getNumber() {
@@ -49,12 +65,13 @@ public final class ImmutableObject {
     }
 
     public List<Integer> getIntegers() {
-        return new ArrayList<>(integers); // although we have a copy of list (see initialization in constructor), we still need to prevent exposing it outside
+//        return new ArrayList<>(integers); // although we have a copy of list (see initialization in constructor), we still need to prevent exposing it outside
+        return integers;
     }
 
     public Map<Long, MutableObject> getMutableObjectMap() {
-        return mutableObjectMap.entrySet().stream()
-                .collect(Collectors.toMap(Map.Entry::getKey, e -> e.getValue().clone()));
+        return Map.copyOf(mutableObjectMap.entrySet().stream()
+                .collect(Collectors.toMap(Map.Entry::getKey, e -> e.getValue().clone())));
     }
 
     @Override
