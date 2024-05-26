@@ -1,4 +1,4 @@
-package encoding;
+package _00_algorithms.encoding;
 
 import java.math.BigInteger;
 import java.util.Arrays;
