@@ -58,11 +58,11 @@ public class Employee {
 		return getClass().getName() + "[name=" + name + ",salary=" + salary + ",hireDay=" + hireDay + "]";
 	}
 
-	public String superToString() {
-		return getClass().getName() + "@" + Integer.toHexString(superHashCode());
-	}
-
 	public int superHashCode() {
 		return super.hashCode();
+	}
+
+	public String superToString() {
+		return getClass().getName() + "@" + Integer.toHexString(superHashCode());
 	}
 }
