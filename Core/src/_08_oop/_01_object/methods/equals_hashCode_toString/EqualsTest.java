@@ -24,5 +24,10 @@ public class EqualsTest {
 		System.out.println("alice3.hashCode(): " + alice3.hashCode());
 		System.out.println("bob.hashCode(): " + bob.hashCode());
 		System.out.println("carl.hashCode(): " + carl.hashCode());
+
+		System.out.println("============== how to invoke Object's hashCode() and toString() =============");
+
+		System.out.println(Integer.toHexString(alice1.superHashCode()));
+		System.out.println(alice1.superToString());
 	}
 }
