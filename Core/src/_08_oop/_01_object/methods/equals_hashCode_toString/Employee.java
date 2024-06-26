@@ -63,6 +63,8 @@ public class Employee {
 	}
 
 	public String superToString() {
+		// if we invoke hashCode() instead of superHashCode(), overridden hashCode() will be invoked, not super!
+		//                                                      vvvvvvvvvvvvvvv here
 		return getClass().getName() + "@" + Integer.toHexString(superHashCode());
 	}
 }
