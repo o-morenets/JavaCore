@@ -4,27 +4,27 @@ public class FinallyDemo {
 
 	static void procA() {
 		try {
-			System.out.println("In procA()");
-			throw new RuntimeException("Demo");
+			System.out.println("In procA()"); // 1
+			throw new RuntimeException("Demo"); // 3
 		} finally {
-			System.out.println("finally in procA()");
+			System.out.println("finally in procA()"); // 2
 		}
 	}
 
 	static void procB() {
 		try {
-			System.out.println("In procB()");
+			System.out.println("In procB()"); // 5
 			return;
 		} finally {
-			System.out.println("finally in procB()");
+			System.out.println("finally in procB()"); // 6
 		}
 	}
 
 	static void procC() {
 		try {
-			System.out.println("In procC()");
+			System.out.println("In procC()"); // 7
 		} finally {
-			System.out.println("finally in procC()");
+			System.out.println("finally in procC()"); // 8
 		}
 	}
 
@@ -32,7 +32,7 @@ public class FinallyDemo {
 		try {
 			procA();
 		} catch (Exception e) {
-			System.out.println("Exception was caught: " + e);
+			System.out.println("Exception was caught: " + e); // 4
 		}
 		procB();
 		procC();
