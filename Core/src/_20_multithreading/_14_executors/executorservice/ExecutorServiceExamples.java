@@ -7,41 +7,43 @@ import java.util.stream.IntStream;
 
 public class ExecutorServiceExamples {
 
-	private static Runnable initRunnableTask() {
+    private static Runnable initRunnableTask() {
         return () -> {
-			System.out.println("Runnable starts...");
+            System.out.println("Runnable starts...");
             try {
                 TimeUnit.MILLISECONDS.sleep(300);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
             System.out.println("Runnable finished.");
-		};
-	}
+        };
+    }
 
-	private static Callable<String> initCallableTask(int num) {
+    private static Callable<String> initCallableTask(int num) {
         return () -> {
-			System.out.println("Callable task #" + num + " is running...");
-			TimeUnit.SECONDS.sleep(2);
-			return "Task #" + num + " result";
-		};
-	}
+            System.out.println("Callable task #" + num + " is running...");
+            TimeUnit.SECONDS.sleep(2);
+            return "Callable Task #" + num + " result";
+        };
+    }
 
-	public static void main(String[] args) throws ExecutionException, InterruptedException {
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
 
-		Runnable runnableTask = initRunnableTask();
+        Runnable runnableTask = initRunnableTask();
 
-		Callable<String> callableTask = initCallableTask(0);
+        Callable<String> callableTask = initCallableTask(0);
 
-		List<Callable<String>> callableTasks = IntStream.rangeClosed(1, 10).mapToObj(ExecutorServiceExamples::initCallableTask).collect(Collectors.toList());
+        List<Callable<String>> callableTasks = IntStream.rangeClosed(1, 10)
+                .mapToObj(ExecutorServiceExamples::initCallableTask)
+                .collect(Collectors.toList());
 
-		// create a thread pool:
-		ExecutorService executorService =
-				new ThreadPoolExecutor(2, 5, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>());
+        // create a thread pool:
+        ExecutorService executorService =
+                new ThreadPoolExecutor(2, 5, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<>());
 
-		// or
-//		executorService = Executors.newSingleThreadExecutor();
+        // or
 //		executorService = Executors.newFixedThreadPool(10);
+//		executorService = Executors.newSingleThreadExecutor();
 //		executorService = Executors.newCachedThreadPool();
 //		executorService = Executors.newScheduledThreadPool(5);
 //		executorService = Executors.newSingleThreadScheduledExecutor();
@@ -49,33 +51,36 @@ public class ExecutorServiceExamples {
 //		executorService = Executors.newVirtualThreadPerTaskExecutor();
 //		executorService = Executors.newWorkStealingPool();
 
-		// The execute() method is void and doesn't give any possibility to get the result of a task’s execution or to check the task’s status (is it running):
-		executorService.execute(runnableTask);
+        // The execute() method is void and doesn't give any possibility to get the result of a task’s execution
+        // or to check the task’s status (is it running):
+        executorService.execute(runnableTask);
 
-		// submit() submits a Callable or a Runnable task to an ExecutorService and returns a result of type Future:
-		Future<String> future = executorService.submit(callableTask);
-		System.out.println("Single Callable result: " + future.get());
+        // submit() submits a Callable or a Runnable task to an ExecutorService and returns a result of type Future<>:
+        Future<String> future = executorService.submit(callableTask);
+        System.out.println("Single Callable result: " + future.get()); // blocks this thread until callable finishes
 
-		// invokeAny() assigns a collection of tasks to an ExecutorService, causing each to run, and returns the result
-		// of a successful execution of one task (if there was a successful execution):
-		String result = executorService.invokeAny(callableTasks);
-		System.out.println("Any Callable's result: " + result);
+        // invokeAny() assigns a collection of tasks to an ExecutorService, causing each to run, and returns the result
+        // of a successful execution of one task (if there was a successful execution):
+        String result = executorService.invokeAny(callableTasks);
+        System.out.println("Any Callable's result: " + result);
 
-		// invokeAll() assigns a collection of tasks to an ExecutorService, causing each to run, and returns the result
-		// of all task executions in the form of a list of objects of type Future:
-		List<Future<String>> futures = executorService.invokeAll(callableTasks);
-		System.out.println("All results: " + futures);
-		printFuturesResults(futures);
+        // invokeAll() assigns a collection of tasks to an ExecutorService, causing each to run, and returns the result
+        // of all task executions in the form of a list of objects of type Future:
+        List<Future<String>> futures = executorService.invokeAll(callableTasks);
+        System.out.println("All results: " + futures);
+        printFuturesResults(futures);
 
-		boolean termination = executorService.awaitTermination(5, TimeUnit.SECONDS);
-		System.out.println(termination);
+        // Blocks until all tasks have completed execution after a shutdown request,
+        // or the timeout occurs, or the current thread is interrupted, whichever happens first.
+        boolean termination = executorService.awaitTermination(5, TimeUnit.SECONDS);
+        System.out.println(termination);
 
-		List<Runnable> notExecutedTasks = executorService.shutdownNow();
-		System.out.println("notExecutedTasks = " + notExecutedTasks);
-	}
+        List<Runnable> notExecutedTasks = executorService.shutdownNow();
+        System.out.println("notExecutedTasks = " + notExecutedTasks);
+    }
 
-	private static void printFuturesResults(List<Future<String>> futures) {
-		futures.forEach(f -> {
+    private static void printFuturesResults(List<Future<String>> futures) {
+        futures.forEach(f -> {
             try {
                 System.out.println(f.get());
             } catch (InterruptedException e) {
@@ -84,5 +89,5 @@ public class ExecutorServiceExamples {
                 throw new RuntimeException(e);
             }
         });
-	}
+    }
 }
