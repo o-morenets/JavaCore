@@ -61,7 +61,7 @@
     BiConsumer (T,U -> void)
 
 # Supplier - T get()
-    Supplier (-> T)
+    Supplier (()-> T)
 
     BooleanSupplier (-> boolean)
     DoubleSupplier  (-> double)
