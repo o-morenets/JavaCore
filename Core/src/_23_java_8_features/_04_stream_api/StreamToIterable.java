@@ -24,6 +24,6 @@ public class StreamToIterable {
     }
 
     private static Iterable<String> getIterable(Stream<String> stringStream) {
-        return () -> stringStream.iterator();
+        return stringStream::iterator;
     }
 }
