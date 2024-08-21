@@ -4,7 +4,7 @@ public class PrimeNumberSet {
 
     public static void main(String[] args) {
         System.out.println(solution(2 * 2 * 3, 3 * 3 * 2)); // set(2, 3) == set(3, 2) - true
-        System.out.println(solution(14, 15)); // set(2, 7) != set (3,5) - false
+        System.out.println(solution(14, 15)); // set(2, 7) != set (3, 5) - false
     }
 
     public static boolean solution(int a, int b) {

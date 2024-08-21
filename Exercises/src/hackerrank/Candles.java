@@ -10,6 +10,12 @@ public class Candles {
 //                .mapToInt(Integer::valueOf)
 //                .max()
                 .reduce(Integer::sum)
-                .map(i -> candles.stream().mapToInt(Integer::valueOf).filter(c -> c == i).count()).orElse(-1L).intValue();
+                .map(i -> candles.stream()
+                        .mapToInt(Integer::valueOf)
+                        .filter(c -> c == i)
+                        .count()
+                )
+                .orElse(-1L)
+                .intValue();
     }
 }
