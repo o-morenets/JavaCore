@@ -1,4 +1,4 @@
-package _20_multithreading._08_deadlock_livelock;
+package _20_multithreading._08_deadlock_livelock_starvation;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
@@ -6,15 +6,15 @@ import java.util.concurrent.locks.ReentrantLock;
 
 import static java.lang.Thread.sleep;
 
-public class LivelockExample {
+public class LiveLockExample {
 
 	private final Lock lock1 = new ReentrantLock(true);
 	private final Lock lock2 = new ReentrantLock(true);
 
 	public static void main(String[] args) {
-		LivelockExample livelock = new LivelockExample();
-		new Thread(livelock::operation1, "T1").start();
-		new Thread(livelock::operation2, "T2").start();
+		LiveLockExample liveLock = new LiveLockExample();
+		new Thread(liveLock::operation1, "T1").start();
+		new Thread(liveLock::operation2, "T2").start();
 	}
 
 	public void operation1() {

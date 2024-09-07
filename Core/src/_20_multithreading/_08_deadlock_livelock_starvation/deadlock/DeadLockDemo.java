@@ -1,4 +1,4 @@
-package _20_multithreading._08_deadlock_livelock;
+package _20_multithreading._08_deadlock_livelock_starvation.deadlock;
 
 public class DeadLockDemo implements Runnable {
 
