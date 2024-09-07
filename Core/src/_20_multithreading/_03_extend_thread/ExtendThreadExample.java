@@ -1,6 +1,5 @@
 package _20_multithreading._03_extend_thread;
 
-
 class NewThread extends Thread {
 
 	public NewThread() {
