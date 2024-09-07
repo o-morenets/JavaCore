@@ -16,47 +16,40 @@ public class _02_ZonedDateTime {
 
 		LocalDate localDate = LocalDate.of(2018, 1, 1);
 		LocalTime localTime = LocalTime.of(10, 30);
-		ZoneId zone = ZoneId.of("Europe/Kiev");
-		ZonedDateTime kievTime = ZonedDateTime.of(localDate, localTime, zone);
-		System.out.println("kievTime = " + kievTime); // 2018-01-01T10:30+02:00[Europe/Kiev]
+		ZoneId zone = ZoneId.of("Europe/Kyiv");
+		ZonedDateTime kyivTime = ZonedDateTime.of(localDate, localTime, zone);
+		System.out.println("kyivTime = " + kyivTime); // 2018-01-01T10:30+02:00[Europe/Kyiv]
 
 
 		// ZoneSameInstant (zone shift)
 
 		localDate = LocalDate.of(2018, 1, 1);
 		localTime = LocalTime.of(10, 30);
-		zone = ZoneId.of("Europe/Kiev");
+		zone = ZoneId.of("Europe/Kyiv");
 
-		kievTime = ZonedDateTime.of(localDate, localTime, zone);
-		System.out.println("kievTime = " + kievTime); // 2018-01-01T10:30+02:00[Europe/Kiev]
+		kyivTime = ZonedDateTime.of(localDate, localTime, zone);
+		System.out.println("kyivTime = " + kyivTime); // 2018-01-01T10:30+02:00[Europe/Kyiv]
 
-		ZonedDateTime nyTime = kievTime.withZoneSameInstant(ZoneId.of("America/New_York"));
+		ZonedDateTime nyTime = kyivTime.withZoneSameInstant(ZoneId.of("America/New_York"));
 		System.out.println("nyTime = " + nyTime); // 2018-01-01T03:30-05:00[America/New_York]
 
-		ZonedDateTime japanTime = kievTime.withZoneSameInstant(ZoneOffset.of("-09:00"));
+		ZonedDateTime japanTime = kyivTime.withZoneSameInstant(ZoneOffset.of("-09:00"));
 		System.out.println("japanTime = " + japanTime); // 2017-12-31T23:30-09:00
 
-
-		// Get all zones
-
-		Set<String> availableZoneIds = ZoneId.getAvailableZoneIds();
-
-		System.out.println("\n-------------------- Zones -------------------\n");
-		availableZoneIds.forEach(System.out::println);
 
 
 		// Get all zones with offsets
 
 		System.out.println("\n--------------- Zones with offsets --------------\n");
 
-		availableZoneIds.stream()
+        ZoneId.getAvailableZoneIds().stream()
 				.collect(Collectors.toMap(Function.identity(), _02_ZonedDateTime::getOffset))
 				.forEach((z, offset) -> System.out.printf("%s (UTC%s) \n", z, offset));
 	}
 
 	private static String getOffset(String zone) {
-		LocalDateTime LDT = LocalDateTime.now();
-		ZonedDateTime zdt = LDT.atZone(ZoneId.of(zone));
-		return zdt.getOffset().getId()/*.replace("Z", "+00:00")*/;
+		LocalDateTime now = LocalDateTime.now();
+		ZonedDateTime zdt = now.atZone(ZoneId.of(zone));
+		return zdt.getOffset().getId();
 	}
 }
