@@ -1,4 +1,4 @@
-package _20_multithreading._12_volatile.reordering;
+package _20_multithreading._16_volatile.reordering;
 
 /**
  * Prevent reordering using volatile

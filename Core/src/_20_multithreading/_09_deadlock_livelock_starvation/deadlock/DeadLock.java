@@ -1,4 +1,4 @@
-package _20_multithreading._08_deadlock_livelock_starvation.deadlock;
+package _20_multithreading._09_deadlock_livelock_starvation.deadlock;
 
 import java.util.concurrent.TimeUnit;
 

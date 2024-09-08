@@ -1,4 +1,4 @@
-package _20_multithreading._09_hare_vs_tortoise;
+package _20_multithreading._10_hare_vs_tortoise;
 
 import java.util.Random;
 

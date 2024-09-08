@@ -1,4 +1,4 @@
-package _20_multithreading._12_volatile.race_condition;
+package _20_multithreading._16_volatile.race_condition;
 
 class Counter implements Runnable {
 

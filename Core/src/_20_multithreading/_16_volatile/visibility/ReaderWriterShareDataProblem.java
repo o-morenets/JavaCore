@@ -1,4 +1,4 @@
-package _20_multithreading._12_volatile.visibility;
+package _20_multithreading._16_volatile.visibility;
 
 public class ReaderWriterShareDataProblem {
 

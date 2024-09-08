@@ -1,4 +1,4 @@
-package _20_multithreading._12_volatile.doublecheck;
+package _20_multithreading._16_volatile.doublecheck;
 
 public class DoubleCheckProblem {
 

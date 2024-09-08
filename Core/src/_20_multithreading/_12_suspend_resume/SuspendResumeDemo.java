@@ -1,4 +1,4 @@
-package _20_multithreading._10_suspend_resume;
+package _20_multithreading._12_suspend_resume;
 
 /**
  * Use described below methodics instead of deprecated suspend() and resume() methods
