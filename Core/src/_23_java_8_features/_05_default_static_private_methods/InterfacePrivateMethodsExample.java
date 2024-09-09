@@ -12,7 +12,6 @@ interface Foo {
         System.out.println(" world!");
     }
 
-
     // Static
     static void buzz() {
         System.out.print("Hello");
@@ -22,7 +21,6 @@ interface Foo {
     private static void staticBaz() {
         System.out.println(" static world!");
     }
-
 }
 
 public class InterfacePrivateMethodsExample implements Foo {
