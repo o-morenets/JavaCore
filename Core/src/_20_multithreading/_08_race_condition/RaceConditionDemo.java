@@ -1,6 +1,6 @@
-package _20_multithreading._16_volatile.race_condition;
+package _20_multithreading._08_race_condition;
 
-class Counter implements Runnable {
+class SynchronizedCounter implements Runnable {
 
     private int c = 0;
 
@@ -37,7 +37,7 @@ class Counter implements Runnable {
 public class RaceConditionDemo {
 
     public static void main(String[] args) {
-        Counter counter = new Counter();
+        SynchronizedCounter counter = new SynchronizedCounter();
         Thread t1 = new Thread(counter, "Thread-1");
         Thread t2 = new Thread(counter, "Thread-2");
         Thread t3 = new Thread(counter, "Thread-3");
