@@ -1,4 +1,4 @@
-package _23_java_8_features._05_default_and_static_methods;
+package _23_java_8_features._05_default_static_private_methods;
 
 // Both Cat and Dog implement Named interface
 public class Pet implements Dog, Cat {
