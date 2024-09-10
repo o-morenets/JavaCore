@@ -20,11 +20,15 @@ public class DistinctTests {
 		Collection<String> nonOrdered = new HashSet<>(ordered);
 
 		// Get collection without duplicate
-		List<String> distinct = nonOrdered.stream().distinct().collect(Collectors.toList());
-		System.out.println("distinct = " + distinct); // print  distinct = [a1, a2, a3] - порядок не гарантируется
+		List<String> distinct = nonOrdered.stream()
+				.distinct()
+				.collect(Collectors.toList());
+		System.out.println("distinct = " + distinct); // print  distinct = [a1, a2, a3]
 
-		List<String> distinctOrdered = ordered.stream().distinct().collect(Collectors.toList());
-		System.out.println("distinctOrdered = " + distinctOrdered); // print  distinct = [a1, a2, a3] - порядок гарантируется
+		List<String> distinctOrdered = ordered.stream()
+				.distinct()
+				.collect(Collectors.toList());
+		System.out.println("distinctOrdered = " + distinctOrdered); // print  distinct = [a1, a2, a3]
 	}
 
 	public static void main(String[] args) throws Exception {

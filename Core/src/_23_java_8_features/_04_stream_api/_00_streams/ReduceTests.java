@@ -77,35 +77,42 @@ public class ReduceTests {
 		// ************ Working with objects
 
 		// Init collection of People
-		Collection<People> peoples = Arrays.asList(
-				new People("Vasja", 16, Gender.MALE),
-				new People("Petja", 23, Gender.MALE),
-				new People("Elena", 42, Gender.FEMALE),
-				new People("Ivan", 69, Gender.MALE)
+		Collection<Person> people = Arrays.asList(
+				new Person("Vasyl", 16, Gender.MALE),
+				new Person("Petro", 23, Gender.MALE),
+				new Person("Olena", 42, Gender.FEMALE),
+				new Person("Ivan", 69, Gender.MALE)
 		);
 
 		// Find oldest people
-		int oldMan = peoples.stream().filter((p) -> p.getSex() == Gender.MALE).map(People::getAge).reduce((s1, s2) -> s1 > s2 ? s1 : s2).get();
+		int oldMan = people.stream()
+				.filter((p) -> p.getGender() == Gender.MALE)
+				.map(Person::getAge)
+				.reduce((s1, s2) -> s1 > s2 ? s1 : s2)
+				.orElseThrow();
 		System.out.println("oldMan = " + oldMan); // print  69
 
 		// Find younger people with "e" in name
-		int younger = peoples.stream().filter((p) -> p.getName().contains("e")).mapToInt(People::getAge).reduce((s1, s2) -> s1 < s2 ? s1 : s2).orElse(0);
+		int younger = people.stream()
+				.filter((p) -> p.getName().contains("e"))
+				.mapToInt(Person::getAge)
+				.reduce(Math::min)
+				.orElse(0);
 		System.out.println("younger = " + younger); // print  23
 	}
 
 	private enum Gender {
-
 		MALE,
 		FEMALE
 	}
 
-	private static class People {
+	private static class Person {
 
 		private final String name;
 		private final Integer age;
 		private final Gender gender;
 
-		public People(String name, Integer age, Gender gender) {
+		public Person(String name, Integer age, Gender gender) {
 			this.name = name;
 			this.age = age;
 			this.gender = gender;
@@ -119,7 +126,7 @@ public class ReduceTests {
 			return age;
 		}
 
-		public Gender getSex() {
+		public Gender getGender() {
 			return gender;
 		}
 
@@ -128,18 +135,18 @@ public class ReduceTests {
 			return "{" +
 					"name='" + name + '\'' +
 					", age=" + age +
-					", sex=" + gender +
+					", gender=" + gender +
 					'}';
 		}
 
 		@Override
 		public boolean equals(Object o) {
 			if (this == o) return true;
-			if (!(o instanceof People)) return false;
-			People people = (People) o;
-			return Objects.equals(name, people.name) &&
-					Objects.equals(age, people.age) &&
-					Objects.equals(gender, people.gender);
+			if (!(o instanceof Person)) return false;
+			Person person = (Person) o;
+			return Objects.equals(name, person.name) &&
+					Objects.equals(age, person.age) &&
+					Objects.equals(gender, person.gender);
 		}
 
 		@Override

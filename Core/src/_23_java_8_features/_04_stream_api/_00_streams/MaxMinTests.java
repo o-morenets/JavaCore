@@ -11,96 +11,103 @@ import java.util.Objects;
  */
 public class MaxMinTests {
 
-	private static void testMinMax() {
-		System.out.println();
-		System.out.println("Test min and max start");
-		// ************ Work with strings
-		Collection<String> collection = Arrays.asList("a1", "a2", "a3", "a1");
+    private static void testMinMax() {
+        System.out.println();
+        System.out.println("Test min and max start");
 
-		// find max value
-		String max = collection.stream().max(String::compareTo).get();
-		System.out.println("max " + max); // print  a3
+        // ************ Work with strings
+        Collection<String> collection = Arrays.asList("a1", "a2", "a3", "a1");
 
-		// find min value
-		String min = collection.stream().min(String::compareTo).get();
-		System.out.println("min " + min); // print  a1
+        // find max value
+        String max = collection.stream()
+                .max(String::compareTo)
+                .get();
+        System.out.println("max " + max); // print  a3
 
-		// ************ Work with objects
+        // find min value
+        String min = collection.stream()
+                .min(String::compareTo)
+                .get();
+        System.out.println("min " + min); // print  a1
 
-		// Init collection of People
-		Collection<People> peoples = Arrays.asList(
-				new People("Vasja", 16, Gender.MALE),
-				new People("Petja", 23, Gender.MALE),
-				new People("Elena", 42, Gender.FEMALE),
-				new People("Ivan", 69, Gender.MALE)
-		);
+        // ************ Work with objects
 
-		// Find people with minimum age
-		People older = peoples.stream().max(Comparator.comparing(People::getAge)).get();
-		System.out.println("older " + older); // print  {name='Ivan', age=69, sex=MAN}
+        // Init collection of People
+        Collection<Person> people = Arrays.asList(
+                new Person("Vasyl", 16, Gender.MALE),
+                new Person("Petro", 23, Gender.MALE),
+                new Person("Olena", 42, Gender.FEMALE),
+                new Person("Ivan", 69, Gender.MALE)
+        );
 
-		// Find people with maximum age
-		People younger = peoples.stream().min(Comparator.comparing(People::getAge)).get();
-		System.out.println("younger " + younger); // print  {name='Vasja', age=16, sex=MAN}
-	}
+        // Find people with minimum age
+        Person older = people.stream()
+                .max(Comparator.comparing(Person::getAge))
+                .get();
+        System.out.println("older " + older); // print  {name='Ivan', age=69, sex=MAN}
 
+        // Find people with maximum age
+        Person younger = people.stream()
+                .min(Comparator.comparing(Person::getAge))
+                .get();
+        System.out.println("younger " + younger); // print  {name='Vasyl', age=16, sex=MAN}
+    }
 
-	private enum Gender {
+    private enum Gender {
+        MALE,
+        FEMALE
+    }
 
-		MALE,
-		FEMALE
-	}
+    private static class Person {
 
-	private static class People {
+        private final String name;
+        private final Integer age;
+        private final Gender gender;
 
-		private final String name;
-		private final Integer age;
-		private final Gender gender;
+        public Person(String name, Integer age, Gender gender) {
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+        }
 
-		public People(String name, Integer age, Gender gender) {
-			this.name = name;
-			this.age = age;
-			this.gender = gender;
-		}
+        public String getName() {
+            return name;
+        }
 
-		public String getName() {
-			return name;
-		}
+        public Integer getAge() {
+            return age;
+        }
 
-		public Integer getAge() {
-			return age;
-		}
+        public Gender getGender() {
+            return gender;
+        }
 
-		public Gender getSex() {
-			return gender;
-		}
+        @Override
+        public String toString() {
+            return "{" +
+                    "name='" + name + '\'' +
+                    ", age=" + age +
+                    ", gender=" + gender +
+                    '}';
+        }
 
-		@Override
-		public String toString() {
-			return "{" +
-					"name='" + name + '\'' +
-					", age=" + age +
-					", sex=" + gender +
-					'}';
-		}
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (!(o instanceof Person)) return false;
+            Person person = (Person) o;
+            return Objects.equals(name, person.name) &&
+                    Objects.equals(age, person.age) &&
+                    Objects.equals(gender, person.gender);
+        }
 
-		@Override
-		public boolean equals(Object o) {
-			if (this == o) return true;
-			if (!(o instanceof People)) return false;
-			People people = (People) o;
-			return Objects.equals(name, people.name) &&
-					Objects.equals(age, people.age) &&
-					Objects.equals(gender, people.gender);
-		}
+        @Override
+        public int hashCode() {
+            return Objects.hash(name, age, gender);
+        }
+    }
 
-		@Override
-		public int hashCode() {
-			return Objects.hash(name, age, gender);
-		}
-	}
-
-	public static void main(String[] args) throws Exception {
-		testMinMax();
-	}
+    public static void main(String[] args) throws Exception {
+        testMinMax();
+    }
 }
