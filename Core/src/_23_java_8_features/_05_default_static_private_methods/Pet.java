@@ -8,3 +8,18 @@ public class Pet implements Dog, Cat {
         // ...because method getName() in Cat is "closer" to use (Cat overrides getName(), but Dog just inherits it from Named interface)
     }
 }
+
+interface Cat extends Named {
+
+    // overrides Named's default method getName(), so it is "closer" to caller (see Dog and Pet)
+
+    @Override
+    default String getName() {
+        return "Cat - meow :)";
+    }
+}
+
+interface Dog extends Named {
+
+    // inherits default method getName() from Named interface
+}
