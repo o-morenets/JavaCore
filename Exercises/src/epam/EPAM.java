@@ -72,10 +72,10 @@ public class EPAM {
 		System.out.println(Arrays.toString(removeNumbers(arr, 4)));
 		System.out.println(Arrays.toString(removeNumbers_Java8(arr, 4)));
 		
-        System.out.println("Welcome".trim() == "Welcome".trim());
-        System.out.println(12 >> 2);
-        System.out.println(128 >> 1);
-        System.out.println(128 >>> 1);
+        System.out.println("Welcome".trim() == "Welcome".trim()); // true
+        System.out.println(12 >> 2); // 12 / 2 / 2 = 3
+        System.out.println(128 >> 1); // 64
+        System.out.println(128 >>> 1); // 64
     }
 
 }
