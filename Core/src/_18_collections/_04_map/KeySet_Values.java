@@ -27,7 +27,7 @@ public class KeySet_Values {
         System.out.println("integerStringMap = " + integerStringMap);
 
         // remove by key from keySet()
-        integerStringMap.keySet().remove(9); // changes to the map are reflected in the set, and vice-versa
+        integerStringMap.keySet().remove(9); // changes to the map are reflected in the set, and vice versa
         System.out.println("integerStringMap = " + integerStringMap);
 
         // remove the first occurrence of "B"

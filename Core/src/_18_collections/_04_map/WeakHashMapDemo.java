@@ -11,7 +11,7 @@ public class WeakHashMapDemo {
         weakMap.put(o, 100500L);
 
         o = null; // no more strong references on o
-        System.out.println("map = " + weakMap); // should be empty here
+        System.out.println("map = " + weakMap); // should be non-empty here
         System.gc(); // explicitly invoke GC
 
         int i;
