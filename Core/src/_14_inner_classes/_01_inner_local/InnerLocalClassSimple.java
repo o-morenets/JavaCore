@@ -5,8 +5,6 @@ class OuterClass {
         int number = 30;  // Final or effectively final
 
         // Local inner class within a method
-        // * Can access variables from the enclosing method or block if they are final or effectively final.
-        // * It is not accessible outside the method or block.
         class LocalInnerClass {
             void print() {
                 System.out.println("Number: " + number);
