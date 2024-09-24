@@ -11,7 +11,7 @@ public class LongBinaryOperatorDemo {
 
 		long result = LongStream.range(0, 10)
 				.reduce(longBinaryOperator)
-				.orElseGet(() -> -1);
+				.orElse(-1);
 
 		System.out.println("result = " + result);
 	}
