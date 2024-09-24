@@ -9,7 +9,7 @@ import java.util.stream.IntStream;
 public class NavigableSetMethods {
 
     public static void main(String[] args) {
-        TreeSet<Integer> set = IntStream.range(0, 10)
+        NavigableSet<Integer> set = IntStream.range(0, 10)
                 .boxed()
                 .collect(Collectors.toCollection(TreeSet::new));
 
