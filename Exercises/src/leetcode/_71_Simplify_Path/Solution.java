@@ -1,4 +1,4 @@
-package leetcode._71.Simplify_Path;
+package leetcode._71_Simplify_Path;
 
 import java.util.*;
 

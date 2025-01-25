@@ -1,4 +1,4 @@
-package leetcode._3285_;
+package leetcode._3285_Find_Indices_of_Stable_Mountains;
 
 import java.util.ArrayList;
 import java.util.List;
