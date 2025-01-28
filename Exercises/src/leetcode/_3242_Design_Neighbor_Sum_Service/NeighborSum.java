@@ -69,11 +69,11 @@ public class NeighborSum {
     }
 
     public int adjacentSum(int value) {
-        return neighbourSum(value, new int[][]{null, {-1, 0}, null, {0, -1}, null, {0, 1}, null, {1, 0}, null});
+        return neighbourSum(value, new int[][]{{-1, 0}, {0, -1}, {0, 1}, {1, 0}});
     }
 
     public int diagonalSum(int value) {
-        return neighbourSum(value, new int[][]{{-1, -1}, null, {-1, 1}, null, null, null, {1, -1}, null, {1, 1}});
+        return neighbourSum(value, new int[][]{{-1, -1}, {-1, 1}, {1, -1}, {1, 1}});
     }
 
     private int neighbourSum(int value, int[][] koefs) {
@@ -82,13 +82,9 @@ public class NeighborSum {
             for (int j = 0; j < grid[0].length; j++) {
                 if (grid[i][j] == value) {
                     for (int[] pair : koefs) {
-                        if (pair != null
-                                && i + pair[0] >= 0
-                                && i + pair[0] < grid.length
-                                && j + pair[1] >= 0
-                                && j + pair[1] < grid[0].length
-                        )
+                        if (i + pair[0] >= 0 && i + pair[0] < grid.length && j + pair[1] >= 0 && j + pair[1] < grid[0].length) {
                             sum += grid[i + pair[0]][j + pair[1]];
+                        }
                     }
                 }
             }
