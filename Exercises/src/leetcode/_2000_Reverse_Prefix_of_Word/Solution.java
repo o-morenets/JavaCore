@@ -65,8 +65,8 @@ class Solution {
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        System.out.println(solution.reversePrefix("abcdefd", 'd'));
-        System.out.println(solution.reversePrefix("xyxzxe", 'z'));
-        System.out.println(solution.reversePrefix("abcd", 'z'));
+        System.out.println(solution.reversePrefix("abcdefd", 'd')); // "dcbaefd"
+        System.out.println(solution.reversePrefix("xyxzxe", 'z')); // "zxyxxe"
+        System.out.println(solution.reversePrefix("abcd", 'z')); // "abcd
     }
 }
