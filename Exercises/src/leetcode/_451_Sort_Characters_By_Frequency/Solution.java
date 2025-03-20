@@ -44,7 +44,7 @@ import java.util.stream.Collectors;
 public class Solution {
     public String frequencySort(String s) {
         return s.chars()
-                .mapToObj(c -> (char) c)
+                .mapToObj(i -> (char) i)
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
                 .entrySet().stream()
                 .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
