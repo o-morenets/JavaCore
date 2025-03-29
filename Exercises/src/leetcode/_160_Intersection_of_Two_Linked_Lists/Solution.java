@@ -1,7 +1,5 @@
 package leetcode._160_Intersection_of_Two_Linked_Lists;
 
-import java.util.HashSet;
-
 /**
  * 160. Intersection of Two Linked Lists
  * Easy
@@ -65,38 +63,26 @@ import java.util.HashSet;
  * intersectVal == listA[skipA] == listB[skipB] if listA and listB intersect.
  */
 public class Solution {
+
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
-        var set = new HashSet<>();
-        var curA = headA;
-        var curB = headB;
-        while (curA != null && curB != null) {
-            if (set.contains(curA)) {
-                return curA;
-            }
-            set.add(curA);
+        ListNode nodeA = headA;
+        ListNode nodeB = headB;
 
-            if (set.contains(curB)) {
-                return curB;
+        while (nodeA != nodeB) {
+            if (nodeA == null) {
+                nodeA = headB;
+            } else {
+                nodeA = nodeA.next;
             }
-            set.add(curB);
 
-            curA = curA.next;
-            curB = curB.next;
-        }
-        ListNode headRemaining = null;
-        if (curA != null) {
-            headRemaining = curA;
-        } else if (curB != null) {
-            headRemaining = curB;
-        }
-        while (headRemaining != null) {
-            if (set.contains(headRemaining)) {
-                return headRemaining;
+            if (nodeB == null) {
+                nodeB = headA;
+            } else {
+                nodeB = nodeB.next;
             }
-            set.add(headRemaining);
-            headRemaining = headRemaining.next;
         }
-        return null;
+
+        return nodeA;
     }
 
     private static class ListNode {
@@ -138,7 +124,7 @@ public class Solution {
         a1.next = a2;
 
         Solution solution = new Solution();
-        ListNode intersectionNode = solution.getIntersectionNode(a1, b1);
+        ListNode intersectionNode = solution.getIntersectionNode(c1, b1);
         System.out.println(intersectionNode); // ListNode{val=8, next=ListNode{val=4, next=ListNode{val=5, next=null}}}
     }
 }
