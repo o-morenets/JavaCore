@@ -1,3 +1,23 @@
-/out/
-/.idea/
+# IntelliJ IDEA
+.idea/
 *.iml
+out/
+*.ipr
+*.iws
+
+# Maven / Gradle
+target/
+build/
+
+*.class
+
+# OS
+.DS_Store
+Thumbs.db
+
+*.log
+
+/Exercises/src/graph-api.properties
+/Exercises/resources/graph-api.properties
+
+**/config.properties
