@@ -8,7 +8,7 @@ import java.util.LinkedList;
 
 public class SerializableTest {
 
-	public static final String FILE_USER_SER = "User.ser";
+	public static final String FILE_USER_SER = System.getProperty("user.dir") + "/Core/" + "User.ser";
 
 	public static void main(String[] args) {
 		// Object streams (object must implement Serializable)

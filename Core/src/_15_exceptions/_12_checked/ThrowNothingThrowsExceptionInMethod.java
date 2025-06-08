@@ -1,11 +1,11 @@
 package _15_exceptions._12_checked;
 
-// Даже если предупреждаем о том, чего нет — все обязаны бояться
+// Even if we declare to throw something that doesn't actually happen — everyone must still be prepared
 
 public class ThrowNothingThrowsExceptionInMethod {
 
 	public static void main(String[] args) {
-//        f(); // тут ошибка компиляции
+//        f(); // compilation error here
 	}
 
 	public static void f() throws Exception {

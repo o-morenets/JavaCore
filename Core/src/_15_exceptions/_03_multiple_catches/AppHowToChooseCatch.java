@@ -4,7 +4,7 @@ public class AppHowToChooseCatch {
 
 	public static void main(String[] args) {
 		try {
-			Throwable t = new Exception(); // ссылка типа Throwable указывает на объект типа Exception
+			Throwable t = new Exception(); // A reference of type Throwable points to an object of type Exception
 			throw t;
 		} catch (RuntimeException e) {
 			System.err.println("catch RuntimeException");

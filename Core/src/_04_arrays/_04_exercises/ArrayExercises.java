@@ -1,6 +1,6 @@
-package _04_arrays._04_skills;
+package _04_arrays._04_exercises;
 
-public class Skills {
+public class ArrayExercises {
 
 	public static void main(String[] args) {
 

@@ -10,23 +10,23 @@ public class ProxyTest {
 
 	public static void main(String[] args) {
 		Object[] elements = new Object[1000];
-		
-		// заполнить массив elements прокси-объектами
-		// целых чисел в пределах от 1 до 1000
+
+		// fill the elements array with proxy objects
+		// representing integers in the range from 1 to 1000
 		for (int i = 0; i < elements.length; i++) {
 			Integer value = i + 1;
 			InvocationHandler handler = new TraceHandler(value);
-			Object proxy = Proxy.newProxyInstance(null, new Class[] { Comparable.class }, handler);
+			Object proxy = Proxy.newProxyInstance(null, new Class[]{Comparable.class}, handler);
 			elements[i] = proxy;
 		}
-		
-		// сформировать случайное целое число
+
+		// generate a random integer
 		Integer key = new Random().nextInt(elements.length) + 1;
-		
-		// выполнить поиск по критерию key
+
+		// perform binary search for the key
 		int result = Arrays.binarySearch(elements, key);
-		
-		// вывести совпавший элемент, если таковой найден
+
+		// print the matched element, if found
 		if (result >= 0)
 			System.out.println(elements[result]);
 	}
@@ -34,25 +34,25 @@ public class ProxyTest {
 
 class TraceHandler implements InvocationHandler {
 
-	private Object target;
+	private final Object target;
 
 	/**
-	 * Конструирует объекты типа TraceHandler
-	 * @param t Неявный параметр вызова метода
+	 * Constructs a TraceHandler object
+	 * @param t the implicit method call parameter
 	 */
 	public TraceHandler(Object t) {
 		target = t;
 	}
 
 	public Object invoke(Object proxy, Method m, Object[] args) throws Throwable {
-		
-		// вывести неявный параметр
+
+		// print the implicit parameter
 		System.out.print(target);
-		
-		// вывести имя метода
+
+		// print the method name
 		System.out.print(" . " + m.getName() + " (");
 
-		// вывести явные параметры
+		// print the explicit parameters
 		if (args != null) {
 			for (int i = 0; i < args.length; i++) {
 				System.out.print(args[i]);
@@ -60,10 +60,10 @@ class TraceHandler implements InvocationHandler {
 					System.out.print(", ");
 			}
 		}
-		
+
 		System.out.println(")");
-	
-		// вызвать конкретный метод
+
+		// invoke the actual method
 		return m.invoke(target, args);
 	}
 }

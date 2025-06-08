@@ -114,7 +114,7 @@ public class BuildTests {
 		System.out.println("streamFromPattern = " + streamFromPattern.collect(Collectors.joining(","))); // print a1,a2,a3
 
 		// Create stream from BufferedReader
-		Path path = Files.write(Paths.get("./test.txt"), "test 1\ntest 2".getBytes()); // create temp file
+		Path path = Files.write(Paths.get(System.getProperty("user.dir") + "/Core/" + "test.txt"), "test 1\ntest 2".getBytes()); // create temp file
 
 		try (BufferedReader reader = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
 			Stream<String> streamFromBufferedReader = reader.lines();

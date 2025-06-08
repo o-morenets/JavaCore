@@ -4,7 +4,7 @@ import java.io.*;
 
 public class ExternalizableTest {
 
-	private static final String OUTPUT_FILE = "country.ext";
+	private static final String OUTPUT_FILE = System.getProperty("user.dir") + "/Core/" + "country.ext";
 
 	public static void main(String[] args) {
 		Country c = new Country();

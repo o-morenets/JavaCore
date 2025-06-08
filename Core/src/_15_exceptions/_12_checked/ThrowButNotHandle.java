@@ -2,10 +2,10 @@ package _15_exceptions._12_checked;
 
 public class ThrowButNotHandle {
 
-	// Мы не можем бросать, но не предупредить
+	// We cannot throw without declaring it
 
 	public static void main(String[] args) {
-//        throw new Exception(); // тут ошибка компиляции
+//        throw new Exception(); // here is a compilation error
 	}
 
 	// >> COMPILATION ERROR: unhandled exception: java.lang.Exception

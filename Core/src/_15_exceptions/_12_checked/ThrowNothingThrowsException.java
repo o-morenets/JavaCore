@@ -2,9 +2,9 @@ package _15_exceptions._12_checked;
 
 public class ThrowNothingThrowsException {
 
-	// Можем даже предупредить о том, чего вообще нет
+	// We can even declare that we throw something, although we actually throw nothing
 
-	public static void main(String[] args) throws Exception { // пугаем
-		// но ничего не бросаем
+	public static void main(String[] args) throws Exception { // declaring
+		// but throwing nothing
 	}
 }

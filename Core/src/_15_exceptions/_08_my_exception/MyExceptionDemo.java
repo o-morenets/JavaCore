@@ -10,7 +10,7 @@ class MyException extends Exception {
 
 	@Override
 	public String toString() {
-		return "MyEcxeption [detail=" + detail + "]";
+		return "MyException [detail=" + detail + "]";
 	}
 }
 

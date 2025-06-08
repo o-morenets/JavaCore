@@ -22,9 +22,9 @@ public class UserNameCheck {
 		System.out.println(dumbCheck("Z@OZA"));
 		System.out.println(dumbCheck("vo-van"));
 
-		String userNameString = "akjsdhflkajsdfh Ё lkgjhf";
+		String userNameString = "akjsdhflkajsdfh Ї lkgjhf";
 		System.out.print("\n\"" + userNameString + "\"" + " contains cyrillic symbol(s)? ");
-		Pattern p = Pattern.compile("[А-яЁё]");
+		Pattern p = Pattern.compile("[А-яЇїЄєҐґІі]");
 		System.out.println(p.matcher(userNameString).find());
 	}
 

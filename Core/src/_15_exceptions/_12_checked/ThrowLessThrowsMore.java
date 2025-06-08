@@ -2,9 +2,9 @@ package _15_exceptions._12_checked;
 
 public class ThrowLessThrowsMore {
 
-	// Мы можем предупредить о большем, чем мы бросаем
+	// We can declare more than we actually throw
 
-	public static void main(String[] args) throws Throwable { // предупреждаем "целом" Throwable
-		throw new Exception(); // а кидаем только Exception
+	public static void main(String[] args) throws Throwable { // declaring the more general Throwable
+		throw new Exception(); // but actually throwing only Exception
 	}
 }

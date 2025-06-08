@@ -9,12 +9,12 @@ public class AppMultipleNoCatch {
 				throw new RuntimeException();
 			}
 			System.err.print(" 1");
-		} catch (RuntimeException e) {     // перехватили RuntimeException
+		} catch (RuntimeException e) {	// caught RuntimeException
 			System.err.print(" 2");
 			if (true) {
 				throw new Error();
-			} // и бросили новый Error
-		} catch (Error e) { // хотя есть catch по Error "ниже", но мы в него не попадаем
+			} // and threw a new Error
+		} catch (Error e) { // although there is a catch for Error "below", we do not reach it
 			System.err.print(" 3");
 		}
 		System.err.println(" 4");
@@ -23,6 +23,6 @@ public class AppMultipleNoCatch {
 	// >> 0 2
 	// >> RUNTIME EXCEPTION: Exception in thread "main" java.lang.Error
 
-	// Обратите внимание, мы не напечатали «3», хотя у нас летит Error а «ниже» расположен catch по Error.
-	// Но важный момент в том, что catch имеет отношение исключительно к try-секции, но не к другим catch-секциям.
+	// Note: we did not print “3” even though an Error was thrown and there is a catch for Error below.
+	// But the important point is that a catch applies exclusively to the try block, not to other catch blocks.
 }

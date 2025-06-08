@@ -2,7 +2,7 @@ package _15_exceptions._13_unchecked;
 
 public class ThrowsRTE {
 
-	// Вызов метода, который «пугает» unchecked исключением не накладывает на нас никаких обязанностей.
+	// Calling a method that "declares" an unchecked exception does not impose any obligations on us.
 
 	public static void main(String[] args) {
 		f();

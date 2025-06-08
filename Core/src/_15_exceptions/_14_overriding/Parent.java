@@ -3,19 +3,19 @@ package _15_exceptions._14_overriding;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-// При переопределении (overriding) список исключений потомка не обязан совпадать с таковым у предка.
-// Но он должен быть «не сильнее» списка предка:
+// When overriding, the list of exceptions thrown by the child method does not have to match that of the parent.
+// But it must be "not stronger" than the parent's list:
 
 public class Parent {
 
-	// предок пугает IOException и InterruptedException
+	// The parent declares IOException and InterruptedException
 	public void f() throws IOException, InterruptedException {
 	}
 }
 
 class Child extends Parent {
 
-	// а потомок пугает только потомком IOException
+	// The child declares only a subclass of IOException
 	@Override
 	public void f() throws FileNotFoundException {
 	}

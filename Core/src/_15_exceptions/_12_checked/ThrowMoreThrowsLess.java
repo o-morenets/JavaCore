@@ -1,13 +1,13 @@
 package _15_exceptions._12_checked;
 
-// Мы не можем бросать, но предупредить о «меньшем»
+// We cannot throw more, but declare less
 
 import java.io.IOException;
 
 public class ThrowMoreThrowsLess {
 
 	public static void main(String[] args) throws IOException {
-//        throw new Exception(); // тут ошибка компиляции
+//        throw new Exception(); // compilation error here
 	}
 
 	// >> COMPILATION ERROR: unhandled exception: java.lang.Exception

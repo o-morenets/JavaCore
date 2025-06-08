@@ -1,7 +1,7 @@
 package _20_multithreading._12_suspend_resume;
 
 /**
- * Use described below methodics instead of deprecated suspend() and resume() methods
+ * Use described below methods instead of deprecated suspend() and resume() methods
  *
  * @author Шилдт
  */
