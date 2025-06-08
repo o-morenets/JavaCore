@@ -11,15 +11,15 @@ public class FileIODemo {
 
 		// 1.1
 		// Byte streams (FileInputStream / FileOutputStream)
-		// Читаем по 1 байту
-		try (InputStream fis = new FileInputStream("1.txt");
-			 OutputStream fos = new FileOutputStream("1_1.txt")) {
+		// Reading byte by byte
+		try (InputStream fis = new FileInputStream(System.getProperty("user.dir") + "/Core/" + "1.txt");
+			 OutputStream fos = new FileOutputStream(System.getProperty("user.dir") + "/Core/" + "1_1.txt")) {
 
 			int oneByte;
 			while ((oneByte = fis.read()) != -1) {
-				// т.к. oneByte содержит 1 байт, то правильно печатаются только первые 128 символов ASCII-таблицы:
-				System.out.print((char) oneByte); // кириллица выводится В КОНСОЛЬ как ??????????
-				fos.write(oneByte); // но в файл пишутся КОРРЕКТНЫЕ байты
+				// Since oneByte contains only 1 byte, only the first 128 characters of the ASCII table are displayed correctly:
+				System.out.print((char) oneByte); // Cyrillic characters are displayed as ???????? in the CONSOLE
+				fos.write(oneByte); // but CORRECT bytes are written to the file
 			}
 			System.out.println("\n========================================================");
 			fos.flush();
@@ -32,9 +32,9 @@ public class FileIODemo {
 
 		// 1.2
 		// Byte streams (FileInputStream / FileOutputStream)
-		// Читаем байты с помощью буффера размером bufSize:
-		try (InputStream is = new FileInputStream("1.txt");
-			 OutputStream os = new FileOutputStream(new File("1_2.txt"))) {
+		// Reading bytes using a buffer of size bufSize
+		try (InputStream is = new FileInputStream(System.getProperty("user.dir") + "/Core/" + "1.txt");
+			 OutputStream os = new FileOutputStream(System.getProperty("user.dir") + "/Core/" + "1_2.txt")) {
 
 			int bufSize = 153;
 			byte[] buff = new byte[bufSize];
@@ -70,9 +70,9 @@ public class FileIODemo {
 
 		// 2.1
 		// Character streams (FileReader / FileWriter)
-		// Читаем по 1 символу
-		try (Reader reader = new FileReader("1.txt");
-			 Writer writer = new FileWriter(new File("2_1.txt"))) {
+		// Reading character by character
+		try (Reader reader = new FileReader(System.getProperty("user.dir") + "/Core/" + "1.txt");
+			 Writer writer = new FileWriter(System.getProperty("user.dir") + "/Core/" + "2_1.txt")) {
 
 			int ch;
 			while ((ch = reader.read()) != -1) { // ch - символ 0x0000-0xffff
@@ -90,15 +90,15 @@ public class FileIODemo {
 
 		// 2.2
 		// Character streams (FileReader / FileWriter)
-		// Читаем символы с помощью буффера размером bufSize:
-		try (Reader reader = new FileReader("1.txt");
-			 Writer writer = new FileWriter(new File("2_2.txt"))) {
+		// Reading characters using a buffer of size bufSize
+		try (Reader reader = new FileReader(System.getProperty("user.dir") + "/Core/" + "1.txt");
+			 Writer writer = new FileWriter(System.getProperty("user.dir") + "/Core/" + "2_2.txt")) {
 
 			int bufSize = 57;
 			char[] cbuf = new char[bufSize];
 			int numBytes;
 			while ((numBytes = reader.read(cbuf)) != -1) { // numBytes = number of bytes read
-				System.out.println(cbuf); // Может вывести мусор, если последняя считанная порция меньше чем блок
+				System.out.println(cbuf); // Might print garbage if the last portion read is smaller than the buffer size
 				writer.write(cbuf, 0, numBytes);
 			}
 			System.out.println("\n========================================================");
@@ -112,9 +112,9 @@ public class FileIODemo {
 
 		// 3.1
 		// BufferedInputStream(FileInputStream) / BufferedOutputStream(FileOutputStream)
-		// Читаем по 1 байту
-		try (InputStream bis = new BufferedInputStream(new FileInputStream("1.txt"));
-			 OutputStream bos = new BufferedOutputStream(new FileOutputStream("3_1.txt"))) {
+		// Reading byte by byte
+		try (InputStream bis = new BufferedInputStream(new FileInputStream(System.getProperty("user.dir") + "/Core/" + "1.txt"));
+			 OutputStream bos = new BufferedOutputStream(new FileOutputStream(System.getProperty("user.dir") + "/Core/" + "3_1.txt"))) {
 
 			int oneByte;
 			while ((oneByte = bis.read()) != -1) {
@@ -132,10 +132,10 @@ public class FileIODemo {
 
 		// 3.2
 		// BufferedReader(FileReader) / BufferedWriter(FileWriter)
-		// Читаем строки построчно с помощью readLine():
-		try (BufferedReader reader = new BufferedReader(new FileReader("1.txt"));
-			 BufferedWriter writer = new BufferedWriter(new FileWriter("3_2.txt")))
-//				PrintWriter writer = new PrintWriter(new FileWriter("3_1.txt"));
+		// Reading lines using readLine()
+		try (BufferedReader reader = new BufferedReader(new FileReader(System.getProperty("user.dir") + "/Core/" + "1.txt"));
+			 BufferedWriter writer = new BufferedWriter(new FileWriter(System.getProperty("user.dir") + "/Core/" + "3_2.txt")))
+//			 PrintWriter writer = new PrintWriter(new FileWriter(System.getProperty("user.dir") + "/Core/" + "3_2.txt")))
 		{
 			String s;
 			while ((s = reader.readLine()) != null) {
@@ -160,14 +160,12 @@ public class FileIODemo {
 		System.out.println("------------------------------");
 		DataOutput dOut;
 		try {
-			dOut = new DataOutputStream(new FileOutputStream("5_1.txt"));
+			dOut = new DataOutputStream(new FileOutputStream(System.getProperty("user.dir") + "/Core/" + "5_1.dat"));
 			for (int i = 0; i < 10; i++) {
 				double d = Math.random();
 				dOut.writeDouble(d);
 				System.out.println(d);
 			}
-//			dout.flush();
-//			dout.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -177,11 +175,10 @@ public class FileIODemo {
 		System.out.println("------------------------------");
 		DataInput din;
 		try {
-			din = new DataInputStream(new FileInputStream("5_1.txt"));
+			din = new DataInputStream(new FileInputStream(System.getProperty("user.dir") + "/Core/" + "5_1.dat"));
 			for (int i = 0; i < 10; i++) {
 				System.out.println(din.readDouble());
 			}
-//			din.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
