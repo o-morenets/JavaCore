@@ -16,19 +16,15 @@ public class _02_ZonedDateTime {
 
 		LocalDate localDate = LocalDate.of(2018, 1, 1);
 		LocalTime localTime = LocalTime.of(10, 30);
-		ZoneId zone = ZoneId.of("Europe/Kyiv");
-		ZonedDateTime kyivTime = ZonedDateTime.of(localDate, localTime, zone);
+		ZoneId zoneId = ZoneId.of("Europe/Kyiv");
+		ZonedDateTime kyivTime = ZonedDateTime.of(localDate, localTime, zoneId);
 		System.out.println("kyivTime = " + kyivTime); // 2018-01-01T10:30+02:00[Europe/Kyiv]
 
 
 		// ZoneSameInstant (zone shift)
 
-		localDate = LocalDate.of(2018, 1, 1);
-		localTime = LocalTime.of(10, 30);
-		zone = ZoneId.of("Europe/Kyiv");
-
-		kyivTime = ZonedDateTime.of(localDate, localTime, zone);
-		System.out.println("kyivTime = " + kyivTime); // 2018-01-01T10:30+02:00[Europe/Kyiv]
+        ZonedDateTime kievTime = ZonedDateTime.of(localDate, localTime, ZoneId.of("Europe/Kiev")); // Europe/Kiev is an alias for Europe/Kyiv
+		System.out.println("kievTime = " + kievTime); // 2018-01-01T10:30+02:00[Europe/Kiev]
 
 		ZonedDateTime nyTime = kyivTime.withZoneSameInstant(ZoneId.of("America/New_York"));
 		System.out.println("nyTime = " + nyTime); // 2018-01-01T03:30-05:00[America/New_York]
@@ -36,6 +32,22 @@ public class _02_ZonedDateTime {
 		ZonedDateTime japanTime = kyivTime.withZoneSameInstant(ZoneOffset.of("-09:00"));
 		System.out.println("japanTime = " + japanTime); // 2017-12-31T23:30-09:00
 
+
+		// ZoneId - all rules related to time zones (daylight saving time, etc.)
+		zoneId = ZoneId.of ("Europe/Kyiv");
+		LocalDateTime beforeDaylightSavings = LocalDateTime.of(2025, Month.MARCH, 30, 2, 0, 0);
+		ZonedDateTime zonedDateTime = ZonedDateTime.of(beforeDaylightSavings, zoneId);
+		System.out.println(zonedDateTime); // 2025-03-30T02:00+02:00[Europe/Kyiv]
+		System.out.println(zonedDateTime.plusHours(1)); // 2025-03-30T04:00+03:00[Europe/Kyiv]
+
+		// vs
+
+		// ZoneOffset - fixed offset from UTC (e.g. +02:00, -05:00)
+		ZoneOffset zoneOffset = ZoneOffset.of("+02:00");
+		beforeDaylightSavings = LocalDateTime.of(2025, Month.MARCH, 30, 2, 0, 0);
+		ZonedDateTime zonedDateTimeWithOffset = ZonedDateTime.of(beforeDaylightSavings, zoneOffset);
+		System.out.println(zonedDateTimeWithOffset); // 2025-03-30T02:00+02:00
+		System.out.println(zonedDateTimeWithOffset.plusHours(1)); // 2025-03-30T03:00+02:00
 
 
 		// Get all zones with offsets
