@@ -1,15 +1,16 @@
 package _21_date_time.java8_time;
 
 import java.time.LocalDate;
+import java.time.Month;
 import java.time.Period;
 
 public class _03_Period {
 
 	public static void main(String[] args) {
 
-		// How much years, months and days between two dates?
+		// How many years, months and days between two dates?
 
-		LocalDate nextBirthday = LocalDate.of(2019, 3, 28);
+		LocalDate nextBirthday = LocalDate.of(2019, Month.MARCH, 28);
 		LocalDate now = LocalDate.now();
 
 		Period period = Period.between(now, nextBirthday);

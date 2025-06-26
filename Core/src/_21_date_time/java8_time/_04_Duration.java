@@ -3,13 +3,14 @@ package _21_date_time.java8_time;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.Month;
 import java.time.temporal.ChronoUnit;
 
 public class _04_Duration {
 
 	public static void main(String[] args) {
 
-		// How much hours, minutes, seconds between two times?
+		// How many hours, minutes, seconds between two times?
 
 		LocalTime _10AM = LocalTime.of(10, 10, 15);
 		LocalTime _9PM = LocalTime.of(21, 30);
@@ -20,8 +21,8 @@ public class _04_Duration {
 
 		// How many days between two dates?
 
-		LocalDate birthday1 = LocalDate.of(1975, 3, 28);
-		LocalDate birthday2 = LocalDate.of(1977, 1, 22);
+		LocalDate birthday1 = LocalDate.of(1975, Month.MARCH, 28);
+		LocalDate birthday2 = LocalDate.of(1977, Month.JANUARY, 22);
 
 		// Duration works only with time!
 		// So, we need to convert LocalDate to LocalDateTime using atStartOfDay()
