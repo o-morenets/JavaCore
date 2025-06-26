@@ -1,8 +1,6 @@
 package _21_date_time.java8_time;
 
-import java.time.LocalDate;
-import java.time.Month;
-import java.time.Period;
+import java.time.*;
 
 public class _03_Period {
 
@@ -44,5 +42,13 @@ public class _03_Period {
 		period = Period.of(1, 15, 60);
 		LocalDate localDate = LocalDate.of(2018, 1, 1);
 		LocalDate plus = localDate.plus(period); // 2020-05-31
+
+
+		// Period doesn't shift time on DST change
+		ZoneId zoneId = ZoneId.of("Europe/Kyiv");
+		LocalDateTime ldt = LocalDateTime.of(2025, Month.MARCH, 30, 2, 0);
+		ZonedDateTime zdt = ZonedDateTime.of(ldt, zoneId);
+		period = Period.ofDays(1);
+		System.out.println(zdt.plus(period)); // 2025-03-31T02:00+02:00[Europe/Kyiv] - no shift, because period is not time-based
 	}
 }

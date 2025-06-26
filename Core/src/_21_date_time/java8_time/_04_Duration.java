@@ -1,9 +1,6 @@
 package _21_date_time.java8_time;
 
-import java.time.Duration;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.Month;
+import java.time.*;
 import java.time.temporal.ChronoUnit;
 
 public class _04_Duration {
@@ -33,6 +30,14 @@ public class _04_Duration {
 		// Use of ChronoUnit
 
 		long days = ChronoUnit.DAYS.between(birthday1, birthday2);
-		System.out.println(days);// 666
+		System.out.println(days); // 666
+
+
+		// Duration does shift time on DST change
+		ZoneId zoneId = ZoneId.of("Europe/Kyiv");
+		LocalDateTime ldt = LocalDateTime.of(2025, Month.MARCH, 30, 2, 0);
+		ZonedDateTime zdt = ZonedDateTime.of(ldt, zoneId);
+		duration = Duration.ofHours(1);
+		System.out.println(zdt.plus(duration)); // 2025-03-30T03:00+03:00[Europe/Kyiv] - shift, because duration is time-based
 	}
 }
