@@ -6,10 +6,12 @@ import java.util.stream.DoubleStream;
 public class DoubleToIntFunctionDemo {
 
 	public static void main(String[] args) {
-		DoubleToIntFunction doubleToIntFunction = Math::getExponent;
+
+		// double -> int
+		DoubleToIntFunction exponentFunction = Math::getExponent;
 
 		DoubleStream.of(5.54, 1.23456789, 9)
-				.mapToInt(doubleToIntFunction)
+				.mapToInt(exponentFunction)
 				.forEach(System.out::println);
 	}
 }

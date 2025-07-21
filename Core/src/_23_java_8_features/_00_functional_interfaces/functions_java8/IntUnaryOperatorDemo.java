@@ -6,10 +6,12 @@ import java.util.function.IntUnaryOperator;
 public class IntUnaryOperatorDemo {
 
 	public static void main(String[] args) {
-		IntUnaryOperator intUnaryOperator = i -> i * i;
+
+		// int -> int
+		IntUnaryOperator squareFunction = i -> i * i;
 
 		int[] arr = new int[20];
-		Arrays.setAll(arr, intUnaryOperator);
+		Arrays.setAll(arr, squareFunction);
 		System.out.println(Arrays.toString(arr));
 	}
 }

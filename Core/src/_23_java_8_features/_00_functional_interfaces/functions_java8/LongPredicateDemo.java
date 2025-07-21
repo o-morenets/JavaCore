@@ -6,11 +6,12 @@ import java.util.stream.LongStream;
 public class LongPredicateDemo {
 
 	public static void main(String[] args) {
-		LongPredicate longPredicate = value -> value % 2 == 0;
 
-		boolean isAllEven = LongStream.range(0, 10)
-				.allMatch(longPredicate);
+		// long -> boolean
+		LongPredicate evenTester = value -> value % 2 == 0;
 
-		System.out.println("isAllEven = " + isAllEven);
+		LongStream.range(0, 10)
+				.filter(evenTester)
+				.forEach(System.out::println);
 	}
 }

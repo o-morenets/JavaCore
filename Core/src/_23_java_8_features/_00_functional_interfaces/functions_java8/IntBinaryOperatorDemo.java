@@ -6,10 +6,12 @@ import java.util.stream.IntStream;
 public class IntBinaryOperatorDemo {
 
 	public static void main(String[] args) {
-		IntBinaryOperator intBinaryOperator = (left, right) -> left * right;
 
-		int factorial = IntStream.range(1, 11)
-				.reduce(1, intBinaryOperator);
+		// int, int -> int
+		IntBinaryOperator multiplierFunction = (left, right) -> left * right;
+
+		int factorial = IntStream.rangeClosed(1, 10)
+				.reduce(1, multiplierFunction);
 
 		System.out.println("10! = " + factorial);
 	}

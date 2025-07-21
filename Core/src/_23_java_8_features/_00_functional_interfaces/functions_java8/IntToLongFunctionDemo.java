@@ -7,13 +7,15 @@ import java.util.stream.IntStream;
 public class IntToLongFunctionDemo {
 
 	public static void main(String[] args) {
-		IntToLongFunction intToLongFunction = value ->
+
+		// int -> long
+		IntToLongFunction intMultiplier = intValue ->
 				IntStream
-						.rangeClosed(1, value)
+						.rangeClosed(1, intValue)
 						.reduce(1, (left, right) -> left * right);
 
 		long[] arr = new long[20];
-		Arrays.setAll(arr, intToLongFunction);
+		Arrays.setAll(arr, intMultiplier);
 		System.out.println(Arrays.toString(arr));
 	}
 }

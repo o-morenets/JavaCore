@@ -6,10 +6,12 @@ import java.util.stream.IntStream;
 public class IntFunctionDemo {
 
 	public static void main(String[] args) {
-		IntFunction<IntStream> intFunction = value -> IntStream.range(0, value);
+
+		// int -> IntStream
+		IntFunction<IntStream> intStreamCreator = value -> IntStream.range(0, value);
 
 		IntStream.of(5, 7, 2, 1, 9)
-				.flatMap(intFunction)
+				.flatMap(intStreamCreator)
 				.forEach(System.out::println);
 	}
 }

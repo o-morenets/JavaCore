@@ -6,10 +6,12 @@ import java.util.stream.DoubleStream;
 public class DoublePredicateDemo {
 
 	public static void main(String[] args) {
-		DoublePredicate doublePredicate = value -> value > 50.0;
+
+		// double -> boolean
+		DoublePredicate greaterThan50doubleTester = value -> value > 50.0;
 
 		DoubleStream.of(99.54, 25.42, 23.24)
-				.filter(doublePredicate)
+				.filter(greaterThan50doubleTester)
 				.forEach(System.out::println);
 	}
 }

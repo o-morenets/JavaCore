@@ -6,11 +6,13 @@ import java.util.stream.IntStream;
 public class IntPredicateDemo {
 
 	public static void main(String[] args) {
-		IntPredicate intPredicate = value -> value < 50;
+
+		// int -> boolean
+		IntPredicate lessThan50intTester = value -> value < 50;
 
 		IntStream.generate(() -> (int) (Math.random() * 100))
 				.limit(10)
-				.filter(intPredicate)
+				.filter(lessThan50intTester)
 				.forEach(System.out::println);
 	}
 }

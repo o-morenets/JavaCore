@@ -10,6 +10,5 @@ public class _0_Todo_FunctionalInterfaces {
 //		ToIntFunction<T> toIntFunction;
 //		ToLongBiFunction<T, U> longBiFunction;
 //		ToLongFunction<T> toLongFunction;
-//		UnaryOperator<T> unaryOperator;
 	}
 }

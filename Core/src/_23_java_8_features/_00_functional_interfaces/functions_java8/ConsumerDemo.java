@@ -6,9 +6,11 @@ import java.util.stream.Stream;
 public class ConsumerDemo {
 
 	public static void main(String[] args) {
-		Consumer<String> consumer = System.out::println;
+
+		// T -> void
+		Consumer<String> stringPrinter = System.out::println;
 
 		Stream.of("a1", "a2", "a3")
-				.forEach(consumer);
+				.forEach(stringPrinter);
 	}
 }

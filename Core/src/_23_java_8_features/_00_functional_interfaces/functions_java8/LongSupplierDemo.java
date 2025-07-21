@@ -6,9 +6,11 @@ import java.util.stream.LongStream;
 public class LongSupplierDemo {
 
 	public static void main(String[] args) {
-		LongSupplier longSupplier = () -> (long) ((Math.random() * 1_000_000));
 
-		LongStream.generate(longSupplier)
+		// () -> long
+		LongSupplier longRandomGenerator = () -> (long) ((Math.random() * 1_000_000));
+
+		LongStream.generate(longRandomGenerator)
 				.limit(5)
 				.forEach(System.out::println);
 	}

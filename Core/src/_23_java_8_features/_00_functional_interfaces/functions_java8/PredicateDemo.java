@@ -6,10 +6,12 @@ import java.util.stream.Stream;
 public class PredicateDemo {
 
 	public static void main(String[] args) {
-		Predicate<String> predicate = s -> s.length() > 2;
+
+		// T -> boolean
+		Predicate<String> greaterThan2stringLengthTester = s -> s.length() > 2;
 
 		Stream.of("1", "02", "003")
-				.filter(predicate)
+				.filter(greaterThan2stringLengthTester)
 				.forEach(System.out::println);
 	}
 }

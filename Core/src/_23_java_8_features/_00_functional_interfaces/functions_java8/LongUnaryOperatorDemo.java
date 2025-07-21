@@ -6,10 +6,12 @@ import java.util.stream.LongStream;
 public class LongUnaryOperatorDemo {
 
     public static void main(String[] args) {
-        LongUnaryOperator longUnaryOperator = operand -> operand * 10;
+
+        // long -> long
+        LongUnaryOperator longBy10Multiplier = operand -> operand * 10;
 
         LongStream.range(0, 10)
-                .map(longUnaryOperator)
+                .map(longBy10Multiplier)
                 .forEach(System.out::println);
     }
 }

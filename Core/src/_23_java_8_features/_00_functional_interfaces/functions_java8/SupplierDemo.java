@@ -6,10 +6,11 @@ import java.util.function.Supplier;
 public class SupplierDemo {
 
 	public static void main(String[] args) {
+
+		// () -> T
 		Supplier<String> supplier = () -> "NULL!";
 
-		Object o = Objects.requireNonNull(null, supplier); // NPE
-
+		Object o = Objects.requireNonNull(null, supplier); // Exception in thread "main" java.lang.NullPointerException: NULL!
 		System.out.println("o = " + o);
 	}
 }

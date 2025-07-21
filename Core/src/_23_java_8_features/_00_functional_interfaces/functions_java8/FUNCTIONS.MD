@@ -24,7 +24,7 @@
     IntUnaryOperator    (int -> int)
     LongUnaryOperator   (long -> long)
 
-## Binary Function
+## BiFunction
 ### T,U -> R
     BiFunction (T,U -> R)
 ### T,U -> primitive

@@ -9,17 +9,17 @@ public class BiFunctionDemo {
 
 	public static void main(String[] args) {
 
-		// BiFunction<T, U, R> biFunction;
-		BiFunction<Character, Integer, Integer> biFunction = (k, v) -> v > 3 ? -1 : v;
+		// T, U -> R
+		BiFunction<Character, Integer, Integer> greaterThanThreeReplacer = (k, v) -> v > 3 ? -1 : v;
 
-		Map<Character, Integer> charFreqMap = "abcbbccbab".chars()
+		Map<Character, Integer> charFreqMap = "ababagalamaga".chars()
 				.mapToObj(i -> (char) i)
 				.collect(Collectors.groupingBy(Function.identity()))
 				.entrySet().stream()
 				.collect(Collectors.toMap(Map.Entry::getKey, e -> e.getValue().size()));
 		System.out.println("charFreqMap = " + charFreqMap);
 
-		charFreqMap.replaceAll(biFunction);
+		charFreqMap.replaceAll(greaterThanThreeReplacer);
 		System.out.println("charFreqMap = " + charFreqMap);
 	}
 }

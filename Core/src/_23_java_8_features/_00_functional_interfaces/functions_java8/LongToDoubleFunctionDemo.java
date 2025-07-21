@@ -6,10 +6,12 @@ import java.util.stream.LongStream;
 public class LongToDoubleFunctionDemo {
 
 	public static void main(String[] args) {
-		LongToDoubleFunction longToDoubleFunction = value -> value / 10.0;
+
+		// long -> double
+		LongToDoubleFunction longBy10dividerFunction = value -> value / 10.0;
 
 		LongStream.range(0, 10)
-				.mapToDouble(longToDoubleFunction)
+				.mapToDouble(longBy10dividerFunction)
 				.forEach(System.out::println);
 	}
 }

@@ -9,14 +9,14 @@ public class BiConsumerDemo {
 
 	public static void main(String[] args) {
 
-		// BiConsumer<T, U> biConsumer
-		BiConsumer<Character, Integer> biConsumer = (k, v) -> System.out.println(k + ": " + v);
+		// T, U -> void
+		BiConsumer<Character, Integer> keyValuePrinter = (k, v) -> System.out.println(k + ": " + v);
 
-		"abcbbccbab".chars()
+		"ababagalamaga".chars()
 				.mapToObj(i -> (char) i)
 				.collect(Collectors.groupingBy(Function.identity()))
 				.entrySet().stream()
 				.collect(Collectors.toMap(Map.Entry::getKey, e -> e.getValue().size()))
-				.forEach(biConsumer);
+				.forEach(keyValuePrinter);
 	}
 }

@@ -6,11 +6,13 @@ import java.util.stream.LongStream;
 public class LongToIntFunctionDemo {
 
     public static void main(String[] args) {
-        LongToIntFunction longToIntFunction = value -> (int) (value / 10);
+        
+        // long -> int
+        LongToIntFunction longBy2Divider = longValue -> (int) (longValue / 2);
 
         LongStream.range(1_000_000, 10_000_000)
                 .limit(10)
-                .mapToInt(longToIntFunction)
+                .mapToInt(longBy2Divider)
                 .forEach(System.out::println);
     }
 }

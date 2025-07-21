@@ -6,9 +6,11 @@ import java.util.stream.LongStream;
 public class LongConsumerDemo {
 
 	public static void main(String[] args) {
-		LongConsumer longConsumer = System.out::println;
+
+		// long -> void
+		LongConsumer longPrinter = System.out::println;
 
 		LongStream.range(-5, 5)
-				.forEach(longConsumer);
+				.forEach(longPrinter);
 	}
 }

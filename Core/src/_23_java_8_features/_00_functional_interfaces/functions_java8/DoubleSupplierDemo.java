@@ -6,10 +6,12 @@ import java.util.function.DoubleSupplier;
 public class DoubleSupplierDemo {
 
 	public static void main(String[] args) {
-		DoubleSupplier doubleSupplier = Math::random;
+
+		// () -> double
+		DoubleSupplier doubleRandomizer = Math::random;
 
 		OptionalDouble optionalDouble = OptionalDouble.empty();
-		double d = optionalDouble.orElseGet(doubleSupplier);
+		double d = optionalDouble.orElseGet(doubleRandomizer);
 		System.out.println("d = " + d);
 	}
 }

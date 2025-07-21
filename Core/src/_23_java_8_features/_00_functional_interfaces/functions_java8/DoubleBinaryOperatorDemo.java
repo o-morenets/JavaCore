@@ -6,11 +6,13 @@ import java.util.function.DoubleBinaryOperator;
 public class DoubleBinaryOperatorDemo {
 
 	public static void main(String[] args) {
-		DoubleBinaryOperator doubleBinaryOperator = ((left, right) -> left + right);
+
+		// (double left, double right) -> double
+		DoubleBinaryOperator doubleAdder = ((left, right) -> left + right);
 
 		double[] arr = {2.0, 1.0, 0.0, 3.0};
 
-		Arrays.parallelPrefix(arr, doubleBinaryOperator);
+		Arrays.parallelPrefix(arr, doubleAdder);
 		System.out.println(Arrays.toString(arr)); // [2.0, 3.0, 3.0, 6.0]
 	}
 }

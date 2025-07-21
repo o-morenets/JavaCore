@@ -6,12 +6,15 @@ import java.util.stream.DoubleStream;
 public class DoubleFunctionDemo {
 
 	public static void main(String[] args) {
-		DoubleFunction<DoubleStream> doubleFunction = value -> DoubleStream
-				.iterate(value, operand -> operand + 1)
+
+		// double -> DoubleStream
+		DoubleFunction<DoubleStream> doubleStreamCreator = seed -> DoubleStream
+				.iterate(seed, operand -> operand + 1)
 				.limit(3);
 
+		// Using the DoubleFunction to create a DoubleStream starting from 5.2 and incrementing by 1 for 3 elements
 		DoubleStream.of(5.2, 1.0, 3.1)
-				.flatMap(doubleFunction)
+				.flatMap(doubleStreamCreator)
 				.forEach(System.out::println);
 	}
 }

@@ -6,6 +6,8 @@ import java.util.stream.LongStream;
 public class LongBinaryOperatorDemo {
 
 	public static void main(String[] args) {
+
+		// long, long -> long
 		LongBinaryOperator longBinaryOperator = (left, right) ->
 				left % 2 == 0 ? left + right : right - left;
 

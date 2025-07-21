@@ -6,10 +6,12 @@ import java.util.stream.LongStream;
 public class LongFunctionDemo {
 
 	public static void main(String[] args) {
-		LongFunction<String> longFunction = value -> "str_" + String.valueOf(value);
+
+		// long -> String
+		LongFunction<String> concatFunction = value -> "str_" + value;
 
 		LongStream.rangeClosed(1, 10)
-				.mapToObj(longFunction)
+				.mapToObj(concatFunction)
 				.forEach(System.out::println);
 	}
 }

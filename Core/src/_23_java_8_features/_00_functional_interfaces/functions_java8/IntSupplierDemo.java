@@ -6,9 +6,11 @@ import java.util.stream.IntStream;
 public class IntSupplierDemo {
 
 	public static void main(String[] args) {
-		IntSupplier intSupplier = () -> (int) (Math.random() * 100);
 
-		IntStream.generate(intSupplier)
+		// () -> int
+		IntSupplier randomGenerator = () -> (int) (Math.random() * 100);
+
+		IntStream.generate(randomGenerator)
 				.limit(10)
 				.forEach(System.out::println);
 	}

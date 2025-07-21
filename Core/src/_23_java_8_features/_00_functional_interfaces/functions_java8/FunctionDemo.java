@@ -7,11 +7,11 @@ public class FunctionDemo {
 
 	public static void main(String[] args) {
 
-		// Function<T, R> function;
-		Function<String, Integer> function = s -> Integer.parseInt(s.substring(1));
+		// T -> R
+		Function<String, Integer> numberExtractorFunction = s -> Integer.parseInt(s.substring(1));
 
 		Stream.of("a1", "b2", "c3")
-				.map(function)
+				.map(numberExtractorFunction)
 				.forEach(System.out::println);
 	}
 }
