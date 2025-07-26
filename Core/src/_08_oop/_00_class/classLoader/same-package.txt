@@ -1,0 +1,2 @@
+This file is in the same package as Core/src/_08_oop/_00_class/classLoader/ClassGetResource.java and after compilation
+it goes to the same package under resources folder as GetResource.class.

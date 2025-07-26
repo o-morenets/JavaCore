@@ -18,7 +18,7 @@ public class ClassLoaderTest {
 
 	private static void loadClass() throws InvocationTargetException, InstantiationException, NoSuchMethodException, IllegalAccessException {
 		MyClassLoader myClassLoader = new MyClassLoader();
-		Class<?> myClass = myClassLoader.findClass("_08_oop._00_classes.classLoader.myclassloader.TestClass");
+		Class<?> myClass = myClassLoader.findClass("_08_oop._00_class.classLoader.myclassloader.TestClass");
 
 		Object classObject = myClass.getDeclaredConstructor().newInstance();
 

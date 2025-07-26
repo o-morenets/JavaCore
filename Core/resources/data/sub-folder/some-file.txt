@@ -1,0 +1,4 @@
+This file is NOT in the same package as Core/src/_08_oop/_00_class/classLoader/ClassGetResource.java
+It can be found using absolute path:
+
+ClassGetResource.class.getResource("/data/sub-folder/some-file.txt");
