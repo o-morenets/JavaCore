@@ -8,6 +8,13 @@ public class ThrowsRTE {
 		f();
 	}
 
-	public static void f() throws RuntimeException {
+	public static void f() {
+	}
+
+	class ThrowsRTEChild extends ThrowsRTE {
+
+		public static void f() throws RuntimeException {
+			// Logic here
+		}
 	}
 }
