@@ -13,7 +13,7 @@ public class SecretKeyGenerator {
     }
 
     public static void main(String[] args) {
-        String secretKey = generateSecretKey(32); // 32 байти для HMAC-SHA256
+        String secretKey = generateSecretKey(32); // 32 байти (256 біт) для HMAC-SHA256
         System.out.println("Generated Secret Key: " + secretKey);
     }
 }
