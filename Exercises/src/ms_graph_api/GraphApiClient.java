@@ -13,6 +13,10 @@ import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 import java.util.Scanner;
 
+/**
+ * Libs (v 2.11+): jackson-databind, jackson-core (see lib/ folder)
+ * Needs graph-api.properties in classpath
+ */
 public class GraphApiClient {
 
     private static String clientId;
