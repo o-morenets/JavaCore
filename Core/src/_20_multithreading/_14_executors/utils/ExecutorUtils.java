@@ -25,7 +25,7 @@ public class ExecutorUtils {
 
     public static Callable<String> initCallableTask(int num) {
         return () -> {
-            System.out.println("\t\tCallable task #" + num + " starts:");
+            System.out.println("\t\tCallable task #" + num + " starts in thread " + Thread.currentThread().getName());
 
             for (int i = 0; i < 3; i++) {
                 if (Thread.currentThread().isInterrupted()) {
@@ -35,18 +35,23 @@ public class ExecutorUtils {
                 }
 
                 if (ThreadLocalRandom.current().nextInt(10) < 2) {
+                    System.out.println("\t\tCallable task #" + num + " throws EXCEPTION on step " + (i + 1) +
+                            ", releasing " + Thread.currentThread().getName());
                     throw new RuntimeException("Callable task #" + num + " throws EXCEPTION on step " + (i + 1));
                 }
 
                 try {
                     TimeUnit.MILLISECONDS.sleep(300);
-                    System.out.printf("\t\tCallable task #%d is running step %d...%n", num, i + 1);
+                    System.out.printf("\t\tCallable task #%d is running step ...%d... in thread %s%n",
+                            num, i + 1, Thread.currentThread().getName());
                 } catch (InterruptedException e) {
                     System.out.printf("\t\tCallable task #%d interrupted during sleep at step %d%n", num, i + 1);
                     Thread.currentThread().interrupt();
                     throw new RuntimeException("Callable task #" + num + " interrupted", e);
                 }
             }
+
+            System.out.println("\t\tCallable task #" + num + " FINISHED on thread " + Thread.currentThread().getName());
 
             return "Callable task #" + num + " result (finished)";
         };

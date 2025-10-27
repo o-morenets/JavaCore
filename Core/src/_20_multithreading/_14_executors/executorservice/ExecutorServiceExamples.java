@@ -83,41 +83,8 @@ public class ExecutorServiceExamples {
 
             System.out.println("All callable results:");
             printFuturesResults(futures); // get all results (throws exception if any)
-            // ================= at this point, all tasks are done (get method was called) =================
-
-            System.out.println("============================================================================");
-
-            // ================= New tasks need to be submitted again:
-            IntStream.rangeClosed(1, 10)
-                    .mapToObj(ExecutorUtils::initCallableTask)
-                    .forEach(executorService::submit);
-
-            // shutDown() initiates an orderly shutdown in which previously submitted tasks are executed, but no new tasks will be accepted.
-            // Invocation has no additional effect if already shut down.
-            // This method does not wait for previously submitted tasks to complete execution. Use awaitTermination to do that
-            System.out.println("Shutting down executor service... ");
-            executorService.shutdown();
-        } catch (InterruptedException e) {
-            System.out.println("Caught InterruptedException");
-            throw new RuntimeException(e);
-        } catch (ExecutionException e) {
-            System.out.println("Caught ExecutionException");
-            throw new RuntimeException(e);
         } finally {
-
-            // awaitTermination() blocks until all tasks have completed execution after a shutdown request,
-            // or the timeout occurs, or the current thread is interrupted, whichever happens first.
-            System.out.println("Waiting for termination... ");
-            boolean termination = executorService.awaitTermination(2, TimeUnit.SECONDS);
-            System.out.println(termination ? "Executor terminated" : "Timeout elapsed before termination");
-
-            // shutDownNow() initiates an orderly shutdown in which previously submitted tasks are executed, but no new tasks will be accepted.
-            System.out.println("FORCE SHUT DOWN executor service!");
-            List<Runnable> notExecutedTasks = executorService.shutdownNow();
-            String notExecutedTasksStr = notExecutedTasks.stream()
-                    .map(Object::toString)
-                    .collect(Collectors.joining("\n", "\n", ""));
-            System.out.println("Not Executed Tasks = " + notExecutedTasksStr);
+            executorService.shutdown(); // JVM will not finish when no shutdown() is called!
         }
     }
 
