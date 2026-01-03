@@ -1,6 +1,6 @@
 package leetcode._349_Intersection_of_Two_Arrays;
 
-import java.util.Arrays;
+import java.util.*;
 
 /**
  * 349. Intersection of Two Arrays
@@ -31,8 +31,17 @@ import java.util.Arrays;
  */
 public class Solution {
     public int[] intersection(int[] nums1, int[] nums2) {
-
-        return null; // TODO
+        Set<Integer> numSet = new HashSet<>();
+        for (int num: nums1) {
+            numSet.add(num);
+        }
+        List<Integer> res = new ArrayList<>();
+        for (int num: nums2) {
+            if (numSet.remove(num)) {
+                res.add(num);
+            }
+        }
+        return res.stream().mapToInt(Integer::intValue).toArray();
     }
 
     public static void main(String[] args) {
