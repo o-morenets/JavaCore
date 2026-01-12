@@ -1,7 +1,9 @@
 package misc;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * 12.01.2026
@@ -35,7 +37,7 @@ public class SumOfDistinctNumbers {
 
         return freq.entrySet().stream()
                 .filter(e -> e.getValue() == 1)
-                .map(e -> e.getKey())
+                .map(Map.Entry::getKey)
                 .mapToInt(Integer::intValue)
                 .sum();
     }
