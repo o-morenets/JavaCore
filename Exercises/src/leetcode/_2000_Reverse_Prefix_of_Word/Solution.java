@@ -40,6 +40,7 @@ package leetcode._2000_Reverse_Prefix_of_Word;
  * ch is a lowercase English letter.
  */
 class Solution {
+
     public String reversePrefix(String word, char ch) {
         String reversedPart = "";
         String lastPart = word;
@@ -63,10 +64,36 @@ class Solution {
         return word.charAt(word.length() - 1) + reverseString(word.substring(0, word.length() - 1));
     }
 
+    public String reversePrefix1(String word, char ch) {
+        var sb = new StringBuilder();
+        char current = 0;
+
+        for (int i = 0; i < word.length(); i++) {
+            current = word.charAt(i);
+            sb.insert(0, current);
+            if (current == ch) {
+                break;
+            }
+        }
+
+        if (word.length() == sb.length() && current != ch) return word;
+
+        sb.append(word.substring(sb.length()));
+
+        return sb.toString();
+    }
+
     public static void main(String[] args) {
         Solution solution = new Solution();
+
         System.out.println(solution.reversePrefix("abcdefd", 'd')); // "dcbaefd"
         System.out.println(solution.reversePrefix("xyxzxe", 'z')); // "zxyxxe"
-        System.out.println(solution.reversePrefix("abcd", 'z')); // "abcd
+        System.out.println(solution.reversePrefix("abcd", 'z')); // "abcd"
+        System.out.println(solution.reversePrefix("rzwuktxcjfpamlonbgyieqdvhs", 's')); // "shvdqeiygbnolmapfjcxtkuwzr"
+
+        System.out.println(solution.reversePrefix1("abcdefd", 'd')); // "dcbaefd"
+        System.out.println(solution.reversePrefix1("xyxzxe", 'z')); // "zxyxxe"
+        System.out.println(solution.reversePrefix1("abcd", 'z')); // "abcd"
+        System.out.println(solution.reversePrefix1("rzwuktxcjfpamlonbgyieqdvhs", 's')); // "shvdqeiygbnolmapfjcxtkuwzr"
     }
 }
