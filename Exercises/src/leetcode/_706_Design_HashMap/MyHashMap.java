@@ -1,5 +1,9 @@
 package leetcode._706_Design_HashMap;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 /**
  * 706. Design HashMap
  * Easy
