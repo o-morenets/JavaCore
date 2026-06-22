@@ -65,13 +65,12 @@ public final class ImmutableObject {
     }
 
     public List<Integer> getIntegers() {
-//        return new ArrayList<>(integers); // although we have a copy of list (see initialization in constructor), we still need to prevent exposing it outside
-        return integers;
+        return integers; // safe to return List.copyOf(initialList)
     }
 
     public Map<Long, MutableObject> getMutableObjectMap() {
-        return Map.copyOf(mutableObjectMap.entrySet().stream()
-                .collect(Collectors.toMap(Map.Entry::getKey, e -> e.getValue().clone())));
+        return mutableObjectMap.entrySet().stream()
+                .collect(Collectors.toMap(Map.Entry::getKey, e -> e.getValue().clone()));
     }
 
     @Override
