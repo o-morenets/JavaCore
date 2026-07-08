@@ -31,8 +31,8 @@ public class ShutdownExample {
             // Invocation has no additional effect if already shut down.
             // This method does not wait for previously submitted tasks to complete execution. Use awaitTermination to do that
             System.out.println("Shutting down executor service... ");
-            executorService.shutdown();
         } finally {
+            executorService.shutdown();
 
             // awaitTermination() blocks until all tasks have completed execution after a shutdown request,
             // or the timeout occurs, or the current thread is interrupted, whichever happens first.

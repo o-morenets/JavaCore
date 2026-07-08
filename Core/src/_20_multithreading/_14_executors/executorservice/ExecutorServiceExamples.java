@@ -28,7 +28,7 @@ public class ExecutorServiceExamples {
                 5, // max pool size - the maximum number of threads that can be alive at the same time
                 0L, // keep-alive time - when the number of threads is greater than the core,
                 TimeUnit.MILLISECONDS, // time unit of keep-alive time
-                new LinkedBlockingQueue<>() // queue of tasks - if the queue is full and max pool size is reached,
+                new LinkedBlockingQueue<>(10) // queue of tasks - if the queue is full and max pool size is reached,
                     // the new tasks will wait in the queue, and RejectionException will be thrown when new tasks are submitted
         );
 
@@ -61,9 +61,10 @@ public class ExecutorServiceExamples {
                 System.out.println("Single Callable result: " + callableTaskFuture.get());
             } catch (InterruptedException e) {
                 System.out.println("Interrupted exception in Callable: " + e.getMessage());
+                Thread.currentThread().interrupt();
                 throw e;
             } catch (ExecutionException e) {
-                System.out.println("Execution exception in Callable: " + e.getMessage());
+                System.err.println("Execution exception in Callable: " + e.getCause());
             }
 
 
@@ -82,21 +83,22 @@ public class ExecutorServiceExamples {
             futures.forEach(System.out::println); // ...[Completed normally/exceptionally...]
 
             System.out.println("All callable results:");
-            printFuturesResults(futures); // get all results (throws exception if any)
+            printFutureResults(futures); // get all results (throws exception if any)
         } finally {
             executorService.shutdown(); // JVM will not finish when no shutdown() is called!
         }
     }
 
-    private static void printFuturesResults(List<Future<String>> futures) {
-        futures.forEach(f -> {
+    private static void printFutureResults(List<Future<String>> futures) {
+        for (Future<String> future : futures) {
             try {
-                System.out.println(f.get()); // here get() will show the exception if any
+                System.out.println(future.get());
             } catch (InterruptedException e) {
-                System.out.println("Interrupted");
+                Thread.currentThread().interrupt();
+                break;
             } catch (ExecutionException e) {
-                System.out.println(e.getMessage());
+                System.err.println("Task failed: " + e.getCause());
             }
-        });
+        }
     }
 }
