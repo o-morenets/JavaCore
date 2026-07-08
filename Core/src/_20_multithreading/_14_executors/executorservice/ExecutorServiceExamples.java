@@ -70,7 +70,7 @@ public class ExecutorServiceExamples {
 
             // invokeAny() executes all given tasks, returning the result of one that has completed successfully
             // (i.e., without throwing an exception), if any do.
-            // Upon normal or exceptional return, tasks that have not completed are cancelled (interrupted if possible)
+            // Upon normal or exceptional return, tasks that have not completed are canceled (interrupted if possible)
             String result = executorService.invokeAny(callableTasks);
             System.out.println("Any Callable's result: " + result);
 
