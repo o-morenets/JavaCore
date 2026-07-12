@@ -39,15 +39,20 @@ public final class Immutable {
 
     public static void main(String[] args) {
         ArrayList<String> names = new ArrayList<>(Arrays.asList("A", "B", "C"));
-
         AtomicBoolean aFlag = new AtomicBoolean(false);
+
         Immutable instance = new Immutable("Test", names, aFlag);
         System.out.println("instance = " + instance);
 
         names.add("D");
-        aFlag.set(true);
-//        instance.getFlag().set(true);
+        System.out.println("instance = " + instance);
 
+        instance.getLinkNames().add("A"); // can't change unmodifiable list!
+
+        aFlag.set(true);
+        System.out.println("instance = " + instance);
+
+        instance.getFlag().set(true);
         System.out.println("instance = " + instance);
     }
 }
