@@ -53,14 +53,21 @@ public class ExecutorServiceExamples {
             Future<?> runnableTaskFuture = executorService.submit(singleRunnableTask);
             Future<String> callableTaskFuture = executorService.submit(singleCallableTask);
 
-            // blocks and returns null for Runnable tasks
-            System.out.println("Single Runnable result: " + runnableTaskFuture.get());
+            // blocks and returns null or Exception for Runnable tasks
+            try {
+                System.out.println("Single Runnable result: " + runnableTaskFuture.get());
+            } catch (InterruptedException e) {
+                System.err.println("Interrupted exception in Runnable: " + e.getMessage());
+                Thread.currentThread().interrupt();
+            } catch (ExecutionException e) {
+                System.err.println("Execution exception in Runnable: " + e.getCause());
+            }
 
             // get() blocks this thread until `callable` finishes and returns the result (throws exception if any)
             try {
                 System.out.println("Single Callable result: " + callableTaskFuture.get());
             } catch (InterruptedException e) {
-                System.out.println("Interrupted exception in Callable: " + e.getMessage());
+                System.err.println("Interrupted exception in Callable: " + e.getMessage());
                 Thread.currentThread().interrupt();
                 throw e;
             } catch (ExecutionException e) {
@@ -85,6 +92,7 @@ public class ExecutorServiceExamples {
             System.out.println("All callable results:");
             printFutureResults(futures); // get all results (throws exception if any)
         } finally {
+            System.out.println("SHUTDOWN...");
             executorService.shutdown(); // JVM will not finish when no shutdown() is called!
         }
     }
