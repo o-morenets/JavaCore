@@ -14,13 +14,13 @@ public class PrintClassLoader {
 	}
 
 	public static void printClassLoaders() throws ClassNotFoundException {
-		System.out.println("Classloader of this class:"
+		System.out.println("Classloader of this class: "
 				+ PrintClassLoader.class.getClassLoader());
 
-		System.out.println("Classloader of Logging:"
+		System.out.println("Classloader of Logging: "
 				+ Logger.class.getClassLoader()); // in Java 20 Logger class is part of "Bootstrap" files, but Bootstrap classloader is implemented in C++ and always returns null
 
-		System.out.println("Classloader of ArrayList:"
+		System.out.println("Classloader of ArrayList: "
 				+ ArrayList.class.getClassLoader());
 	}
 
