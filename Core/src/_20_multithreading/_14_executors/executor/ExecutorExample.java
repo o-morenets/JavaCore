@@ -3,6 +3,8 @@ package _20_multithreading._14_executors.executor;
 import _20_multithreading._14_executors.utils.ExecutorUtils;
 
 import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class ExecutorExample {
 
@@ -12,7 +14,9 @@ public class ExecutorExample {
         Runnable singleRunnableTask = ExecutorUtils.initRunnableTask();
 
         // Executor has only one execute() method, which accepts a Runnable:
-        Executor executor = Runnable::run;
-        executor.execute(singleRunnableTask);
+        try (ExecutorService executor = Executors.newSingleThreadExecutor()) {
+            executor.execute(singleRunnableTask);
+        }
+        System.out.println("Main thread ended");
     }
 }

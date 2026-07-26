@@ -11,8 +11,11 @@ public class ExecutorUtils {
             System.out.println("\tRunnable task starts:");
 
             for (int i = 0; i < 3; i++) {
+                if (i == 2) {
+                    throw new RuntimeException("Boom");
+                }
                 try {
-                    System.out.printf("\tRunnable task is running step %d...%n", i + 1);
+                    System.out.printf("\tRunnable task is running step %d in thread %s...%n", i + 1, Thread.currentThread().getName());
                     TimeUnit.MILLISECONDS.sleep(300);
                 } catch (InterruptedException e) {
                     throw new RuntimeException("\tRunnable task interrupted", e);
