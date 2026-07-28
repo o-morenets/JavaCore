@@ -9,7 +9,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * Please use {@link ReentrantLock} for this implementation.
  * You can also come up with your own solution to this problem.
  */
-public class FairReentrantLockExample {
+public class ReentrantLockFairExample {
 
     private final Lock lock = new ReentrantLock(true);
 
@@ -26,7 +26,7 @@ public class FairReentrantLockExample {
     }
 
     public static void main(String[] args) {
-        FairReentrantLockExample example = new FairReentrantLockExample();
+        ReentrantLockFairExample example = new ReentrantLockFairExample();
 
         Runnable task = () -> {
             while (true) {

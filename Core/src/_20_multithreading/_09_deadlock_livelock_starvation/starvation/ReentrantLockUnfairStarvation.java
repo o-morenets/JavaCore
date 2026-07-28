@@ -10,7 +10,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * Hint: a resource can be accessed by the same thread multiple times (unfair locking), so the others are
  * keep trying to acquire a lock, but have no luck on that most of the time, which leads to a starvation.
  */
-public class UnfairReentrantLockStarvation {
+public class ReentrantLockUnfairStarvation {
 
     private final Lock lock = new ReentrantLock();
 
@@ -27,7 +27,7 @@ public class UnfairReentrantLockStarvation {
     }
 
     public static void main(String[] args) {
-        UnfairReentrantLockStarvation starvation = new UnfairReentrantLockStarvation();
+        ReentrantLockUnfairStarvation starvation = new ReentrantLockUnfairStarvation();
 
         Runnable task = () -> {
             while (true) {

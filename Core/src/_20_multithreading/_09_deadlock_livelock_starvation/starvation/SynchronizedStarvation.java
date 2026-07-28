@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
  * The critical section cannot be accessed by multiple threads, because a lock is always acquired by a
  * single thread, while others are keep trying to enter the critical section.
  */
-public class UnfairSynchronizedStarvation {
+public class SynchronizedStarvation {
 
     public synchronized void doWork() {
         System.out.println(Thread.currentThread().getName() + " acquired a lock");
@@ -19,7 +19,7 @@ public class UnfairSynchronizedStarvation {
     }
 
     public static void main(String[] args) {
-        UnfairSynchronizedStarvation starvation = new UnfairSynchronizedStarvation();
+        SynchronizedStarvation starvation = new SynchronizedStarvation();
 
         Runnable task = () -> {
             while (true) {
