@@ -8,7 +8,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * https://youtu.be/s032s29-NUU
+ * <a href="https://youtu.be/s032s29-NUU">...</a>
  */
 public class Transfer implements Callable<Boolean> {
 
@@ -19,7 +19,7 @@ public class Transfer implements Callable<Boolean> {
     private final Account accountTo;
     private final BigDecimal amount;
 
-    public Transfer(int id, Account accountFrom, Account accountTo, BigDecimal amount) {
+    Transfer(int id, Account accountFrom, Account accountTo, BigDecimal amount) {
         this.id = id;
         this.accountFrom = accountFrom;
         this.accountTo = accountTo;
@@ -58,15 +58,16 @@ public class Transfer implements Callable<Boolean> {
         try {
             accountFrom.withdraw(amount);
             accountTo.deposit(amount);
-        } catch (Exception e) {
+        } catch (RuntimeException e) {
             System.out.printf("#%d - Account %s - NOT ENOUGH MONEY (%.2f)%n", id, accountFrom, amount.doubleValue());
-            throw new RuntimeException(e);
+            throw e;
         }
     }
 
+    //----------------------------------- Account -----------------------------------
     private static class Account {
         private final String name;
-        private volatile BigDecimal balance;
+        private BigDecimal balance;
         private final Lock lock;
 
         private Account(String name, BigDecimal initialBalance) {
@@ -79,9 +80,9 @@ public class Transfer implements Callable<Boolean> {
             return lock;
         }
 
-        public void withdraw(BigDecimal amount) throws Exception {
+        public void withdraw(BigDecimal amount) {
             if (amount.compareTo(balance) > 0) {
-                throw new Exception();
+                throw new RuntimeException();
             }
             balance = balance.subtract(amount);
         }
@@ -103,11 +104,11 @@ public class Transfer implements Callable<Boolean> {
         List<Future<Boolean>> results = new LinkedList<>();
         try (ExecutorService ex = Executors.newFixedThreadPool(3)) {
             for (int i = 0; i < 100; i++) {
-                Future<Boolean> future = ex.submit(new Transfer(i, acc1, acc2, BigDecimal.valueOf(ThreadLocalRandom.current().nextDouble(400))));
+                Future<Boolean> future = ex.submit(
+                        new Transfer(i, acc1, acc2, BigDecimal.valueOf(ThreadLocalRandom.current().nextDouble(400)))
+                );
                 results.add(future);
             }
-            ex.shutdown();
-            ex.awaitTermination(0, TimeUnit.SECONDS);
         }
 
         // print those Futures that threw Exception (not enough money)
@@ -117,7 +118,7 @@ public class Transfer implements Callable<Boolean> {
                     try {
                         booleanFuture.get();
                     } catch (ExecutionException | InterruptedException e) {
-                        System.out.println(booleanFuture);
+                        System.out.println(booleanFuture + " - " + e.getMessage());
                     }
                 });
 
